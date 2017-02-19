@@ -6,11 +6,15 @@
 	font-family: museo_t;
 	src: url(../fonts/MuseoSansCyrl_0.otf);
 }
-$dark-color: #222;
+$dark-color: #463f3a;
 $light-color: #FFF;
-$bg-color: #00746b;
+$red-color: #f55856;
+$bg-color: $dark-color;
 $hover-color: #ff9700;
+
+$info-height: 40px;
 $header-height: 70px;
+
 *{
 	margin: 0;
 	padding: 0;
@@ -18,16 +22,17 @@ $header-height: 70px;
 }
 html{
     min-width: 320px;
-	font-size: 20px;
 	font-family: osw_b, museo_t, 'Arial';
+	font-size: 16px;
+    color: $dark-color;
 }
 a{
-	color: $light-color;
+	color: $dark-color;
 	text-decoration: none;
     transition: 0.7s;
 }
 a:hover{
-    color: $hover-color;
+    color: $red-color;
 }
 li{
     list-style: none;
@@ -40,6 +45,41 @@ button:focus{
 	min-height: 500px;
 	min-height: 100vh;
 
+    & > div{
+        padding: 0 8%;
+    }
+}
+.intro{
+    .info{
+        font-family: museo_t;
+        font-size: 0.875rem;
+        height: $info-height;
+        line-height: $info-height;
+
+        & > div{
+            width: 50%;
+            display: inline-block;
+            vertical-align: top;
+        }
+        .fa{
+            font-size: 1rem;
+            &:nth-child(n+2){
+                margin-left: 15px;
+            }
+        }
+        .info-account{
+            text-align: right;
+            
+            li{
+                display: inline-block;
+                vertical-align: top;
+                text-transform: uppercase;
+                &:nth-child(n+2){
+                    margin-left: 15px;
+                }
+            }
+        }
+    }
     header{
         height: $header-height;
         padding: 0 5%;
