@@ -1,0 +1,90 @@
+@font-face{
+	font-family: mont_r;
+	src: url(../fonts/Montserrat-Regular.otf);
+}
+$dark-color: #222;
+$light-color: #FFF;
+$bg-color: #00746b;
+$hover-color: #ff9700;
+*{
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+html{
+    min-width: 320px;
+	font-size: 20px;
+	font-family: mont_r, 'Arial';
+}
+a{
+	color: $light-color;
+	text-decoration: none;
+    transition: 0.7s;
+}
+a:hover{
+    color: $hover-color;
+}
+li{
+    list-style: none;
+}
+button:focus{
+    outline: none;
+}
+.wrapper{
+	position: relative;
+	min-height: 500px;
+	min-height: 100vh;
+
+    header{
+        padding: 10px 5%;
+        box-sizing: border-box;
+        background-color: $bg-color;
+        color: $light-color;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+
+        & > div{
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .logo{
+            width: 20%;
+            font-size: 2rem;
+        }
+        .nav{
+            width: 80%;
+            text-align: right;
+            li{
+                display: inline-block;
+                margin-left: 20px;
+                font-size: 0.75rem;
+            }
+        }
+        @media screen and (max-width: 800px){
+            & > div[class], .nav li{
+                width: 100%;
+                margin-left: 0;
+                margin-bottom: 10px;
+                text-align: center;
+            }
+            div.logo{
+                margin-bottom: 20px;
+            }
+            .nav li:last-child{
+                margin-bottom: 0;
+            }
+        }
+    }
+    a.test{
+    	position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%,-50%);
+		padding: 5px 10px;
+		border: 5px solid $bg-color;
+		border-radius: 10px;
+		font-size: 3rem;
+		text-transform: uppercase;
+        color: $bg-color;
+    }
+}
