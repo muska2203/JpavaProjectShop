@@ -6,14 +6,19 @@
 	font-family: museo_t;
 	src: url(../fonts/MuseoSansCyrl_0.otf);
 }
+@font-face{
+    font-family: museo_r;
+    src: url(../fonts/MuseoSansCyrl_1.otf);
+}
 $dark-color: #463f3a;
 $light-color: #FFF;
 $red-color: #f55856;
 $bg-color: $dark-color;
+$bg-grey: #f5f6f1;
 $hover-color: #ff9700;
 
 $info-height: 40px;
-$header-height: 70px;
+$header-height: 170px;
 
 *{
 	margin: 0;
@@ -55,7 +60,6 @@ button:focus{
         font-size: 0.875rem;
         min-height: $info-height;
         line-height: $info-height;
-
         & > div{
             width: 50%;
             display: inline-block;
@@ -71,7 +75,6 @@ button:focus{
         }
         .info-account{
             text-align: right;
-            
             li{
                 display: inline-block;
                 vertical-align: top;
@@ -98,49 +101,83 @@ button:focus{
         }
         }
     }
-    header{
-        min-height: $header-height;
-        padding: 0 5%;
-        box-sizing: border-box;
-        background-color: $bg-color;
-        color: $light-color;
-        text-transform: uppercase;
-        letter-spacing: 1px;
+    .header-container{
+        background-color: $bg-grey;
+        header{
+            min-height: $header-height;
+            box-sizing: border-box;
+            color: $light-color;
+            text-transform: uppercase;
+            letter-spacing: 1px;
 
-        & > div{
-            display: inline-block;
-            vertical-align: top;
-            line-height: $header-height;
-        }
-        .logo{
-            width: 20%;
-            font-size: 2rem;
-        }
-        .nav{
-            width: 80%;
-            text-align: right;
-            li{
+            & > div{
                 display: inline-block;
                 vertical-align: top;
-                margin-left: 20px;
-                font-size: 0.75rem;
+                line-height: $header-height;
             }
-        }
-        @media screen and (max-width: 800px){
-            & > div[class], .nav li{
-                width: 100%;
-                margin-left: 0;
-                margin-bottom: 10px;
-                text-align: center;
+            .logo{
+                width: 40%;
+                img{
+                    display: inline-block;
+                    vertical-align: middle;
+                }
             }
-            div.logo{
-                margin-bottom: 20px;
+            .nav{
+                width: 60%;
+                font-family: museo_r;
+                font-size: 1.125rem;
+                text-align: right;
+                li{
+                    display: inline-block;
+                    vertical-align: top;
+                    margin-left: 30px;
+                    &:first-child{
+                        margin: 0;
+                    }
+                    &:nth-child(n+2){
+                        position: relative;
+                        &:before{
+                            display: inline-block;
+                            content: "";
+                            position: absolute;
+                            top: 50%;
+                            left: -18px;
+                            transform: translateY(-50%) rotate(20deg);
+                            height: 1.125rem;
+                            border-right: 2px solid $red-color;
+                        }
+                    }
+                }
             }
-            .nav li:last-child{
-                margin-bottom: 0;
+            @media screen and (max-width: 1000px){
+                & > div[class]{
+                    width: 100%;
+                    margin-left: 0;
+                    text-align: center;
+                }
+                .nav{
+                    line-height: 100px;
+                    li:last-child{
+                        margin-bottom: 0;
+                    }
+                }
+            }
+            @media screen and (max-width: 550px){
+                div.nav ul{
+                    line-height: 1rem;
+                    li{
+                        width: 50%;
+                        margin: 0;
+                        margin-bottom: 20px;
+                        &:nth-child(n):before{
+                            display: none;
+                        }
+                    }
+                }
             }
         }
     }
+    
     a.test{
     	position: absolute;
 		left: 50%;
