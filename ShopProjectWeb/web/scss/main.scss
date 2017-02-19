@@ -1,4 +1,8 @@
 @font-face{
+    font-family: exo_r;
+    src: url(../fonts/Exo2Regular.ttf);
+}
+@font-face{
 	font-family: mont_r;
 	src: url(../fonts/Montserrat-Regular.otf);
 }
@@ -6,6 +10,7 @@ $dark-color: #222;
 $light-color: #FFF;
 $bg-color: #00746b;
 $hover-color: #ff9700;
+$header-height: 70px;
 *{
 	margin: 0;
 	padding: 0;
@@ -14,7 +19,7 @@ $hover-color: #ff9700;
 html{
     min-width: 320px;
 	font-size: 20px;
-	font-family: mont_r, 'Arial';
+	font-family: exo_r, mont_r, 'Arial';
 }
 a{
 	color: $light-color;
@@ -36,7 +41,8 @@ button:focus{
 	min-height: 100vh;
 
     header{
-        padding: 10px 5%;
+        height: $header-height;
+        padding: 0 5%;
         box-sizing: border-box;
         background-color: $bg-color;
         color: $light-color;
@@ -45,7 +51,8 @@ button:focus{
 
         & > div{
             display: inline-block;
-            vertical-align: middle;
+            vertical-align: top;
+            line-height: $header-height;
         }
         .logo{
             width: 20%;
@@ -56,6 +63,7 @@ button:focus{
             text-align: right;
             li{
                 display: inline-block;
+                vertical-align: top;
                 margin-left: 20px;
                 font-size: 0.75rem;
             }

@@ -1,4 +1,7 @@
 @font-face {
+  font-family: exo_r;
+  src: url(../fonts/Exo2Regular.ttf); }
+@font-face {
   font-family: mont_r;
   src: url(../fonts/Montserrat-Regular.otf); }
 * {
@@ -9,7 +12,7 @@
 html {
   min-width: 320px;
   font-size: 20px;
-  font-family: mont_r, 'Arial'; }
+  font-family: exo_r, mont_r, 'Arial'; }
 
 a {
   color: #FFF;
@@ -30,7 +33,8 @@ button:focus {
   min-height: 500px;
   min-height: 100vh; }
   .wrapper header {
-    padding: 10px 5%;
+    height: 70px;
+    padding: 0 5%;
     box-sizing: border-box;
     background-color: #00746b;
     color: #FFF;
@@ -38,7 +42,8 @@ button:focus {
     letter-spacing: 1px; }
     .wrapper header > div {
       display: inline-block;
-      vertical-align: middle; }
+      vertical-align: top;
+      line-height: 70px; }
     .wrapper header .logo {
       width: 20%;
       font-size: 2rem; }
@@ -47,6 +52,7 @@ button:focus {
       text-align: right; }
       .wrapper header .nav li {
         display: inline-block;
+        vertical-align: top;
         margin-left: 20px;
         font-size: 0.75rem; }
     @media screen and (max-width: 800px) {
