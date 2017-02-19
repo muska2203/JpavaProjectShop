@@ -1,9 +1,9 @@
 @font-face {
-  font-family: exo_r;
-  src: url(../fonts/Exo2Regular.ttf); }
+  font-family: osw_b;
+  src: url(../fonts/oswald-bold.ttf); }
 @font-face {
-  font-family: mont_r;
-  src: url(../fonts/Montserrat-Regular.otf); }
+  font-family: museo_t;
+  src: url(../fonts/MuseoSansCyrl_0.otf); }
 * {
   margin: 0;
   padding: 0;
@@ -12,7 +12,7 @@
 html {
   min-width: 320px;
   font-size: 20px;
-  font-family: exo_r, mont_r, 'Arial'; }
+  font-family: osw_b, museo_t, 'Arial'; }
 
 a {
   color: #FFF;
