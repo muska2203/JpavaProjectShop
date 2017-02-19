@@ -129,14 +129,3 @@ button:focus {
           margin-bottom: 20px; }
           .intro .header-container header div.nav ul li:nth-child(n):before {
             display: none; } }
-.intro a.test {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  padding: 5px 10px;
-  border: 5px solid #463f3a;
-  border-radius: 10px;
-  font-size: 3rem;
-  text-transform: uppercase;
-  color: #463f3a; }

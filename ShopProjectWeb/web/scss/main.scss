@@ -177,17 +177,5 @@ button:focus{
             }
         }
     }
-    
-    a.test{
-    	position: absolute;
-		left: 50%;
-		top: 50%;
-		transform: translate(-50%,-50%);
-		padding: 5px 10px;
-		border: 5px solid $bg-color;
-		border-radius: 10px;
-		font-size: 3rem;
-		text-transform: uppercase;
-        color: $bg-color;
-    }
+   
 }
