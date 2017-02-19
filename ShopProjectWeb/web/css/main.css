@@ -4,6 +4,9 @@
 @font-face {
   font-family: museo_t;
   src: url(../fonts/MuseoSansCyrl_0.otf); }
+@font-face {
+  font-family: museo_r;
+  src: url(../fonts/MuseoSansCyrl_1.otf); }
 * {
   margin: 0;
   padding: 0;
@@ -69,39 +72,63 @@ button:focus {
     width: 50%;
     margin: 0; } }
 
-.intro header {
-  min-height: 70px;
-  padding: 0 5%;
-  box-sizing: border-box;
-  background-color: #463f3a;
-  color: #FFF;
-  text-transform: uppercase;
-  letter-spacing: 1px; }
-  .intro header > div {
-    display: inline-block;
-    vertical-align: top;
-    line-height: 70px; }
-  .intro header .logo {
-    width: 20%;
-    font-size: 2rem; }
-  .intro header .nav {
-    width: 80%;
-    text-align: right; }
-    .intro header .nav li {
+.intro .header-container {
+  background-color: #f5f6f1; }
+  .intro .header-container header {
+    min-height: 170px;
+    box-sizing: border-box;
+    color: #FFF;
+    text-transform: uppercase;
+    letter-spacing: 1px; }
+    .intro .header-container header > div {
       display: inline-block;
       vertical-align: top;
-      margin-left: 20px;
-      font-size: 0.75rem; }
-  @media screen and (max-width: 800px) {
-    .intro header > div[class], .intro header .nav li {
-      width: 100%;
-      margin-left: 0;
-      margin-bottom: 10px;
-      text-align: center; }
-    .intro header div.logo {
-      margin-bottom: 20px; }
-    .intro header .nav li:last-child {
-      margin-bottom: 0; } }
+      line-height: 170px; }
+    .intro .header-container header .logo {
+      width: 40%; }
+      .intro .header-container header .logo img {
+        display: inline-block;
+        vertical-align: middle; }
+    .intro .header-container header .nav {
+      width: 60%;
+      font-family: museo_r;
+      font-size: 1.125rem;
+      text-align: right; }
+      .intro .header-container header .nav li {
+        display: inline-block;
+        vertical-align: top;
+        margin-left: 30px; }
+        .intro .header-container header .nav li:first-child {
+          margin: 0; }
+        .intro .header-container header .nav li:nth-child(n+2) {
+          position: relative; }
+          .intro .header-container header .nav li:nth-child(n+2):before {
+            display: inline-block;
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: -18px;
+            transform: translateY(-50%) rotate(20deg);
+            height: 1.125rem;
+            border-right: 2px solid #f55856; }
+    @media screen and (max-width: 1000px) {
+      .intro .header-container header > div[class] {
+        width: 100%;
+        margin-left: 0;
+        text-align: center; }
+      .intro .header-container header .nav {
+        line-height: 100px; }
+        .intro .header-container header .nav li:last-child {
+          margin-bottom: 0; } }
+    @media screen and (max-width: 550px) {
+      .intro .header-container header div.nav ul {
+        line-height: 1rem; }
+        .intro .header-container header div.nav ul li {
+          width: 50%;
+          margin: 0;
+          margin-bottom: 20px; }
+          .intro .header-container header div.nav ul li:nth-child(n):before {
+            display: none; } }
 .intro a.test {
   position: absolute;
   left: 50%;
