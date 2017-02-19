@@ -1,9 +1,9 @@
 @font-face {
-  font-family: exo_r;
-  src: url(../fonts/Exo2Regular.ttf); }
+  font-family: osw_b;
+  src: url(../fonts/oswald-bold.ttf); }
 @font-face {
-  font-family: mont_r;
-  src: url(../fonts/Montserrat-Regular.otf); }
+  font-family: museo_t;
+  src: url(../fonts/MuseoSansCyrl_0.otf); }
 * {
   margin: 0;
   padding: 0;
@@ -11,16 +11,17 @@
 
 html {
   min-width: 320px;
-  font-size: 20px;
-  font-family: exo_r, mont_r, 'Arial'; }
+  font-family: osw_b, museo_t, 'Arial';
+  font-size: 16px;
+  color: #463f3a; }
 
 a {
-  color: #FFF;
+  color: #463f3a;
   text-decoration: none;
-  transition: 0.7s; }
+  transition: color 0.7s; }
 
 a:hover {
-  color: #ff9700; }
+  color: #f55856; }
 
 li {
   list-style: none; }
@@ -32,47 +33,83 @@ button:focus {
   position: relative;
   min-height: 500px;
   min-height: 100vh; }
-  .wrapper header {
-    height: 70px;
-    padding: 0 5%;
-    box-sizing: border-box;
-    background-color: #00746b;
-    color: #FFF;
-    text-transform: uppercase;
-    letter-spacing: 1px; }
-    .wrapper header > div {
+  .wrapper > div {
+    padding: 0 8%; }
+
+.intro .info {
+  font-family: museo_t;
+  font-size: 0.875rem;
+  min-height: 40px;
+  line-height: 40px; }
+  .intro .info > div {
+    width: 50%;
+    display: inline-block;
+    vertical-align: top; }
+  .intro .info .info-support a:nth-child(n+2) {
+    margin-left: 15px; }
+  .intro .info .info-support .fa {
+    font-size: 1rem; }
+  .intro .info .info-account {
+    text-align: right; }
+    .intro .info .info-account li {
       display: inline-block;
       vertical-align: top;
-      line-height: 70px; }
-    .wrapper header .logo {
-      width: 20%;
-      font-size: 2rem; }
-    .wrapper header .nav {
-      width: 80%;
-      text-align: right; }
-      .wrapper header .nav li {
-        display: inline-block;
-        vertical-align: top;
-        margin-left: 20px;
-        font-size: 0.75rem; }
-    @media screen and (max-width: 800px) {
-      .wrapper header > div[class], .wrapper header .nav li {
-        width: 100%;
-        margin-left: 0;
-        margin-bottom: 10px;
-        text-align: center; }
-      .wrapper header div.logo {
-        margin-bottom: 20px; }
-      .wrapper header .nav li:last-child {
-        margin-bottom: 0; } }
-  .wrapper a.test {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    padding: 5px 10px;
-    border: 5px solid #00746b;
-    border-radius: 10px;
-    font-size: 3rem;
-    text-transform: uppercase;
-    color: #00746b; }
+      text-transform: uppercase; }
+      .intro .info .info-account li:nth-child(n+2) {
+        margin-left: 15px; }
+  @media screen and (max-width: 800px) {
+    .intro .info > div[class] {
+      width: 100%;
+      text-align: center; } }
+@media screen and (max-width: 800px) and (max-width: 500px) {
+  .intro .info .info-support a:nth-child(n) {
+    display: block;
+    margin: 0; }
+  .intro .info .info-account li:nth-child(n) {
+    width: 50%;
+    margin: 0; } }
+
+.intro header {
+  min-height: 70px;
+  padding: 0 5%;
+  box-sizing: border-box;
+  background-color: #463f3a;
+  color: #FFF;
+  text-transform: uppercase;
+  letter-spacing: 1px; }
+  .intro header > div {
+    display: inline-block;
+    vertical-align: top;
+    line-height: 70px; }
+  .intro header .logo {
+    width: 20%;
+    font-size: 2rem; }
+  .intro header .nav {
+    width: 80%;
+    text-align: right; }
+    .intro header .nav li {
+      display: inline-block;
+      vertical-align: top;
+      margin-left: 20px;
+      font-size: 0.75rem; }
+  @media screen and (max-width: 800px) {
+    .intro header > div[class], .intro header .nav li {
+      width: 100%;
+      margin-left: 0;
+      margin-bottom: 10px;
+      text-align: center; }
+    .intro header div.logo {
+      margin-bottom: 20px; }
+    .intro header .nav li:last-child {
+      margin-bottom: 0; } }
+.intro a.test {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding: 5px 10px;
+  border: 5px solid #463f3a;
+  border-radius: 10px;
+  font-size: 3rem;
+  text-transform: uppercase;
+  color: #463f3a; }
