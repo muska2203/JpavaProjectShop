@@ -18,7 +18,7 @@ html {
 a {
   color: #463f3a;
   text-decoration: none;
-  transition: 0.7s; }
+  transition: color 0.7s; }
 
 a:hover {
   color: #f55856; }
@@ -39,16 +39,16 @@ button:focus {
 .intro .info {
   font-family: museo_t;
   font-size: 0.875rem;
-  height: 40px;
+  min-height: 40px;
   line-height: 40px; }
   .intro .info > div {
     width: 50%;
     display: inline-block;
     vertical-align: top; }
-  .intro .info .fa {
+  .intro .info .info-support a:nth-child(n+2) {
+    margin-left: 15px; }
+  .intro .info .info-support .fa {
     font-size: 1rem; }
-    .intro .info .fa:nth-child(n+2) {
-      margin-left: 15px; }
   .intro .info .info-account {
     text-align: right; }
     .intro .info .info-account li {
@@ -57,8 +57,20 @@ button:focus {
       text-transform: uppercase; }
       .intro .info .info-account li:nth-child(n+2) {
         margin-left: 15px; }
+  @media screen and (max-width: 800px) {
+    .intro .info > div[class] {
+      width: 100%;
+      text-align: center; } }
+@media screen and (max-width: 800px) and (max-width: 500px) {
+  .intro .info .info-support a:nth-child(n) {
+    display: block;
+    margin: 0; }
+  .intro .info .info-account li:nth-child(n) {
+    width: 50%;
+    margin: 0; } }
+
 .intro header {
-  height: 70px;
+  min-height: 70px;
   padding: 0 5%;
   box-sizing: border-box;
   background-color: #463f3a;
