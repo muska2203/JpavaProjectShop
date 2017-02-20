@@ -26,13 +26,13 @@
                 
                 //String name  = "glasses";
                 it.findItems();
-                Set<String> set = it.getItems();
-                for(String tmp : set){
+                //Set<String> set = it.getItems();
+                //for(String tmp : set){
                 %>
                 <p>
-                   <%=tmp%>
+                   <%=//tmp%>
                 </p>
-                <%}
+                <%//}
             %><%=it.getMiniBasketCount()+"\t||\t"+it.getMiniBasketPrice()%>
     </body>
 </html>

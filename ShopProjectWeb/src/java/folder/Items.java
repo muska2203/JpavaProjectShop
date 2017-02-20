@@ -85,7 +85,15 @@ public class Items {
     //поправить
     public void findItems() throws SQLException
     {
-        ResultSet res = findByName();
+        ResultSet res = null;
+        if(id!=0)
+        {
+            res = findById();
+        }
+        else
+        {
+            res = findByName();
+        }
         while(res.next())
         {
             int id = res.getInt("id");

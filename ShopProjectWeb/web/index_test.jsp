@@ -82,15 +82,15 @@
 	<div class="wrapper items">
 		<div class="items-container">
 			<div class="items-interface">
-				<form action="#" class="items-filter" name="items-filter" target="">
+				<form action="index_test.jsp" class="items-filter" name="items-filter" target="">
 					<legend>Filter:</legend>
 					<fieldset>
 						<label for="id">id:</label><!--
-						--><input id="id" type="text">
+                                                --><input id="id" type="text" name="id">
 					</fieldset>
 					<fieldset>
 						<label for="tags">tags:</label><!--
-						--><input id="tags" type="text">
+						--><input id="tags" type="text" name="name">
 					</fieldset>
 					<fieldset>
 						<label for="cost">price:</label><!--
