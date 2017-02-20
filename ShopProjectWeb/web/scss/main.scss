@@ -27,6 +27,8 @@ $header-height: 170px;
 $item-height: 340px;
 $item-width: 275px;
 
+$btn-up-size: 50px;
+$btn-bg: #3c3631;
 *{
 	margin: 0;
 	padding: 0;
@@ -393,15 +395,70 @@ button:focus, input:focus{
         min-height: 220px;
         padding: 0 8%;
         background-color: $dark-color;
+        color: $light-color;
         & > div{
             display: inline-block;
             vertical-align: top;
             line-height: 220px;
         }
         &-logo{
+            width: 30%;
             img{
                 display: inline-block;
                 vertical-align: middle;
+            }
+        }
+        &-info{
+            width: 40%;
+            font-family: museo_t;
+            font-size: 0.875rem;
+            text-align: center;
+        }
+        &-info-mob[class]{
+            display: none;
+        }
+        &-button{
+            width: 30%;
+            text-align: right;
+            button{
+                padding: 0;
+                background-color: $btn-bg;
+                width: $btn-up-size;
+                height: $btn-up-size;
+                a{
+                    display: block;
+                    color: $light-color;
+                    &:hover{
+                        color: $red-color;
+                    }
+                    .fa{
+                        line-height: $btn-up-size;
+                    }
+                }
+            }
+        }
+        @media screen and (max-width: 1100px){
+            min-height: 1px;
+            padding-top: 30px;
+            padding-bottom: 30px;
+            & > div[class]{
+                line-height: 100px;
+            }
+            &-logo[class]{
+                width: 80%;
+                text-align: left;
+            }
+            &-button[class]{
+                width: 20%;
+                text-align: right;
+            }
+            & > div.main-footer-info{
+                display: none;
+            }
+            & > div.main-footer-info-mob{
+                width: 100%;
+                display: inline-block;
+                line-height: 2rem;
             }
         }
     }
