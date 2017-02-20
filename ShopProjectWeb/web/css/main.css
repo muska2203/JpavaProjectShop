@@ -286,3 +286,31 @@ button:focus, input:focus {
       .items .items-container .items-list .item-container {
         width: 100%;
         padding: 0; } }
+
+.footer {
+  min-height: 1px;
+  /* timing */ }
+  .footer .footer-info {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    background-color: #EEE; }
+    .footer .footer-info > div {
+      display: inline-block;
+      vertical-align: middle; }
+    .footer .footer-info-icons {
+      width: 40%; }
+      .footer .footer-info-icons a {
+        margin-right: 10px; }
+      .footer .footer-info-icons .fa {
+        font-size: 1.5rem; }
+    .footer .footer-info-developers {
+      width: 60%;
+      text-align: right;
+      font-family: museo_t; }
+      .footer .footer-info-developers a {
+        color: #f55856; }
+    @media screen and (max-width: 700px) {
+      .footer .footer-info > div[class] {
+        width: 100%;
+        text-align: center;
+        line-height: 2rem; } }
