@@ -41,12 +41,15 @@ button {
   text-transform: uppercase;
   cursor: pointer;
   transition: 0.7s; }
+  button:hover {
+    color: #f55856; }
 
 input {
   font-size: museo_r; }
-
-button:hover {
-  color: #f55856; }
+  input[type=submit] {
+    background: none;
+    font-family: osw_b;
+    cursor: pointer; }
 
 button:focus, input:focus {
   outline: none; }
@@ -192,6 +195,8 @@ button:focus, input:focus {
       text-transform: uppercase; }
     .items-container .items-interface form fieldset {
       margin-bottom: 20px; }
+      .items-container .items-interface form fieldset:last-of-type {
+        margin-bottom: 30px; }
     .items-container .items-interface form label, .items-container .items-interface form label + input {
       display: inline-block;
       vertical-align: middle;
@@ -200,22 +205,33 @@ button:focus, input:focus {
       min-width: 70px;
       font-size: 1.25rem;
       text-transform: capitalize; }
+    .items-container .items-interface form input {
+      padding: 5px 10px; }
     .items-container .items-interface form input[type=text] {
       width: 100%;
       box-sizing: border-box;
-      padding: 5px 10px;
       border: 3px solid #463f3a;
       font-size: 1rem;
       transition: 0.7s; }
-    .items-container .items-interface form input[type=text]:focus {
-      border-color: #f55856; }
+      .items-container .items-interface form input[type=text]:focus {
+        border-color: #f55856; }
     .items-container .items-interface form .cost-range {
+      width: 100%;
       display: inline-block; }
       .items-container .items-interface form .cost-range input {
         vertical-align: middle;
         width: 100px; }
     .items-container .items-interface form input[type=text], .items-container .items-interface form .cost-range {
       max-width: 400px; }
+    .items-container .items-interface form input[type=submit] {
+      background-color: #463f3a;
+      color: #FFF;
+      font-size: 1.125rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: 0.7s; }
+      .items-container .items-interface form input[type=submit]:hover {
+        color: #f55856; }
 .items-container .items-list {
   width: 70%;
   text-align: center; }
