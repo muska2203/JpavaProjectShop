@@ -45,6 +45,9 @@ li{
 button:focus{
     outline: none;
 }
+.red-color{
+    color: $red-color;
+}
 .wrapper{
 	position: relative;
 	min-height: 500px;
@@ -103,12 +106,13 @@ button:focus{
     }
     .header-container{
         background-color: $bg-grey;
+
         header{
             min-height: $header-height;
             box-sizing: border-box;
-            color: $light-color;
             text-transform: uppercase;
             letter-spacing: 1px;
+            text-align: justify;
 
             & > div{
                 display: inline-block;
@@ -116,17 +120,17 @@ button:focus{
                 line-height: $header-height;
             }
             .logo{
-                width: 40%;
+                width: 30%;
                 img{
                     display: inline-block;
                     vertical-align: middle;
                 }
             }
             .nav{
-                width: 60%;
+                width: 55%;
                 font-family: museo_r;
                 font-size: 1.125rem;
-                text-align: right;
+                text-align: center;
                 li{
                     display: inline-block;
                     vertical-align: top;
@@ -149,11 +153,35 @@ button:focus{
                     }
                 }
             }
+            .shop-card{
+                width: 15%;
+                text-align: right;
+                & > div{
+                    display: inline-block;
+                    vertical-align: top;
+                }
+                .shop-card-info{
+                    vertical-align: middle;
+                    & > span{
+                        display: block;
+                        line-height: 1.5rem;
+                    }
+                }
+                .shop-card-icon{
+                    margin-left: 5px;
+                    img{
+                        vertical-align: middle;
+                        margin-bottom: 4px;
+                    }
+                }
+            }
             @media screen and (max-width: 1000px){
+                padding: 2rem 0;
                 & > div[class]{
                     width: 100%;
                     margin-left: 0;
                     text-align: center;
+                    line-height: 6rem;
                 }
                 .nav{
                     line-height: 100px;
@@ -164,11 +192,10 @@ button:focus{
             }
             @media screen and (max-width: 550px){
                 div.nav ul{
-                    line-height: 1rem;
+                    line-height: 3rem;
                     li{
                         width: 50%;
                         margin: 0;
-                        margin-bottom: 20px;
                         &:nth-child(n):before{
                             display: none;
                         }
