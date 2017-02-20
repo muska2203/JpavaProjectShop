@@ -82,6 +82,7 @@ public class Items {
         return sum;
     }
     
+    //поправить
     public void findItems() throws SQLException
     {
         ResultSet res = findByName();
@@ -94,13 +95,14 @@ public class Items {
         }
     }
     
-    public Set<String> getItems() throws SQLException
+    //Поправить
+    public Set<Item> getItems() throws SQLException
     {
-        Set<String> s = new HashSet<>();
+        Set<Item> s = new HashSet<>();
         for(Item it : listItem)
         {
             addBasket(it.getId());
-            s.add(it.getId()+"\t||\t"+it.getCost()+"\t||\t"+it.getName());
+            s.add(it);
         }
         return s;
     }
