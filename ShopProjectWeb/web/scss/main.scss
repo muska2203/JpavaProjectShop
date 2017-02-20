@@ -389,6 +389,22 @@ button:focus, input:focus{
 }
 .footer{
     min-height: 1px; /* timing */
+    .main-footer{
+        min-height: 220px;
+        padding: 0 8%;
+        background-color: $dark-color;
+        & > div{
+            display: inline-block;
+            vertical-align: top;
+            line-height: 220px;
+        }
+        &-logo{
+            img{
+                display: inline-block;
+                vertical-align: middle;
+            }
+        }
+    }
     .footer-info{
         padding-top: 15px;
         padding-bottom: 15px;
