@@ -86,18 +86,18 @@
 					<legend>Filter:</legend>
 					<fieldset>
 						<label for="id">id:</label><!--
-                                                --><input id="id" type="text" name="id">
+                                                --><input id="id" type="text" placeholder="<%=items.getId() %>" name="id">
 					</fieldset>
 					<fieldset>
 						<label for="tags">tags:</label><!--
-						--><input id="tags" type="text" name="name">
+						--><input id="tags" type="text" value="<%=items.getName()%>" name="name">
 					</fieldset>
 					<fieldset>
 						<label for="cost">price:</label><!--
 						<div class="cost-interface"></div>
 						--><div class="cost-range">
-							<input class="cost" type="text" placeholder="min">
-							<input class="cost" type="text" placeholder="max">
+							<input class="cost" type="text" value="<%=items.getCostMin() %>" name="costMin">
+                                                        <input class="cost" type="text" value="<%=items.getCostMax() %>" name="costMax">
 						</div>
 					</fieldset>
 					<input type="submit" value="search">
