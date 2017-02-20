@@ -4,6 +4,8 @@
     Author     : admin
 --%>
 
+<%@page import="java.util.Set"%>
+<%@page import="java.util.Map"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="folder.Items"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -18,18 +20,19 @@
     <body>
         <h1>Item list!</h1>
         <% 
-                Items it = new Items();
-                String name = (String)request.getParameter("name");
+                
+                Map<String,String[]> map = request.getParameterMap();
+                Items it = new Items(map);
+                
                 //String name  = "glasses";
-                ResultSet res = it.findByName(name);
-                int i =0;
-                while(res.next())
-                {
-                String tmp = res.getString("name");%>
+                it.findItems();
+                Set<String> set = it.getItems();
+                for(String tmp : set){
+                %>
                 <p>
                    <%=tmp%>
                 </p>
                 <%}
-            %>
+            %><%=it.getMiniBasketCount()+"\t||\t"+it.getMiniBasketPrice()%>
     </body>
 </html>
