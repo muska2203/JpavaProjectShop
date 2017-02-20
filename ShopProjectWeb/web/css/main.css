@@ -227,4 +227,5 @@ button:hover {
     .items .items-container .items-list {
       padding-top: 50px; }
       .items .items-container .items-list .item-container {
+        width: 100%;
         padding: 0; } }
