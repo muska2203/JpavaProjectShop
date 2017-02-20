@@ -442,22 +442,12 @@ button:focus, input:focus{
             padding-top: 30px;
             padding-bottom: 30px;
             & > div[class]{
+                width: 100%;
+                text-align: center;
                 line-height: 100px;
             }
-            &-logo[class]{
-                width: 80%;
-                text-align: left;
-            }
-            &-button[class]{
-                width: 20%;
-                text-align: right;
-            }
             & > div.main-footer-info{
-                display: none;
-            }
-            & > div.main-footer-info-mob{
-                width: 100%;
-                display: inline-block;
+                padding: 20px 0;
                 line-height: 2rem;
             }
         }

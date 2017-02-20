@@ -332,18 +332,11 @@ button:focus, input:focus {
         padding-top: 30px;
         padding-bottom: 30px; }
         .footer .main-footer > div[class] {
-          line-height: 100px; }
-        .footer .main-footer-logo[class] {
-          width: 80%;
-          text-align: left; }
-        .footer .main-footer-button[class] {
-          width: 20%;
-          text-align: right; }
-        .footer .main-footer > div.main-footer-info {
-          display: none; }
-        .footer .main-footer > div.main-footer-info-mob {
           width: 100%;
-          display: inline-block;
+          text-align: center;
+          line-height: 100px; }
+        .footer .main-footer > div.main-footer-info {
+          padding: 20px 0;
           line-height: 2rem; } }
   .footer .footer-info {
     padding-top: 15px;
