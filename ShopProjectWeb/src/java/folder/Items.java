@@ -6,7 +6,9 @@
 package folder;
 
 import java.sql.*;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 /**
  *
@@ -22,9 +24,16 @@ public class Items {
     int id,cost;
     String name;
     
+    Set<Item> listItem = null;
+    Set<Item> basket = null;
+    
     //Map<String,String[]> values = null;
     public Items(Map<String,String[]> values){
         setValues(values);
+        
+        listItem = new HashSet<>();
+        basket = new HashSet<>();
+        
         try{
         Class. forName ("com.mysql.jdbc.Driver"). newInstance();//Драйвер
         System.out.println("driver");
@@ -49,6 +58,52 @@ public class Items {
         {name = "";}
     }
     
+    public void addBasket(int id) throws SQLException
+    {
+        ResultSet res = findById(id);
+        res.next();
+        int cost = res.getInt("cost");
+        String name = res.getString("name");
+        basket.add(new Item(id,cost,name));
+    }
+    
+    public int getMiniBasketCount()
+    {
+        return basket.size();
+    }
+    
+    public int getMiniBasketPrice()
+    {
+        int sum = 0;
+        for(Item it : basket)
+        {
+            sum+=it.getCost();
+        }
+        return sum;
+    }
+    
+    public void findItems() throws SQLException
+    {
+        ResultSet res = findByName();
+        while(res.next())
+        {
+            int id = res.getInt("id");
+            int cost = res.getInt("cost");
+            String name = res.getString("name");
+            listItem.add(new Item(id,cost,name));
+        }
+    }
+    
+    public Set<String> getItems() throws SQLException
+    {
+        Set<String> s = new HashSet<>();
+        for(Item it : listItem)
+        {
+            addBasket(it.getId());
+            s.add(it.getId()+"\t||\t"+it.getCost()+"\t||\t"+it.getName());
+        }
+        return s;
+    }
     
     
     public ResultSet find() throws SQLException//Вывод всех элементов
@@ -60,8 +115,16 @@ public class Items {
     {
         return stm.executeQuery("SELECT * FROM baseShop WHERE id = "+id);
     }
+    public ResultSet findById(int id) throws SQLException//Поиск по id
+    {
+        return stm.executeQuery("SELECT * FROM baseShop WHERE id = "+id);
+    }
     
     public ResultSet findByName() throws SQLException //Поиск по name
+    {
+        return stm.executeQuery("SELECT * FROM baseShop WHERE name LIKE \"%"+name+"%\"");
+    }
+    public ResultSet findByName(String name) throws SQLException //Поиск по name
     {
         return stm.executeQuery("SELECT * FROM baseShop WHERE name LIKE \"%"+name+"%\"");
     }
@@ -70,7 +133,9 @@ public class Items {
     {
         return stm.executeQuery("SELECT * FROM baseShop WHERE cost <= "+cost);
     }
-    
-    
+    public ResultSet findByCost(int cost) throws SQLException //Поиск по cost
+    {
+        return stm.executeQuery("SELECT * FROM baseShop WHERE cost <= "+cost);
+    }
     
 }
