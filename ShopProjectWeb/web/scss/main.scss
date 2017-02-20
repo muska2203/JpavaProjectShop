@@ -60,11 +60,14 @@ button{
 
     transition: 0.7s;
 }
-button:focus{
-    outline: none;
+input{
+    font-size: museo_r;
 }
 button:hover{
     color: $red-color;
+}
+button:focus, input:focus{
+    outline: none;
 }
 .red-color{
     color: $red-color;
@@ -241,9 +244,54 @@ button:hover{
        .items-interface{
            width: 30%;
            box-sizing: border-box;
-           border-right: 2px solid $dark-color;
-           text-align: center;
+           /*border-right: 2px solid $dark-color;*/
+           text-align: left;
            color: $dark-color;
+           form{
+               font-size: 1.5rem;
+               legend{
+                   width: 100%;
+                   margin-bottom: 30px;
+                   text-transform: uppercase;
+               }
+               fieldset{
+                   margin-bottom: 20px;
+               }
+               label, label + input{
+                   display: inline-block;
+                   vertical-align: middle;
+                   margin-left: 0;
+               }
+               label{
+                   min-width: 70px;
+                   font-size: 1.25rem;
+                   text-transform: capitalize;
+               }
+               input{
+               }
+               input[type=text]{
+                   width: 100%;
+                   box-sizing: border-box;
+                   padding: 5px 10px;
+                   border: 3px solid $dark-color;
+                   font-size: 1rem;
+
+                   transition: 0.7s;
+               }
+                input[type=text]:focus{
+                    border-color: $red-color;
+                }
+                .cost-range{
+                    display: inline-block;
+                    input{
+                        vertical-align: middle;
+                        width: 100px;
+                    }
+                }
+                input[type=text], .cost-range{
+                   max-width: 400px;
+                }
+           }
        }
        .items-list{
            width: 70%;
@@ -299,7 +347,14 @@ button:hover{
                 width: 100%;
             }
             .items-interface{
+                padding-left: 5%;
+                padding-right: 5%;
                 border: none;
+                text-align: center;
+                .cost-range{
+                    margin: 0;
+                    text-align: center;
+                }
             }
             .items-list{
                 padding-top: 50px;

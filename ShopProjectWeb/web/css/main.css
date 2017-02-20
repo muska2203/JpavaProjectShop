@@ -42,11 +42,14 @@ button {
   cursor: pointer;
   transition: 0.7s; }
 
-button:focus {
-  outline: none; }
+input {
+  font-size: museo_r; }
 
 button:hover {
   color: #f55856; }
+
+button:focus, input:focus {
+  outline: none; }
 
 .red-color {
   color: #f55856; }
@@ -178,9 +181,41 @@ button:hover {
 .items-container .items-interface {
   width: 30%;
   box-sizing: border-box;
-  border-right: 2px solid #463f3a;
-  text-align: center;
+  /*border-right: 2px solid $dark-color;*/
+  text-align: left;
   color: #463f3a; }
+  .items-container .items-interface form {
+    font-size: 1.5rem; }
+    .items-container .items-interface form legend {
+      width: 100%;
+      margin-bottom: 30px;
+      text-transform: uppercase; }
+    .items-container .items-interface form fieldset {
+      margin-bottom: 20px; }
+    .items-container .items-interface form label, .items-container .items-interface form label + input {
+      display: inline-block;
+      vertical-align: middle;
+      margin-left: 0; }
+    .items-container .items-interface form label {
+      min-width: 70px;
+      font-size: 1.25rem;
+      text-transform: capitalize; }
+    .items-container .items-interface form input[type=text] {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 5px 10px;
+      border: 3px solid #463f3a;
+      font-size: 1rem;
+      transition: 0.7s; }
+    .items-container .items-interface form input[type=text]:focus {
+      border-color: #f55856; }
+    .items-container .items-interface form .cost-range {
+      display: inline-block; }
+      .items-container .items-interface form .cost-range input {
+        vertical-align: middle;
+        width: 100px; }
+    .items-container .items-interface form input[type=text], .items-container .items-interface form .cost-range {
+      max-width: 400px; }
 .items-container .items-list {
   width: 70%;
   text-align: center; }
@@ -223,7 +258,13 @@ button:hover {
     .items .items-container > div[class] {
       width: 100%; }
     .items .items-container .items-interface {
-      border: none; }
+      padding-left: 5%;
+      padding-right: 5%;
+      border: none;
+      text-align: center; }
+      .items .items-container .items-interface .cost-range {
+        margin: 0;
+        text-align: center; }
     .items .items-container .items-list {
       padding-top: 50px; }
       .items .items-container .items-list .item-container {

@@ -64,14 +64,26 @@
 	<div class="wrapper items">
 		<div class="items-container">
 			<div class="items-interface">
-				some interface<br>
-				some interface<br>
-				some interface<br>
-				some interface<br>
-				some interface<br>
-				some interface<br>
-				some interface<br>
-				some interface<br>
+				<form action="#" class="items-filter" name="items-filter" target="">
+					<legend>Filter:</legend>
+					<fieldset>
+						<label for="id">id:</label><!--
+						--><input id="id" type="text">
+					</fieldset>
+					<fieldset>
+						<label for="tags">tags:</label><!--
+						--><input id="tags" type="text">
+					</fieldset>
+					<fieldset>
+						<label for="cost">price:</label><!--
+						<div class="cost-interface"></div>
+						--><div class="cost-range">
+							<input class="cost" type="text" placeholder="min">
+							<span>-</span>
+							<input class="cost" type="text" placeholder="max">
+						</div>
+					</fieldset>
+				</form>
 			</div><!--
 			--><div class="items-list">
 				<div class="item-container">
