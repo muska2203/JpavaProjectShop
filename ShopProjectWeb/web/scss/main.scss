@@ -240,13 +240,13 @@ button:hover{
        }
        .items-interface{
            width: 30%;
+           box-sizing: border-box;
+           border-right: 2px solid $dark-color;
            text-align: center;
            color: $dark-color;
        }
        .items-list{
            width: 70%;
-           box-sizing: border-box;
-           border-left: 2px solid $dark-color;
            text-align: center;
            .item-container{
                display: inline-block;
@@ -290,5 +290,23 @@ button:hover{
                }
            }
        }
+        
+    }
+    @media screen and (max-width: 600px){
+        .items-container{
+            padding: 0;
+            & > div[class]{
+                width: 100%;
+            }
+            .items-interface{
+                border: none;
+            }
+            .items-list{
+                padding-top: 50px;
+                .item-container{
+                    padding: 0;
+                }
+            }
+        }
     }
 }

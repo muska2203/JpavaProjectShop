@@ -177,12 +177,12 @@ button:hover {
   vertical-align: top; }
 .items-container .items-interface {
   width: 30%;
+  box-sizing: border-box;
+  border-right: 2px solid #463f3a;
   text-align: center;
   color: #463f3a; }
 .items-container .items-list {
   width: 70%;
-  box-sizing: border-box;
-  border-left: 2px solid #463f3a;
   text-align: center; }
   .items-container .items-list .item-container {
     display: inline-block;
@@ -217,3 +217,14 @@ button:hover {
       .items-container .items-list .item-container .item button {
         display: inline-block;
         width: 100%; }
+@media screen and (max-width: 600px) {
+  .items .items-container {
+    padding: 0; }
+    .items .items-container > div[class] {
+      width: 100%; }
+    .items .items-container .items-interface {
+      border: none; }
+    .items .items-container .items-list {
+      padding-top: 50px; }
+      .items .items-container .items-list .item-container {
+        padding: 0; } }
