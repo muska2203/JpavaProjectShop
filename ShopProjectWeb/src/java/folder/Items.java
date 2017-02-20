@@ -6,7 +6,7 @@
 package folder;
 
 import java.sql.*;
-import java.util.ArrayList;
+import java.util.Map;
 
 /**
  *
@@ -18,7 +18,13 @@ public class Items {
     private String password = "root";
     Connection connect = null;
     Statement stm = null;
-    public Items(){
+    
+    int id,cost;
+    String name;
+    
+    //Map<String,String[]> values = null;
+    public Items(Map<String,String[]> values){
+        setValues(values);
         try{
         Class. forName ("com.mysql.jdbc.Driver"). newInstance();//Драйвер
         System.out.println("driver");
@@ -27,22 +33,40 @@ public class Items {
         }catch(Exception e){}
     }
     
-    public ResultSet find() throws SQLException
+    private void setValues(Map<String,String[]> values)
+    {
+        try{
+            id = Integer.valueOf(values.get("id")[0]);
+        }catch(Exception e)
+        {id = 0;}
+        try{
+            cost = Integer.valueOf(values.get("cost")[0]);
+        }catch(Exception e)
+        {cost = 0;}
+        try{
+            name = values.get("name")[0];
+        }catch(Exception e)
+        {name = "";}
+    }
+    
+    
+    
+    public ResultSet find() throws SQLException//Вывод всех элементов
     {
         return stm.executeQuery("SELECT * FROM baseShop;");
     }
     
-    public ResultSet findById(int id) throws SQLException
+    public ResultSet findById() throws SQLException//Поиск по id
     {
         return stm.executeQuery("SELECT * FROM baseShop WHERE id = "+id);
     }
     
-    public ResultSet findByName(String name) throws SQLException
+    public ResultSet findByName() throws SQLException //Поиск по name
     {
         return stm.executeQuery("SELECT * FROM baseShop WHERE name LIKE \"%"+name+"%\"");
     }
     
-    public ResultSet findByCost(int cost) throws SQLException
+    public ResultSet findByCost() throws SQLException //Поиск по cost
     {
         return stm.executeQuery("SELECT * FROM baseShop WHERE cost <= "+cost);
     }
