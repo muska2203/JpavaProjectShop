@@ -10,6 +10,10 @@
     font-family: museo_r;
     src: url(../fonts/MuseoSansCyrl_1.otf);
 }
+@font-face{
+    font-family: museo_bold;
+    src: url(../fonts/MuseoSansCyrl_2.otf);
+}
 $dark-color: #463f3a;
 $light-color: #FFF;
 $red-color: #f55856;
@@ -19,6 +23,9 @@ $hover-color: #ff9700;
 
 $info-height: 40px;
 $header-height: 170px;
+
+$item-height: 340px;
+$item-width: 275px;
 
 *{
 	margin: 0;
@@ -42,14 +49,41 @@ a:hover{
 li{
     list-style: none;
 }
-button:focus{
+button{
+    padding: 10px 0;
+    background-color: $dark-color;
+    color: $light-color;
+    font-family: osw_b;
+    font-size: 1.25rem;
+    text-transform: uppercase;
+    cursor: pointer;
+
+    transition: 0.7s;
+    &:hover{
+        color: $red-color;
+    }
+}
+input{
+    font-size: museo_r;
+    &[type=submit]{
+        background: none;
+        font-family: osw_b;
+        cursor: pointer;
+    }
+}
+button:focus, input:focus{
     outline: none;
+}
+.red-color{
+    color: $red-color;
 }
 .wrapper{
 	position: relative;
+    /*
 	min-height: 500px;
 	min-height: 100vh;
-
+    */
+    min-height: 200px;
     & > div{
         padding: 0 8%;
     }
@@ -103,12 +137,13 @@ button:focus{
     }
     .header-container{
         background-color: $bg-grey;
+
         header{
             min-height: $header-height;
             box-sizing: border-box;
-            color: $light-color;
             text-transform: uppercase;
             letter-spacing: 1px;
+            text-align: justify;
 
             & > div{
                 display: inline-block;
@@ -116,17 +151,17 @@ button:focus{
                 line-height: $header-height;
             }
             .logo{
-                width: 40%;
+                width: 30%;
                 img{
                     display: inline-block;
                     vertical-align: middle;
                 }
             }
             .nav{
-                width: 60%;
+                width: 55%;
                 font-family: museo_r;
                 font-size: 1.125rem;
-                text-align: right;
+                text-align: center;
                 li{
                     display: inline-block;
                     vertical-align: top;
@@ -149,11 +184,35 @@ button:focus{
                     }
                 }
             }
+            .shop-card{
+                width: 15%;
+                text-align: right;
+                & > div{
+                    display: inline-block;
+                    vertical-align: top;
+                }
+                .shop-card-info{
+                    vertical-align: middle;
+                    & > span{
+                        display: block;
+                        line-height: 1.5rem;
+                    }
+                }
+                .shop-card-icon{
+                    margin-left: 5px;
+                    img{
+                        vertical-align: middle;
+                        margin-bottom: 4px;
+                    }
+                }
+            }
             @media screen and (max-width: 1000px){
+                padding: 2rem 0;
                 & > div[class]{
                     width: 100%;
                     margin-left: 0;
                     text-align: center;
+                    line-height: 6rem;
                 }
                 .nav{
                     line-height: 100px;
@@ -164,11 +223,10 @@ button:focus{
             }
             @media screen and (max-width: 550px){
                 div.nav ul{
-                    line-height: 1rem;
+                    line-height: 3rem;
                     li{
                         width: 50%;
                         margin: 0;
-                        margin-bottom: 20px;
                         &:nth-child(n):before{
                             display: none;
                         }
@@ -177,5 +235,191 @@ button:focus{
             }
         }
     }
+    .slider-container{
+        padding: 40px 0;
+    }
    
+}
+.items{
+    &-container{
+       & > div{
+           display: inline-block;
+           vertical-align: top;
+       }
+       .items-interface{
+           width: 30%;
+           box-sizing: border-box;
+           /*border-right: 2px solid $dark-color;*/
+           text-align: left;
+           color: $dark-color;
+           form{
+               font-size: 1.5rem;
+               legend{
+                   width: 100%;
+                   margin-bottom: 30px;
+                   text-transform: uppercase;
+               }
+               fieldset{
+                    margin-bottom: 20px;
+                    &:last-of-type{
+                        margin-bottom: 30px;
+                    }
+               }
+               label, label + input{
+                   display: inline-block;
+                   vertical-align: middle;
+                   margin-left: 0;
+               }
+               label{
+                   min-width: 70px;
+                   font-size: 1.25rem;
+                   text-transform: capitalize;
+               }
+               input{
+                   padding: 5px 10px;
+               }
+               input[type=text]{
+                   width: 100%;
+                   box-sizing: border-box;
+                   border: 3px solid $dark-color;
+                   font-size: 1rem;
+
+                   transition: 0.7s;
+                    &:focus{
+                        border-color: $red-color;
+                    }
+               }
+                .cost-range{
+                    width: 100%;
+                    display: inline-block;
+                    input{
+                        vertical-align: middle;
+                        width: 100px;
+                    }
+                }
+                input[type=text], .cost-range{
+                   max-width: 400px;
+                }
+                input[type=submit]{
+                    background-color: $dark-color;
+                    color: $light-color;
+                    font-size: 1.125rem;
+                    text-transform: uppercase;
+                    letter-spacing: 1px;
+
+                    transition: 0.7s;
+                    &:hover{
+                        color: $red-color;
+                    }
+                }
+           }
+       }
+       .items-list{
+           width: 70%;
+           text-align: center;
+           .item-container{
+               display: inline-block;
+               vertical-align: top;
+               min-width: $item-width;
+               box-sizing: border-box;
+               padding: 0 20px;
+               margin-bottom: 40px;
+               .item{
+                   max-height: $item-height;
+                   width: $item-width;
+                   margin: 0 auto;
+                   text-align: left;
+                   img{
+                       width: 100%;
+                       height: 200px;
+                   }
+                   & > span{
+                       display: block;
+                       max-height: 2rem;
+                       line-height: 2rem;
+                       overflow: hidden;
+                       white-space: nowrap;
+                       text-overflow: ellipsis;
+                   }
+                   span:last-of-type{
+                       margin-bottom: 10px;
+                   }
+                   .description{
+                       font-size: 1.125rem;
+                       font-family: museo_t;
+                   }
+                   .price{
+                        font-family: museo_bold;
+                        font-size: 1.25rem;
+                   }
+                   button{
+                        display: inline-block;
+                        width: 100%;
+                   }
+               }
+           }
+       }
+        
+    }
+    @media screen and (max-width: 600px){
+        .items-container{
+            padding: 0;
+            & > div[class]{
+                width: 100%;
+            }
+            .items-interface{
+                padding-left: 5%;
+                padding-right: 5%;
+                border: none;
+                text-align: center;
+                .cost-range{
+                    margin: 0;
+                    text-align: center;
+                }
+            }
+            .items-list{
+                padding-top: 50px;
+                .item-container{
+                    width: 100%;
+                    padding: 0;
+                }
+            }
+        }
+    }
+}
+.footer{
+    min-height: 1px; /* timing */
+    .footer-info{
+        padding-top: 15px;
+        padding-bottom: 15px;
+        background-color: #EEE;
+        & > div{
+            display: inline-block;
+            vertical-align: middle;
+        }
+        &-icons{
+            width: 40%;
+            a{
+                margin-right: 10px;
+            }
+            .fa{
+                font-size: 1.5rem;
+            }
+        }
+        &-developers{
+            width: 60%;
+            text-align: right;
+            font-family: museo_t;
+            a{
+                color: $red-color;
+            }
+        }
+        @media screen and (max-width: 700px){
+            & > div[class]{
+                width: 100%;
+                text-align: center;
+                line-height: 2rem;
+            }
+        }
+    }
 }

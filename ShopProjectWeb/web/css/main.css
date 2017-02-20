@@ -7,6 +7,9 @@
 @font-face {
   font-family: museo_r;
   src: url(../fonts/MuseoSansCyrl_1.otf); }
+@font-face {
+  font-family: museo_bold;
+  src: url(../fonts/MuseoSansCyrl_2.otf); }
 * {
   margin: 0;
   padding: 0;
@@ -29,13 +32,38 @@ a:hover {
 li {
   list-style: none; }
 
-button:focus {
+button {
+  padding: 10px 0;
+  background-color: #463f3a;
+  color: #FFF;
+  font-family: osw_b;
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: 0.7s; }
+  button:hover {
+    color: #f55856; }
+
+input {
+  font-size: museo_r; }
+  input[type=submit] {
+    background: none;
+    font-family: osw_b;
+    cursor: pointer; }
+
+button:focus, input:focus {
   outline: none; }
+
+.red-color {
+  color: #f55856; }
 
 .wrapper {
   position: relative;
-  min-height: 500px;
-  min-height: 100vh; }
+    /*
+	min-height: 500px;
+	min-height: 100vh;
+    */
+  min-height: 200px; }
   .wrapper > div {
     padding: 0 8%; }
 
@@ -77,23 +105,23 @@ button:focus {
   .intro .header-container header {
     min-height: 170px;
     box-sizing: border-box;
-    color: #FFF;
     text-transform: uppercase;
-    letter-spacing: 1px; }
+    letter-spacing: 1px;
+    text-align: justify; }
     .intro .header-container header > div {
       display: inline-block;
       vertical-align: top;
       line-height: 170px; }
     .intro .header-container header .logo {
-      width: 40%; }
+      width: 30%; }
       .intro .header-container header .logo img {
         display: inline-block;
         vertical-align: middle; }
     .intro .header-container header .nav {
-      width: 60%;
+      width: 55%;
       font-family: museo_r;
       font-size: 1.125rem;
-      text-align: right; }
+      text-align: center; }
       .intro .header-container header .nav li {
         display: inline-block;
         vertical-align: top;
@@ -111,21 +139,178 @@ button:focus {
             transform: translateY(-50%) rotate(20deg);
             height: 1.125rem;
             border-right: 2px solid #f55856; }
+    .intro .header-container header .shop-card {
+      width: 15%;
+      text-align: right; }
+      .intro .header-container header .shop-card > div {
+        display: inline-block;
+        vertical-align: top; }
+      .intro .header-container header .shop-card .shop-card-info {
+        vertical-align: middle; }
+        .intro .header-container header .shop-card .shop-card-info > span {
+          display: block;
+          line-height: 1.5rem; }
+      .intro .header-container header .shop-card .shop-card-icon {
+        margin-left: 5px; }
+        .intro .header-container header .shop-card .shop-card-icon img {
+          vertical-align: middle;
+          margin-bottom: 4px; }
     @media screen and (max-width: 1000px) {
-      .intro .header-container header > div[class] {
-        width: 100%;
-        margin-left: 0;
-        text-align: center; }
-      .intro .header-container header .nav {
-        line-height: 100px; }
-        .intro .header-container header .nav li:last-child {
-          margin-bottom: 0; } }
+      .intro .header-container header {
+        padding: 2rem 0; }
+        .intro .header-container header > div[class] {
+          width: 100%;
+          margin-left: 0;
+          text-align: center;
+          line-height: 6rem; }
+        .intro .header-container header .nav {
+          line-height: 100px; }
+          .intro .header-container header .nav li:last-child {
+            margin-bottom: 0; } }
     @media screen and (max-width: 550px) {
       .intro .header-container header div.nav ul {
-        line-height: 1rem; }
+        line-height: 3rem; }
         .intro .header-container header div.nav ul li {
           width: 50%;
-          margin: 0;
-          margin-bottom: 20px; }
+          margin: 0; }
           .intro .header-container header div.nav ul li:nth-child(n):before {
             display: none; } }
+.intro .slider-container {
+  padding: 40px 0; }
+
+.items-container > div {
+  display: inline-block;
+  vertical-align: top; }
+.items-container .items-interface {
+  width: 30%;
+  box-sizing: border-box;
+  /*border-right: 2px solid $dark-color;*/
+  text-align: left;
+  color: #463f3a; }
+  .items-container .items-interface form {
+    font-size: 1.5rem; }
+    .items-container .items-interface form legend {
+      width: 100%;
+      margin-bottom: 30px;
+      text-transform: uppercase; }
+    .items-container .items-interface form fieldset {
+      margin-bottom: 20px; }
+      .items-container .items-interface form fieldset:last-of-type {
+        margin-bottom: 30px; }
+    .items-container .items-interface form label, .items-container .items-interface form label + input {
+      display: inline-block;
+      vertical-align: middle;
+      margin-left: 0; }
+    .items-container .items-interface form label {
+      min-width: 70px;
+      font-size: 1.25rem;
+      text-transform: capitalize; }
+    .items-container .items-interface form input {
+      padding: 5px 10px; }
+    .items-container .items-interface form input[type=text] {
+      width: 100%;
+      box-sizing: border-box;
+      border: 3px solid #463f3a;
+      font-size: 1rem;
+      transition: 0.7s; }
+      .items-container .items-interface form input[type=text]:focus {
+        border-color: #f55856; }
+    .items-container .items-interface form .cost-range {
+      width: 100%;
+      display: inline-block; }
+      .items-container .items-interface form .cost-range input {
+        vertical-align: middle;
+        width: 100px; }
+    .items-container .items-interface form input[type=text], .items-container .items-interface form .cost-range {
+      max-width: 400px; }
+    .items-container .items-interface form input[type=submit] {
+      background-color: #463f3a;
+      color: #FFF;
+      font-size: 1.125rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: 0.7s; }
+      .items-container .items-interface form input[type=submit]:hover {
+        color: #f55856; }
+.items-container .items-list {
+  width: 70%;
+  text-align: center; }
+  .items-container .items-list .item-container {
+    display: inline-block;
+    vertical-align: top;
+    min-width: 275px;
+    box-sizing: border-box;
+    padding: 0 20px;
+    margin-bottom: 40px; }
+    .items-container .items-list .item-container .item {
+      max-height: 340px;
+      width: 275px;
+      margin: 0 auto;
+      text-align: left; }
+      .items-container .items-list .item-container .item img {
+        width: 100%;
+        height: 200px; }
+      .items-container .items-list .item-container .item > span {
+        display: block;
+        max-height: 2rem;
+        line-height: 2rem;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis; }
+      .items-container .items-list .item-container .item span:last-of-type {
+        margin-bottom: 10px; }
+      .items-container .items-list .item-container .item .description {
+        font-size: 1.125rem;
+        font-family: museo_t; }
+      .items-container .items-list .item-container .item .price {
+        font-family: museo_bold;
+        font-size: 1.25rem; }
+      .items-container .items-list .item-container .item button {
+        display: inline-block;
+        width: 100%; }
+@media screen and (max-width: 600px) {
+  .items .items-container {
+    padding: 0; }
+    .items .items-container > div[class] {
+      width: 100%; }
+    .items .items-container .items-interface {
+      padding-left: 5%;
+      padding-right: 5%;
+      border: none;
+      text-align: center; }
+      .items .items-container .items-interface .cost-range {
+        margin: 0;
+        text-align: center; }
+    .items .items-container .items-list {
+      padding-top: 50px; }
+      .items .items-container .items-list .item-container {
+        width: 100%;
+        padding: 0; } }
+
+.footer {
+  min-height: 1px;
+  /* timing */ }
+  .footer .footer-info {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    background-color: #EEE; }
+    .footer .footer-info > div {
+      display: inline-block;
+      vertical-align: middle; }
+    .footer .footer-info-icons {
+      width: 40%; }
+      .footer .footer-info-icons a {
+        margin-right: 10px; }
+      .footer .footer-info-icons .fa {
+        font-size: 1.5rem; }
+    .footer .footer-info-developers {
+      width: 60%;
+      text-align: right;
+      font-family: museo_t; }
+      .footer .footer-info-developers a {
+        color: #f55856; }
+    @media screen and (max-width: 700px) {
+      .footer .footer-info > div[class] {
+        width: 100%;
+        text-align: center;
+        line-height: 2rem; } }
