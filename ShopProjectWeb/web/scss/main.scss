@@ -10,6 +10,10 @@
     font-family: museo_r;
     src: url(../fonts/MuseoSansCyrl_1.otf);
 }
+@font-face{
+    font-family: museo_bold;
+    src: url(../fonts/MuseoSansCyrl_2.otf);
+}
 $dark-color: #463f3a;
 $light-color: #FFF;
 $red-color: #f55856;
@@ -19,6 +23,9 @@ $hover-color: #ff9700;
 
 $info-height: 40px;
 $header-height: 170px;
+
+$item-height: 340px;
+$item-width: 275px;
 
 *{
 	margin: 0;
@@ -42,17 +49,33 @@ a:hover{
 li{
     list-style: none;
 }
+button{
+    padding: 10px 0;
+    background-color: $dark-color;
+    color: $light-color;
+    font-family: osw_b;
+    font-size: 1.25rem;
+    text-transform: uppercase;
+    cursor: pointer;
+
+    transition: 0.7s;
+}
 button:focus{
     outline: none;
+}
+button:hover{
+    color: $red-color;
 }
 .red-color{
     color: $red-color;
 }
 .wrapper{
 	position: relative;
+    /*
 	min-height: 500px;
 	min-height: 100vh;
-
+    */
+    min-height: 200px;
     & > div{
         padding: 0 8%;
     }
@@ -204,5 +227,68 @@ button:focus{
             }
         }
     }
+    .slider-container{
+        padding: 40px 0;
+    }
    
+}
+.items{
+    &-container{
+       & > div{
+           display: inline-block;
+           vertical-align: top;
+       }
+       .items-interface{
+           width: 30%;
+           text-align: center;
+           color: $dark-color;
+       }
+       .items-list{
+           width: 70%;
+           box-sizing: border-box;
+           border-left: 2px solid $dark-color;
+           text-align: center;
+           .item-container{
+               display: inline-block;
+               vertical-align: top;
+               min-width: $item-width;
+               box-sizing: border-box;
+               padding: 0 20px;
+               margin-bottom: 40px;
+               .item{
+                   max-height: $item-height;
+                   width: $item-width;
+                   margin: 0 auto;
+                   text-align: left;
+                   img{
+                       width: 100%;
+                       height: 200px;
+                   }
+                   & > span{
+                       display: block;
+                       max-height: 2rem;
+                       line-height: 2rem;
+                       overflow: hidden;
+                       white-space: nowrap;
+                       text-overflow: ellipsis;
+                   }
+                   span:last-of-type{
+                       margin-bottom: 10px;
+                   }
+                   .description{
+                       font-size: 1.125rem;
+                       font-family: museo_t;
+                   }
+                   .price{
+                        font-family: museo_bold;
+                        font-size: 1.25rem;
+                   }
+                   button{
+                        display: inline-block;
+                        width: 100%;
+                   }
+               }
+           }
+       }
+    }
 }
