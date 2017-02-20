@@ -293,7 +293,14 @@ button:focus, input:focus {
   .footer .footer-info {
     padding-top: 15px;
     padding-bottom: 15px;
-    background-color: #EEE; }
+    background-color: #EEE;
+    /*
+    @media screen and (min-width: 2000px){
+        & > div[class]{
+            text-align: center;
+        }
+    }
+    */ }
     .footer .footer-info > div {
       display: inline-block;
       vertical-align: middle; }

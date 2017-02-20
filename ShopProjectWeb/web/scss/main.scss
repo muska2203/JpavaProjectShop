@@ -414,6 +414,13 @@ button:focus, input:focus{
                 color: $red-color;
             }
         }
+        /*
+        @media screen and (min-width: 2000px){
+            & > div[class]{
+                text-align: center;
+            }
+        }
+        */
         @media screen and (max-width: 700px){
             & > div[class]{
                 width: 100%;
