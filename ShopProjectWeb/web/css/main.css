@@ -70,6 +70,59 @@ button:focus, input:focus {
     .wrapper div[class], .wrapper ul {
       text-align: center !important; } }
 
+.map {
+  min-height: 20px;
+  height: 20px;
+  position: relative;
+  transition: 1s; }
+  .map #map {
+    height: 100%; }
+    .map #map .gm-style-cc, .map #map .gmnoprint, .map #map a img[draggable=false] {
+      display: none; }
+  .map .map-cover {
+    z-index: 4;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0; }
+  .map button.btn-map-open {
+    z-index: 5;
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    padding: 0;
+    border-radius: 50%;
+    border: 2px solid #f55856;
+    background-color: #f55856;
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    box-shadow: 0 0 2px #f55856;
+    opacity: 0.9;
+    transition: 1s;
+    transition-delay: 1s; }
+    .map button.btn-map-open:hover {
+      box-shadow: 0 0 15px #f55856; }
+      .map button.btn-map-open:hover .fa {
+        color: #FFF; }
+    .map button.btn-map-open .fa {
+      display: inline-block;
+      width: 20px;
+      line-height: 50px;
+      color: #FFF;
+      transition: 1s; }
+  .map.open {
+    height: 500px; }
+    .map.open .map-cover {
+      display: none; }
+    .map.open button.btn-map-open {
+      bottom: 0;
+      transition-delay: 0s; }
+      .map.open button.btn-map-open .fa {
+        transform: rotate(180deg); }
+
 .intro .info {
   font-family: museo_t;
   font-size: 0.875rem;

@@ -103,6 +103,67 @@ button:focus, input:focus{
        }   
     }
 }
+.map{
+    min-height: 20px;
+    height: 20px;
+    position: relative;
+    transition: 1s;
+    #map{
+        height: 100%;
+        .gm-style-cc, .gmnoprint, a img[draggable=false]{
+            display: none;
+        }
+    }
+    .map-cover{
+        z-index: 4;
+        position: absolute;
+        top: 0; right: 0; bottom: 0; left: 0; 
+    }
+    button.btn-map-open{
+        z-index: 5;
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+        padding: 0;
+        border-radius: 50%;
+        border: 2px solid $red-color;
+        background-color: $red-color;
+        position: absolute;
+        bottom: 50%;
+        left: 50%;
+        transform: translate(-50%,50%);
+        box-shadow: 0 0 2px $red-color;
+        opacity: 0.9;
+        transition: 1s;
+        transition-delay: 1s;
+        &:hover{
+            box-shadow: 0 0 15px $red-color;
+            .fa{
+                color: $light-color;  
+            }
+        }
+        .fa{
+            display: inline-block;
+            width: 20px;
+            line-height: 50px;
+            color: $light-color;
+            transition: 1s;
+        }
+    }
+    &.open{
+        height: 500px;
+        .map-cover{
+            display: none;
+        }
+        button.btn-map-open{
+            bottom: 0;
+            transition-delay: 0s;
+            .fa{
+                transform: rotate(180deg);
+            }
+        }
+    }
+}
 .intro{
     .info{
         font-family: museo_t;
