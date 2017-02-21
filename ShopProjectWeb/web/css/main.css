@@ -373,9 +373,10 @@ button:focus, input:focus {
       .map button.btn-map-open:hover .fa {
         color: #FFF; }
     .map button.btn-map-open .fa {
-      display: inline-block;
-      vertical-align: middle;
-      line-height: 50px;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
       color: #FFF;
       transition: 1s; }
   .map.open {
@@ -386,7 +387,9 @@ button:focus, input:focus {
       bottom: 0;
       transition-delay: 0s; }
       .map.open button.btn-map-open .fa {
-        transform: rotate(180deg); }
+        left: 51%;
+        top: 53%;
+        transform: translate(-50%, -50%) rotate(180deg); }
     @media screen and (max-width: 600px) {
       .map.open {
         height: 300px; } }

@@ -489,9 +489,10 @@ button:focus, input:focus{
             }
         }
         .fa{
-            display: inline-block;
-            vertical-align: middle;
-            line-height: $btn-map-size ;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
             color: $light-color;
             transition: 1s;
         }
@@ -505,7 +506,9 @@ button:focus, input:focus{
             bottom: 0;
             transition-delay: 0s;
             .fa{
-                transform: rotate(180deg);
+                left: 51%;
+                top: 53%;
+                transform: translate(-50%, -50%) rotate(180deg);
             }
         }
         @media screen and (max-width: 600px){
