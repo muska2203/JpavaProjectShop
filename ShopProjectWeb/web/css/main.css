@@ -176,116 +176,149 @@ button:focus, input:focus {
           .intro .header-container header div.nav ul li:nth-child(n):before {
             display: none; } }
 .intro .slider-container {
-  padding: 40px 0; }
-
-.items-container > div {
-  display: inline-block;
-  vertical-align: top; }
-.items-container .items-interface {
-  width: 30%;
-  box-sizing: border-box;
-  /*border-right: 2px solid $dark-color;*/
-  text-align: left;
-  color: #463f3a; }
-  .items-container .items-interface form {
-    font-size: 1.5rem; }
-    .items-container .items-interface form legend {
-      width: 100%;
-      margin-bottom: 30px;
-      text-transform: uppercase; }
-    .items-container .items-interface form fieldset {
-      margin-bottom: 20px; }
-      .items-container .items-interface form fieldset:last-of-type {
-        margin-bottom: 30px; }
-    .items-container .items-interface form label, .items-container .items-interface form label + input {
-      display: inline-block;
-      vertical-align: middle;
-      margin-left: 0; }
-    .items-container .items-interface form label {
-      min-width: 70px;
-      font-size: 1.25rem;
-      text-transform: capitalize; }
-    .items-container .items-interface form input {
-      padding: 5px 10px; }
-    .items-container .items-interface form input[type=text] {
-      width: 100%;
-      box-sizing: border-box;
-      border: 3px solid #463f3a;
-      font-size: 1rem;
-      transition: 0.7s; }
-      .items-container .items-interface form input[type=text]:focus {
-        border-color: #f55856; }
-    .items-container .items-interface form .cost-range {
-      width: 100%;
-      display: inline-block; }
-      .items-container .items-interface form .cost-range input {
-        vertical-align: middle;
-        width: 100px; }
-    .items-container .items-interface form input[type=text], .items-container .items-interface form .cost-range {
-      max-width: 400px; }
-    .items-container .items-interface form input[type=submit] {
-      background-color: #463f3a;
-      color: #FFF;
-      font-size: 1.125rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      transition: 0.7s; }
-      .items-container .items-interface form input[type=submit]:hover {
-        color: #f55856; }
-.items-container .items-list {
-  width: 70%;
+  padding-top: 20px; }
+.intro .intro-features {
+  padding-top: 20px;
+  padding-bottom: 20px;
   text-align: center; }
-  .items-container .items-list .item-container {
+  .intro .intro-features-box {
     display: inline-block;
     vertical-align: top;
-    min-width: 275px;
+    width: 300px;
+    height: 120px;
     box-sizing: border-box;
-    padding: 0 20px;
-    margin-bottom: 40px; }
-    .items-container .items-list .item-container .item {
-      max-height: 340px;
-      width: 275px;
-      margin: 0 auto;
-      text-align: left; }
-      .items-container .items-list .item-container .item img {
+    padding: 25px 10px;
+    margin: 0 20px 30px 20px;
+    background-color: #f5f6f1; }
+    .intro .intro-features-box h3 {
+      margin-bottom: 10px;
+      font-size: 1.5rem;
+      text-transform: uppercase;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis; }
+    .intro .intro-features-box p {
+      font-family: museo_bold;
+      font-size: 0.875rem;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis; }
+  @media screen and (max-width: 600px) {
+    .intro .intro-features-box {
+      width: 280px;
+      padding: 25px 10px;
+      margin: 0 0 30px 0; } }
+
+.items {
+  padding-top: 50px; }
+  .items-container > div {
+    display: inline-block;
+    vertical-align: top; }
+  .items-container .items-interface {
+    width: 30%;
+    box-sizing: border-box;
+    /*border-right: 2px solid $dark-color;*/
+    text-align: left;
+    color: #463f3a; }
+    .items-container .items-interface form {
+      font-size: 1.5rem; }
+      .items-container .items-interface form legend {
         width: 100%;
-        height: 200px; }
-      .items-container .items-list .item-container .item > span {
-        display: block;
-        max-height: 2rem;
-        line-height: 2rem;
-        overflow: hidden;
-        white-space: nowrap;
-        text-overflow: ellipsis; }
-      .items-container .items-list .item-container .item span:last-of-type {
-        margin-bottom: 10px; }
-      .items-container .items-list .item-container .item .description {
-        font-size: 1.125rem;
-        font-family: museo_t; }
-      .items-container .items-list .item-container .item .price {
-        font-family: museo_bold;
-        font-size: 1.25rem; }
-      .items-container .items-list .item-container .item button {
+        margin-bottom: 30px;
+        text-transform: uppercase; }
+      .items-container .items-interface form fieldset {
+        margin-bottom: 20px; }
+        .items-container .items-interface form fieldset:last-of-type {
+          margin-bottom: 30px; }
+      .items-container .items-interface form label, .items-container .items-interface form label + input {
         display: inline-block;
-        width: 100%; }
-@media screen and (max-width: 600px) {
-  .items .items-container {
-    padding: 0; }
-    .items .items-container > div[class] {
-      width: 100%; }
-    .items .items-container .items-interface {
-      padding-left: 5%;
-      padding-right: 5%;
-      border: none;
-      text-align: center; }
-      .items .items-container .items-interface .cost-range {
-        margin: 0;
-        text-align: center; }
-    .items .items-container .items-list {
-      padding-top: 50px; }
-      .items .items-container .items-list .item-container {
+        vertical-align: middle;
+        margin-left: 0; }
+      .items-container .items-interface form label {
+        min-width: 70px;
+        font-size: 1.25rem;
+        text-transform: capitalize; }
+      .items-container .items-interface form input {
+        padding: 5px 10px; }
+      .items-container .items-interface form input[type=text] {
         width: 100%;
-        padding: 0; } }
+        box-sizing: border-box;
+        border: 3px solid #463f3a;
+        font-size: 1rem;
+        transition: 0.7s; }
+        .items-container .items-interface form input[type=text]:focus {
+          border-color: #f55856; }
+      .items-container .items-interface form .cost-range {
+        width: 100%;
+        display: inline-block; }
+        .items-container .items-interface form .cost-range input {
+          vertical-align: middle;
+          width: 100px; }
+      .items-container .items-interface form input[type=text], .items-container .items-interface form .cost-range {
+        max-width: 400px; }
+      .items-container .items-interface form input[type=submit] {
+        background-color: #463f3a;
+        color: #FFF;
+        font-size: 1.125rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: 0.7s; }
+        .items-container .items-interface form input[type=submit]:hover {
+          color: #f55856; }
+  .items-container .items-list {
+    width: 70%;
+    text-align: center; }
+    .items-container .items-list .item-container {
+      display: inline-block;
+      vertical-align: top;
+      min-width: 275px;
+      box-sizing: border-box;
+      padding: 0 20px;
+      margin-bottom: 40px; }
+      .items-container .items-list .item-container .item {
+        max-height: 340px;
+        width: 275px;
+        margin: 0 auto;
+        text-align: left; }
+        .items-container .items-list .item-container .item img {
+          width: 100%;
+          height: 200px; }
+        .items-container .items-list .item-container .item > span {
+          display: block;
+          max-height: 2rem;
+          line-height: 2rem;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis; }
+        .items-container .items-list .item-container .item span:last-of-type {
+          margin-bottom: 10px; }
+        .items-container .items-list .item-container .item .description {
+          font-size: 1.125rem;
+          font-family: museo_t; }
+        .items-container .items-list .item-container .item .price {
+          font-family: museo_bold;
+          font-size: 1.25rem; }
+        .items-container .items-list .item-container .item button {
+          display: inline-block;
+          width: 100%; }
+  @media screen and (max-width: 600px) {
+    .items .items-container {
+      padding: 0; }
+      .items .items-container > div[class] {
+        width: 100%; }
+      .items .items-container .items-interface {
+        padding-left: 5%;
+        padding-right: 5%;
+        border: none;
+        text-align: center; }
+        .items .items-container .items-interface .cost-range {
+          margin: 0;
+          text-align: center; }
+      .items .items-container .items-list {
+        padding-top: 50px; }
+        .items .items-container .items-list .item-container {
+          width: 100%;
+          padding: 0; } }
 
 .footer {
   min-height: 1px;

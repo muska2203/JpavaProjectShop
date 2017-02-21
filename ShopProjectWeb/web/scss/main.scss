@@ -14,6 +14,11 @@
     font-family: museo_bold;
     src: url(../fonts/MuseoSansCyrl_2.otf);
 }
+@mixin text-ellipsis(){
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
 $dark-color: #463f3a;
 $light-color: #FFF;
 $red-color: #f55856;
@@ -29,6 +34,9 @@ $item-width: 275px;
 
 $btn-up-size: 50px;
 $btn-bg: #3c3631;
+
+$features-box-width: 300px;
+$features-box-height: 120px; 
 *{
 	margin: 0;
 	padding: 0;
@@ -238,11 +246,44 @@ button:focus, input:focus{
         }
     }
     .slider-container{
-        padding: 40px 0;
+        padding-top: 20px;
     }
-   
+    .intro-features{
+        padding-top: 20px;
+        padding-bottom: 20px;
+        text-align: center;
+        &-box{
+            display: inline-block;
+            vertical-align: top;
+            width: $features-box-width;
+            height: $features-box-height;
+            box-sizing: border-box;
+            padding: 25px 10px;
+            margin: 0 20px 30px 20px;
+            background-color: #f5f6f1;
+            h3{
+                margin-bottom: 10px;
+                font-size: 1.5rem;
+                text-transform: uppercase;
+                @include text-ellipsis();
+            }
+            p{
+                font-family: museo_bold;
+                font-size: 0.875rem;
+                @include text-ellipsis();
+            }
+        }
+        @media screen and (max-width: 600px){
+            &-box{
+                width: $features-box-width - 20px;
+                padding: 25px 10px;
+                margin: 0 0 30px 0;
+            }
+        }
+    }
 }
 .items{
+    padding-top: 50px;
     &-container{
        & > div{
            display: inline-block;
@@ -332,16 +373,14 @@ button:focus, input:focus{
                    margin: 0 auto;
                    text-align: left;
                    img{
-                       width: 100%;
-                       height: 200px;
+                        width: 100%;
+                        height: 200px;
                    }
                    & > span{
-                       display: block;
-                       max-height: 2rem;
-                       line-height: 2rem;
-                       overflow: hidden;
-                       white-space: nowrap;
-                       text-overflow: ellipsis;
+                        display: block;
+                        max-height: 2rem;
+                        line-height: 2rem;
+                        @include text-ellipsis();
                    }
                    span:last-of-type{
                        margin-bottom: 10px;
