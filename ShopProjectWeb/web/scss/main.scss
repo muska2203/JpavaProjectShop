@@ -37,6 +37,8 @@ $btn-bg: #3c3631;
 
 $features-box-width: 300px;
 $features-box-height: 120px; 
+
+$btn-map-size: 50px;
 *{
 	margin: 0;
 	padding: 0;
@@ -93,7 +95,7 @@ button:focus, input:focus{
 	min-height: 500px;
 	min-height: 100vh;
     */
-    min-height: 200px;
+    min-height: 100px;
     & > div{
         padding: 0 8%;
     }
@@ -101,67 +103,6 @@ button:focus, input:focus{
        div[class],ul{
            text-align: center !important;
        }   
-    }
-}
-.map{
-    min-height: 20px;
-    height: 20px;
-    position: relative;
-    transition: 1s;
-    #map{
-        height: 100%;
-        .gm-style-cc, .gmnoprint, a img[draggable=false]{
-            display: none;
-        }
-    }
-    .map-cover{
-        z-index: 4;
-        position: absolute;
-        top: 0; right: 0; bottom: 0; left: 0; 
-    }
-    button.btn-map-open{
-        z-index: 5;
-        display: inline-block;
-        width: 50px;
-        height: 50px;
-        padding: 0;
-        border-radius: 50%;
-        border: 2px solid $red-color;
-        background-color: $red-color;
-        position: absolute;
-        bottom: 50%;
-        left: 50%;
-        transform: translate(-50%,50%);
-        box-shadow: 0 0 2px $red-color;
-        opacity: 0.9;
-        transition: 1s;
-        transition-delay: 1s;
-        &:hover{
-            box-shadow: 0 0 15px $red-color;
-            .fa{
-                color: $light-color;  
-            }
-        }
-        .fa{
-            display: inline-block;
-            width: 20px;
-            line-height: 50px;
-            color: $light-color;
-            transition: 1s;
-        }
-    }
-    &.open{
-        height: 500px;
-        .map-cover{
-            display: none;
-        }
-        button.btn-map-open{
-            bottom: 0;
-            transition-delay: 0s;
-            .fa{
-                transform: rotate(180deg);
-            }
-        }
     }
 }
 .intro{
@@ -491,6 +432,84 @@ button:focus, input:focus{
                     padding: 0;
                 }
             }
+        }
+    }
+}
+.quote{
+    min-height: 1px;
+    padding: 50px 8%;
+    background-color: #f5f6f1;
+    text-align: center;
+    h2{
+        font-size: 2rem;
+        line-height: 3rem;
+    }
+    p{
+        font-family: museo_t;
+        line-height: 2rem;
+    }
+}
+.map{
+    min-height: 20px;
+    height: 20px;
+    position: relative;
+    transition: 1s;
+    #map{
+        height: 100%;
+        .gm-style-cc, .gmnoprint, a img[draggable=false]{
+            display: none;
+        }
+    }
+    .map-cover{
+        z-index: 4;
+        position: absolute;
+        top: 0; right: 0; bottom: 0; left: 0; 
+    }
+    button.btn-map-open{
+        z-index: 5;
+        display: inline-block;
+        width: $btn-map-size;
+        height: $btn-map-size;
+        padding: 0;
+        border-radius: 50%;
+        border: 2px solid $red-color;
+        background-color: $red-color;
+        position: absolute;
+        bottom: 50%;
+        left: 50%;
+        transform: translate(-50%,50%);
+        box-shadow: 0 0 2px $red-color;
+        opacity: 0.9;
+        transition: 1s;
+        transition-delay: 1s;
+        &:hover{
+            box-shadow: 0 0 15px $red-color;
+            .fa{
+                color: $light-color;  
+            }
+        }
+        .fa{
+            display: inline-block;
+            vertical-align: middle;
+            line-height: $btn-map-size ;
+            color: $light-color;
+            transition: 1s;
+        }
+    }
+    &.open{
+        height: 500px;
+        .map-cover{
+            display: none;
+        }
+        button.btn-map-open{
+            bottom: 0;
+            transition-delay: 0s;
+            .fa{
+                transform: rotate(180deg);
+            }
+        }
+        @media screen and (max-width: 600px){
+            height: 300px;
         }
     }
 }
