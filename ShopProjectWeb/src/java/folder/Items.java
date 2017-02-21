@@ -153,6 +153,11 @@ public class Items {
         return stm.executeQuery("SELECT * FROM baseShop WHERE cost <= "+costMax+" AND cost >= "+costMin);
     }
     
+    public void addInDate(int cost, String name) throws SQLException
+    {
+        ResultSet set = stm.executeQuery("INSERT INTO baseShop(name,cost) VALUES("+name+","+cost+")");
+    }
+    
     public int getId()
     {
         return id;
