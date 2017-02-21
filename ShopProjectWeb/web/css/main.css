@@ -66,6 +66,9 @@ button:focus, input:focus {
   min-height: 200px; }
   .wrapper > div {
     padding: 0 8%; }
+  @media screen and (min-width: 2200px) {
+    .wrapper div[class], .wrapper ul {
+      text-align: center !important; } }
 
 .intro .info {
   font-family: museo_t;
@@ -113,12 +116,12 @@ button:focus, input:focus {
       vertical-align: top;
       line-height: 170px; }
     .intro .header-container header .logo {
-      width: 30%; }
+      width: 25%; }
       .intro .header-container header .logo img {
         display: inline-block;
         vertical-align: middle; }
     .intro .header-container header .nav {
-      width: 55%;
+      width: 50%;
       font-family: museo_r;
       font-size: 1.125rem;
       text-align: center; }
@@ -140,7 +143,7 @@ button:focus, input:focus {
             height: 1.125rem;
             border-right: 2px solid #f55856; }
     .intro .header-container header .shop-card {
-      width: 15%;
+      width: 25%;
       text-align: right; }
       .intro .header-container header .shop-card > div {
         display: inline-block;
@@ -155,7 +158,7 @@ button:focus, input:focus {
         .intro .header-container header .shop-card .shop-card-icon img {
           vertical-align: middle;
           margin-bottom: 4px; }
-    @media screen and (max-width: 1000px) {
+    @media screen and (max-width: 1100px) {
       .intro .header-container header {
         padding: 2rem 0; }
         .intro .header-container header > div[class] {

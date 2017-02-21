@@ -97,6 +97,11 @@ button:focus, input:focus{
     & > div{
         padding: 0 8%;
     }
+    @media screen and (min-width: 2200px){
+       div[class],ul{
+           text-align: center !important;
+       }   
+    }
 }
 .intro{
     .info{
@@ -161,14 +166,14 @@ button:focus, input:focus{
                 line-height: $header-height;
             }
             .logo{
-                width: 30%;
+                width: 25%;
                 img{
                     display: inline-block;
                     vertical-align: middle;
                 }
             }
             .nav{
-                width: 55%;
+                width: 50%;
                 font-family: museo_r;
                 font-size: 1.125rem;
                 text-align: center;
@@ -195,7 +200,7 @@ button:focus, input:focus{
                 }
             }
             .shop-card{
-                width: 15%;
+                width: 25%;
                 text-align: right;
                 & > div{
                     display: inline-block;
@@ -216,7 +221,7 @@ button:focus, input:focus{
                     }
                 }
             }
-            @media screen and (max-width: 1000px){
+            @media screen and (max-width: 1100px){
                 padding: 2rem 0;
                 & > div[class]{
                     width: 100%;
