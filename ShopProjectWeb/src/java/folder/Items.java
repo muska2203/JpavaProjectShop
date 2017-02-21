@@ -21,8 +21,8 @@ public class Items {
     Connection connect = null;
     Statement stm = null;
     
-    int id,cost;
-    String name;
+    private int id,costMin, costMax;
+    private String name;
     
     Set<Item> listItem = null;
     Set<Item> basket = null;
@@ -49,9 +49,13 @@ public class Items {
         }catch(Exception e)
         {id = 0;}
         try{
-            cost = Integer.valueOf(values.get("cost")[0]);
+            costMax = Integer.valueOf(values.get("costMax")[0]);
         }catch(Exception e)
-        {cost = 0;}
+        {costMax = 100000;}
+        try{
+            costMin = Integer.valueOf(values.get("costMin")[0]);
+        }catch(Exception e)
+        {costMin = 0;}
         try{
             name = values.get("name")[0];
         }catch(Exception e)
@@ -99,6 +103,7 @@ public class Items {
             int id = res.getInt("id");
             int cost = res.getInt("cost");
             String name = res.getString("name");
+            if(cost <= this.costMax && cost >= this.costMin)
             listItem.add(new Item(id,cost,name));
         }
     }
@@ -141,11 +146,28 @@ public class Items {
     
     public ResultSet findByCost() throws SQLException //Поиск по cost
     {
-        return stm.executeQuery("SELECT * FROM baseShop WHERE cost <= "+cost);
+        return stm.executeQuery("SELECT * FROM baseShop WHERE cost <= "+costMax+" AND cost >= "+costMin);
     }
-    public ResultSet findByCost(int cost) throws SQLException //Поиск по cost
+    public ResultSet findByCost(int costMax, int costMin) throws SQLException //Поиск по cost
     {
-        return stm.executeQuery("SELECT * FROM baseShop WHERE cost <= "+cost);
+        return stm.executeQuery("SELECT * FROM baseShop WHERE cost <= "+costMax+" AND cost >= "+costMin);
+    }
+    
+    public int getId()
+    {
+        return id;
+    }
+    public int getCostMax()
+    {
+        return costMax;
+    }
+    public int getCostMin()
+    {
+        return costMin;
+    }
+    public String getName()
+    {
+        return name;
     }
     
 }
