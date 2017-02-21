@@ -212,6 +212,50 @@ button:focus, input:focus {
       padding: 25px 10px;
       margin: 0 0 30px 0; } }
 
+/* Class: Items card start */
+.items-list {
+  text-align: center; }
+  .items-list .item-container {
+    display: inline-block;
+    vertical-align: top;
+    min-width: 275px;
+    box-sizing: border-box;
+    padding: 0 20px;
+    margin-bottom: 40px; }
+    .items-list .item-container .item {
+      max-height: 340px;
+      width: 275px;
+      margin: 0 auto;
+      text-align: left; }
+      .items-list .item-container .item img {
+        width: 100%;
+        height: 200px; }
+      .items-list .item-container .item > span {
+        display: block;
+        max-height: 2rem;
+        line-height: 2rem;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis; }
+      .items-list .item-container .item span:last-of-type {
+        margin-bottom: 10px; }
+      .items-list .item-container .item .description {
+        font-size: 1.125rem;
+        font-family: museo_t; }
+      .items-list .item-container .item .price {
+        font-family: museo_bold;
+        font-size: 1.25rem; }
+      .items-list .item-container .item button {
+        display: inline-block;
+        width: 100%; }
+  @media screen and (max-width: 600px) {
+    .items-list {
+      padding-top: 50px; }
+      .items-list .item-container {
+        width: 100%;
+        padding: 0; } }
+
+/* Class: Items card end */
 .items {
   padding-top: 50px; }
   .items-container > div {
@@ -268,42 +312,8 @@ button:focus, input:focus {
         transition: 0.7s; }
         .items-container .items-interface form input[type=submit]:hover {
           color: #f55856; }
-  .items-container .items-list {
-    width: 70%;
-    text-align: center; }
-    .items-container .items-list .item-container {
-      display: inline-block;
-      vertical-align: top;
-      min-width: 275px;
-      box-sizing: border-box;
-      padding: 0 20px;
-      margin-bottom: 40px; }
-      .items-container .items-list .item-container .item {
-        max-height: 340px;
-        width: 275px;
-        margin: 0 auto;
-        text-align: left; }
-        .items-container .items-list .item-container .item img {
-          width: 100%;
-          height: 200px; }
-        .items-container .items-list .item-container .item > span {
-          display: block;
-          max-height: 2rem;
-          line-height: 2rem;
-          overflow: hidden;
-          white-space: nowrap;
-          text-overflow: ellipsis; }
-        .items-container .items-list .item-container .item span:last-of-type {
-          margin-bottom: 10px; }
-        .items-container .items-list .item-container .item .description {
-          font-size: 1.125rem;
-          font-family: museo_t; }
-        .items-container .items-list .item-container .item .price {
-          font-family: museo_bold;
-          font-size: 1.25rem; }
-        .items-container .items-list .item-container .item button {
-          display: inline-block;
-          width: 100%; }
+  .items .items-list {
+    width: 70%; }
   @media screen and (max-width: 600px) {
     .items .items-container {
       padding: 0; }
@@ -316,12 +326,28 @@ button:focus, input:focus {
         text-align: center; }
         .items .items-container .items-interface .cost-range {
           margin: 0;
-          text-align: center; }
-      .items .items-container .items-list {
-        padding-top: 50px; }
-        .items .items-container .items-list .item-container {
-          width: 100%;
-          padding: 0; } }
+          text-align: center; } }
+
+.items-template {
+  padding-top: 40px;
+  text-align: center; }
+  .items-template:nth-child(odd) {
+    background-color: #f8f8f8; }
+    .items-template:nth-child(odd) h2 span {
+      background: #f8f8f8; }
+  .items-template h2 {
+    margin-bottom: 40px;
+    font-size: 1.875rem;
+    text-transform: uppercase;
+    background-image: url(../img/line-for-h.png);
+    background-position: center;
+    background-repeat: repeat-x; }
+    .items-template h2 span {
+      padding: 0 15px;
+      background: #FFF; }
+    @media screen and (max-width: 600px) {
+      .items-template h2 {
+        margin-bottom: 0; } }
 
 .quote {
   min-height: 1px;

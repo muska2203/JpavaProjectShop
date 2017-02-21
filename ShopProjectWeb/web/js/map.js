@@ -101,7 +101,7 @@ $(function(){
         var reloadMap = setInterval(function(){
             google.maps.event.trigger(map, 'resize');
             console.log("hehehe");
-        }, 10);
+        }, 100);
         setTimeout(function(){
             clearInterval(reloadMap);
         },2000);

@@ -289,6 +289,57 @@ button:focus, input:focus{
         }
     }
 }
+/* Class: Items card start */
+.items-list{
+    text-align: center;
+    .item-container{
+        display: inline-block;
+        vertical-align: top;
+        min-width: $item-width;
+        box-sizing: border-box;
+        padding: 0 20px;
+        margin-bottom: 40px;
+        .item{
+            max-height: $item-height;
+            width: $item-width;
+            margin: 0 auto;
+            text-align: left;
+            img{
+                width: 100%;
+                height: 200px;
+            }
+            & > span{
+                display: block;
+                max-height: 2rem;
+                line-height: 2rem;
+                @include text-ellipsis();
+            }
+            span:last-of-type{
+                margin-bottom: 10px;
+            }
+            .description{
+                font-size: 1.125rem;
+                font-family: museo_t;
+            }
+            .price{
+                font-family: museo_bold;
+                font-size: 1.25rem;
+            }
+            button{
+                display: inline-block;
+                width: 100%;
+            }
+        }
+    }
+    @media screen and (max-width: 600px){
+        padding-top: 50px;
+        .item-container{
+            width: 100%;
+            padding: 0;
+        }
+    }
+}
+/* Class: Items card end */
 .items{
     padding-top: 50px;
     &-container{
@@ -364,50 +415,9 @@ button:focus, input:focus{
                 }
            }
        }
-       .items-list{
-           width: 70%;
-           text-align: center;
-           .item-container{
-               display: inline-block;
-               vertical-align: top;
-               min-width: $item-width;
-               box-sizing: border-box;
-               padding: 0 20px;
-               margin-bottom: 40px;
-               .item{
-                   max-height: $item-height;
-                   width: $item-width;
-                   margin: 0 auto;
-                   text-align: left;
-                   img{
-                        width: 100%;
-                        height: 200px;
-                   }
-                   & > span{
-                        display: block;
-                        max-height: 2rem;
-                        line-height: 2rem;
-                        @include text-ellipsis();
-                   }
-                   span:last-of-type{
-                       margin-bottom: 10px;
-                   }
-                   .description{
-                       font-size: 1.125rem;
-                       font-family: museo_t;
-                   }
-                   .price{
-                        font-family: museo_bold;
-                        font-size: 1.25rem;
-                   }
-                   button{
-                        display: inline-block;
-                        width: 100%;
-                   }
-               }
-           }
-       }
-        
+    }
+    .items-list{
+        width: 70%;
     }
     @media screen and (max-width: 600px){
         .items-container{
@@ -425,14 +435,35 @@ button:focus, input:focus{
                     text-align: center;
                 }
             }
-            .items-list{
-                padding-top: 50px;
-                .item-container{
-                    width: 100%;
-                    padding: 0;
-                }
-            }
         }
+    }
+}
+.items-template{
+    &:nth-child(odd){
+        background-color: #f8f8f8;
+        h2 span{
+            background: #f8f8f8;
+        }
+    }
+    padding-top: 40px;
+    text-align: center;
+    h2{
+        margin-bottom: 40px;
+        font-size: 1.875rem;
+        text-transform: uppercase;
+        background-image: url(../img/line-for-h.png);
+        background-position: center;
+        background-repeat: repeat-x;
+        span{
+            padding: 0 15px;
+            background: $light-color;
+        }
+        @media screen and (max-width: 600px){
+            margin-bottom: 0;
+        }
+    }
+    .items-container{
+        
     }
 }
 .quote{
