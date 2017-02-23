@@ -80,7 +80,7 @@ for(var i = 0; i < btnAddCart.length; i++){
             if (req.status != 200) {
               console.log('Error!');
             } else {
-              var jsonData = eval("(" + Request.responseText + ")");
+              var jsonData = eval("(" + req.responseText + ")");
               str = +req.responseText;
               cartItems.innerHTML = +(cartItems.innerHTML) + 1;
               cartMoney.innerHTML = +(cartMoney.innerHTML) + (+str);
