@@ -328,6 +328,12 @@ button:focus, input:focus{
             button{
                 display: inline-block;
                 width: 100%;
+                &.clicked{
+                    background-color: $red-color;
+                    &:hover{
+                        color: $light-color;
+                    }
+                }
             }
         }
     }

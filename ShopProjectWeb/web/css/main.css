@@ -248,6 +248,10 @@ button:focus, input:focus {
       .items-list .item-container .item button {
         display: inline-block;
         width: 100%; }
+        .items-list .item-container .item button.clicked {
+          background-color: #f55856; }
+          .items-list .item-container .item button.clicked:hover {
+            color: #FFF; }
   @media screen and (max-width: 600px) {
     .items-list {
       padding-top: 50px; }
