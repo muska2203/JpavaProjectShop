@@ -68,7 +68,7 @@ cartMoney.innerHTML = 0;
 for(var i = 0; i < btnAddCart.length; i++){
     btnAddCart[i].addEventListener("click", function(){
         $(this).addClass('clicked');
-        var value = addToCart(i);
-        cartMoney.innerHTML += value;
+        var value = +addToCart(i);
+        cartMoney.innerHTML = value;
     });
 }
