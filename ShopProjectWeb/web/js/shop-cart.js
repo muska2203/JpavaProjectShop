@@ -70,7 +70,19 @@ cartMoney.innerHTML = 0;
 for(var i = 0; i < btnAddCart.length; i++){
     btnAddCart[i].addEventListener("click", function(){
         $(this).addClass('clicked');
-        addToCart(i);
-        cartMoney.innerHTML = str;
+        var req = new newXMLHttpRequest();
+        req.open("POST", "TestServlet", false);
+        req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        req.send();
+        req.onreadystatechange = function() { 
+            if (req.readyState != 4) return;
+              console.log('Finish');
+            if (req.status != 200) {
+              console.log('Error!');
+            } else {
+              str = req.responseText;
+              cartMoney.innerHTML += (+cartMoney.innerHTML) + (+str);
+            }
+        }
     });
 }
