@@ -64,9 +64,12 @@ function getReadyStateHandler(req) {
     alert(req.responseText);
     }
 }*/
-
-cartItems.innerHTML = 0;
-cartMoney.innerHTML = 0;
+for (var i in cartItems){
+    cartItems[i].innerHTML = 0;
+}
+for (var i in cartMoney){
+    cartMoney[i].innerHTML = 0;
+}
 for(var i = 0; i < btnAddCart.length; i++){
     btnAddCart[i].addEventListener("click", function(){
         $(this).addClass('clicked');
@@ -85,7 +88,9 @@ for(var i = 0; i < btnAddCart.length; i++){
               for (var i in cartItems){
                 cartItems[i].innerHTML = +(cartItems[i].innerHTML) + 1;
               }
-              cartMoney.innerHTML = +(cartMoney.innerHTML) + (+str);
+              for (var i in cartItems){
+                cartMoney[i].innerHTML = +(cartMoney[i].innerHTML) + (+str);
+              }
               for (var datum in jsonData) console.log(jsonData[datum]);
             }
         }
