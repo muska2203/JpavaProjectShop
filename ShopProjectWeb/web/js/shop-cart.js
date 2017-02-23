@@ -1,5 +1,5 @@
 var cartItems = document.getElementsByClassName('card-items-value');
-var cartMoney = document.getElementsByClassName('card-money-value')[0];
+var cartMoney = document.getElementsByClassName('card-money-value');
 var btnAddCart = document.getElementsByClassName('btn-add-card');
 cartItems.innerHTML = "1";
 /*
