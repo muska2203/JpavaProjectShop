@@ -80,11 +80,11 @@ for(var i = 0; i < btnAddCart.length; i++){
             if (req.status != 200) {
               console.log('Error!');
             } else {
-              var jsonData = eval("(" + req.responseText + ")");
+              var jsonData = JSON.parse(req.responseText);
               str = +req.responseText;
               cartItems.innerHTML = +(cartItems.innerHTML) + 1;
               cartMoney.innerHTML = +(cartMoney.innerHTML) + (+str);
-              alert(jsonData[0]+"||||||"+jsonData[1]);
+              for (var datum in jsonData) console.log(jsonData[datum]);
             }
         }
     });
