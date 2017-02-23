@@ -1,4 +1,4 @@
-var cartItems = document.getElementsByClassName('card-items-value')[0];
+var cartItems = document.getElementsByClassName('card-items-value');
 var cartMoney = document.getElementsByClassName('card-money-value')[0];
 var btnAddCart = document.getElementsByClassName('btn-add-card');
 cartItems.innerHTML = "1";
@@ -82,7 +82,9 @@ for(var i = 0; i < btnAddCart.length; i++){
             } else {
               var jsonData = JSON.parse(req.responseText);
               str = +req.responseText;
-              cartItems.innerHTML = +(cartItems.innerHTML) + 1;
+              for (var i in cartItems){
+                cartItems[i].innerHTML = +(cartItems[i].innerHTML) + 1;
+              }
               cartMoney.innerHTML = +(cartMoney.innerHTML) + (+str);
               for (var datum in jsonData) console.log(jsonData[datum]);
             }
