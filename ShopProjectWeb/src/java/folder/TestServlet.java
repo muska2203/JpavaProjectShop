@@ -75,7 +75,7 @@ public class TestServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         
         //response.setContentType("application/xml");
-        response.getWriter().write("ZDrasti");
+        response.getWriter().write("300");
     }
 
     /**
