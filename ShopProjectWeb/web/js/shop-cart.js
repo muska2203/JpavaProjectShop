@@ -81,6 +81,7 @@ for(var i = 0; i < btnAddCart.length; i++){
               console.log('Error!');
             } else {
               str = +req.responseText;
+              cartItems.innerHTML = +(cartItems.innerHTML) + 1;
               cartMoney.innerHTML = +(cartMoney.innerHTML) + (+str);
             }
         }
