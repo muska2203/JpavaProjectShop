@@ -5,6 +5,7 @@
  */
 package folder;
 
+import com.google.gson.Gson;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -74,8 +75,12 @@ public class TestServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         
+        Gson gson = new Gson();
+        TestJson js = new TestJson();
+        String jsonString = gson.toJson(js);
+        
         //response.setContentType("application/xml");
-        response.getWriter().write("300");
+        response.getWriter().write(jsonString);
     }
 
     /**
