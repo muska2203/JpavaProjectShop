@@ -30,37 +30,49 @@ function newXMLHttpRequest() {
   return xmlreq;
 }
 function addToCart(itemId){
-    var req = newXMLHttpRequest();
+    var req = new XMLHttpRequest();
     // Оператор для получения сообщения обратного вызова 
     // из объекта запроса
-    var handlerFunction = getReadyStateHandler(req);
-    req.onreadystatechange = handlerFunction;
     // Открываем HTTP-соединение с помощью POST-метода к 
     //сервлету корзины покупателя.
     // Третий параметр определяет, что запрос  асинхронный.
-    req.open("POST", "file:///Users/admin/Desktop/git/JpavaProjectShop/ShopProjectWeb/build/web/WEB-INF/classes/folder/TestJSON.class", true);
+    req.open("POST", "TestServlet", true);
     // Определяет, что в содержимом запроса есть данные 
-    req.setRequestHeader("Content-Type", 
-        "application/x-www-form-urlencoded");
+    req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     // Посылаем закодированные данные, говорящие о том, что я хочу добавить 
     // определенный продукт в корзину.
-    req.send("action=add&item="+itemId);
-    var q = req.getAllResponseHeaders();
-    console.log(q);
+    req.send();
+            
+    req.onreadystatechange = function() { // (3)
+  if (req.readyState != 4) return;
+
+    console.log('Готово!');
+
+  if (req.status != 200) {
+    alert(req.status + ': ' + xhr.statusText);
+  } else {
+    alert(req.responseText+"||"+req.readyState);
+  }
+
 }
+    //var handlerFunction = getReadyStateHandler(req);
+    //req.onreadystatechange = handlerFunction;
+    //var q = req.responseText;
+    console.log(req.readyState+"|||"+req.responseText);
+}
+
 function getReadyStateHandler(req) {
     // Возвращает неопределенную функцию, которая считывает 
     // данные XMLHttpRequest return function () {
     // Если требуется статус "закончен"
-    if (req.readyState == 4) {
-    // Проверяем, пришел ли  успешный ответ сервера 
-    if (req.status == 200) {
-        // Передает  XML оператору 
-        responseXmlHandler(req.responseXML);
-    } else {
-        // Возникла ошибка HTTP 
-        alert("HTTP error: "+req.status);
-        }
+    if (req.readyState != 4) return;
+
+    console.log('Готово!');
+
+  if (req.status != 200) {
+    alert(req.status + ': ' + xhr.statusText);
+  } else {
+    alert(req.responseText);
     }
 }
 for(var i = 0; i < btnAddCart.length; i++){

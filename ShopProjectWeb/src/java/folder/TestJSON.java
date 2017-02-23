@@ -27,7 +27,6 @@ public class TestJSON extends HttpServlet{
         PrintWriter pw = res.getWriter();
         pw.println("<H1>Hello, world! или Привет мир</H1>");
         String message = "hellowushki";
-        res.setContentType("text");
         res.getWriter().write(message);
         System.out.print(res.getStatus());
     }
