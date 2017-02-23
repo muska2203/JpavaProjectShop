@@ -29,12 +29,13 @@ function newXMLHttpRequest() {
   }
   return xmlreq;
 }
-function addToCart(itemId){
+var str = "начальное знач";
+function addToCart(item){
     var req = new newXMLHttpRequest();
-    req.open("POST", "TestServlet", true);
+    req.open("POST", "TestServlet", false);
     req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     req.send();
-    var str;
+    /*
     req.onreadystatechange = function() { 
         if (req.readyState != 4) return;
           console.log('Finish');
@@ -43,8 +44,9 @@ function addToCart(itemId){
         } else {
           str = req.responseText;
         }
-    }
-    return str;
+    
+    }*/
+    str = req.responseText;
 }
 
 /*
@@ -68,7 +70,7 @@ cartMoney.innerHTML = 0;
 for(var i = 0; i < btnAddCart.length; i++){
     btnAddCart[i].addEventListener("click", function(){
         $(this).addClass('clicked');
-        var value = +addToCart(i);
-        cartMoney.innerHTML = value;
+        addToCart(i);
+        cartMoney.innerHTML = str;
     });
 }
