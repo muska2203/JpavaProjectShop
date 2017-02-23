@@ -33,18 +33,18 @@ function addToCart(itemId){
     var req = newXMLHttpRequest();
     // Оператор для получения сообщения обратного вызова 
     // из объекта запроса
-    var handlerFunction = getReadyStateHandler(req, updateCart);
+    var handlerFunction = getReadyStateHandler(req);
     req.onreadystatechange = handlerFunction;
     // Открываем HTTP-соединение с помощью POST-метода к 
     //сервлету корзины покупателя.
     // Третий параметр определяет, что запрос  асинхронный.
-    req.open("POST", "TestJSON.class", true);
+    req.open("POST", "file:///Users/admin/Desktop/git/JpavaProjectShop/ShopProjectWeb/build/web/WEB-INF/classes/folder/TestJSON.class", true);
     // Определяет, что в содержимом запроса есть данные 
     req.setRequestHeader("Content-Type", 
         "application/x-www-form-urlencoded");
     // Посылаем закодированные данные, говорящие о том, что я хочу добавить 
     // определенный продукт в корзину.
-    req.send("action=add&item="+itemCode);
+    req.send("action=add&item="+itemId);
     var q = req.getAllResponseHeaders();
     console.log(q);
 }
