@@ -80,9 +80,11 @@ for(var i = 0; i < btnAddCart.length; i++){
             if (req.status != 200) {
               console.log('Error!');
             } else {
+              var jsonData = eval("(" + Request.responseText + ")");
               str = +req.responseText;
               cartItems.innerHTML = +(cartItems.innerHTML) + 1;
               cartMoney.innerHTML = +(cartMoney.innerHTML) + (+str);
+              alert(jsonData[0]+"||||||"+jsonData[1]);
             }
         }
     });
