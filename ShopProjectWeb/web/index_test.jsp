@@ -62,8 +62,8 @@
 				</div><!--
 				--><div class="shop-card">
 					<div class="shop-card-info">
-						<span class="card-items"><span class="red-color"><%=items.getMiniBasketCount()%></span> items</span>
-						<span class="card-money"><span class="red-color"><%=items.getMiniBasketPrice()%></span> $</span>
+						<span class="card-items"><span class="red-color card-items-value">10</span> items</span>
+						<span class="card-money"><span class="red-color card-money-value">125</span> $</span>
 					</div><!--
 					--><div class="shop-card-icon">
 						<a href="#"><img src="img/shop-card.png" alt=""></a>
@@ -76,6 +76,20 @@
 				<div class="slide1" id="slide1">
 					
 				</div>
+			</div>
+		</div>
+                <div class="intro-features">
+			<div class="intro-features-box">
+				<h3>free shiping</h3>
+				<p>- on all orders above <span class="red-color">$99</span></p>
+			</div><!--
+			--><div class="intro-features-box">
+				<h3>new shoes collection</h3>
+				<p>- brand new collection of <span class="red-color">Bulls Shoes</span></p>
+			</div><!--
+			--><div class="intro-features-box">
+				<h3>money back guarantee</h3>
+				<p>- on all orders above <span class="red-color">$99</span></p>
 			</div>
 		</div>
 	</div>
@@ -105,10 +119,7 @@
 			</div><!--
 			--><div class="items-list">
                             
-                            
-                            
                             <%
-                            
                             for(Item it : set){
                             %>
                             <div class="item-container">
@@ -123,16 +134,104 @@
 				</div>
                             <%}%>
                             
-                            
-                            
-                            
-                            
-                            
-                            
 			</div>
 		</div>
 	</div>
+	<div class="wrapper items-template latest-items">
+		<div><h2><span>our latest items</h2></span></div>
+		<div class="items-container">
+			<div class="items-list">
+				<div class="item-container">
+					<div class="item">
+						<img src="img/items/item3.png" alt="">
+						<span class="description">
+							<a href="#">Bullsy Snickers that bring you a lot of pleasure</a>
+						</span>
+						<span class="price"><span class="item-price">145</span> $</span>
+						<button class="button btn-add-card">add to card</button>
+					</div>
+				</div><!--
+				--><div class="item-container">
+					<div class="item">
+						<img src="img/items/item4.png" alt="">
+						<span class="description">
+							<a href="#">Bullsy grey Snickers / Shoes</a>
+						</span>
+						<span class="price"><span class="item-price">145</span> $</span>
+						<button class="button btn-add-card">add to card</button>
+					</div>
+				</div><!--
+				--><div class="item-container">
+					<div class="item">
+						<img src="img/items/item1.png" alt="">
+						<span class="description">
+							<a href="#">Bullsy grey Snickers / Shoes</a>
+						</span>
+						<span class="price"><span class="item-price">145</span> $</span>
+						<button class="button btn-add-card">add to card</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="wrapper items-template featured-items">
+		<div><h2><span>featured items</h2></span></div>
+		<div class="items-container">
+			<div class="items-list">
+				<div class="item-container">
+					<div class="item">
+						<img src="img/items/item1.png" alt="">
+						<span class="description">
+							<a href="#">Bullsy grey Snickers / Shoes</a>
+						</span>
+						<span class="price"><span class="item-price">145</span> $</span>
+						<button class="button btn-add-card">add to card</button>
+					</div>
+				</div><!--
+				--><div class="item-container">
+					<div class="item">
+						<img src="img/items/item2.png" alt="">
+						<span class="description">
+							<a href="#">Rough Bullsy Shoes for Winter</a>
+						</span>
+						<span class="price"><span class="item-price">99.9</span> $</span>
+						<button class="button btn-add-card">add to card</button>
+					</div>
+				</div><!--
+				--><div class="item-container">
+					<div class="item">
+						<img src="img/items/item3.png" alt="">
+						<span class="description">
+							<a href="#">Bullsy Snickers that bring you a lot of pleasure</a>
+						</span>
+						<span class="price"><span class="item-price">145</span> $</span>
+						<button class="button btn-add-card">add to card</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="wrapper quote">
+		<h2>Bullsy - a rugged store for rugged people</h2>
+		<p>- read more about our store regulations and <a href="" hfer="#"><span class="red-color">policy</span></a> here. Lorem ipsum dolor sit amet</p>
+	</div>
+	<div class="wrapper map" id="map-container">
+		<div id="map"></div>
+		<div class="map-cover"></div>
+		<button class="btn-map-open"><span class="fa fa-chevron-down"></span></button>
+	</div>
 	<div class="wrapper footer">
+		<div class="main-footer">
+			<div class="main-footer-logo">
+				<img src="img/logo-light.png" alt="">
+			</div><!--
+			--><div class="main-footer-info">
+				© 2013 copyright PREMIUMCODING // All rights reserved
+			</div><!--
+			--><div class="main-footer-button">
+				<button class="btn-up"><a href="#intro"><span class="fa fa-chevron-up"></span></a></button>
+			</div>
+		</div>
 		<div class="footer-info">
 			<div class="footer-info-icons">
 				<a href="#"><div class="fa fa-github"></div></a>
@@ -147,6 +246,10 @@
 		</div>
 	</div>
 
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="js/jquery-1.11.1.min.js"></script>
+	<script src="js/map.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAoSTLEwKV2euYcXzQoBKUimW4KdBGGPm0&callback=initMap" async defer></script>
+	<script src="js/smoothScrolling.js"></script>
+	<script src="js/shop-cart.js"></script>
 </body>
 </html>
