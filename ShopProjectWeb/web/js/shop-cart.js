@@ -64,10 +64,10 @@ function getReadyStateHandler(req) {
     alert(req.responseText);
     }
 }*/
-for (var i in cartItems){
+for (var i = 0; i < cartItems.length; i++){
     cartItems[i].innerHTML = 0;
 }
-for (var i in cartMoney){
+for (var i = 0; i < cartMoney.length; i++){
     cartMoney[i].innerHTML = 0;
 }
 for(var i = 0; i < btnAddCart.length; i++){
@@ -85,11 +85,15 @@ for(var i = 0; i < btnAddCart.length; i++){
             } else {
               var jsonData = JSON.parse(req.responseText);
               str = +req.responseText;
-              for (var i in cartItems){
+              for (var i = 0; i < cartItems.length; i++){
+                console.log("+||");
                 cartItems[i].innerHTML = +(cartItems[i].innerHTML) + 1;
               }
-              for (var i in cartItems){
+              console.log("\n");
+              for (var i = 0; i < cartMoney.length; i++){
+                console.log("-||");
                 cartMoney[i].innerHTML = +(cartMoney[i].innerHTML) + (+str);
+                
               }
               for (var datum in jsonData) console.log(jsonData[datum]);
             }
