@@ -152,6 +152,10 @@ button:focus, input:focus {
         vertical-align: middle; }
         .intro .header-container header .shop-card .shop-card-info > span {
           display: block;
+          max-width: 100px;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
           line-height: 1.5rem; }
       .intro .header-container header .shop-card .shop-card-icon {
         margin-left: 5px; }

@@ -212,6 +212,8 @@ button:focus, input:focus{
                     vertical-align: middle;
                     & > span{
                         display: block;
+                        max-width: 100px;
+                        @include text-ellipsis();
                         line-height: 1.5rem;
                     }
                 }
