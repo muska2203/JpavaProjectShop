@@ -90,6 +90,7 @@ button:focus, input:focus{
     color: $red-color;
 }
 
+/* popup-window-class start */
 .popup-window-template{
     display: none;
     z-index: 10;
@@ -99,20 +100,52 @@ button:focus, input:focus{
     .popup-close{
         position: absolute;
         top: 0; right: 0; bottom: 0; left: 0;
+        cursor: pointer;
+        .fa{
+            color: $light-color;
+            font-size: 2rem;
+            position: absolute;
+            right: 30px;
+            top: 30px;
+            transition: 0.7s;
+            &:hover{
+                color: $red-color;
+            }
+        }
     }
     .popup-window{
         position: absolute;
         top: 50%;
         left: 50%;
         transform: translate(-50%,-50%);
-        width: 300px;
-        height: 300px;
-        background-color: $red-color;
+        min-width: 320px;
+        box-sizing: border-box;
+        padding: 40px;
+        background-color: $dark-color;
+        color: $light-color;
+        font-size: 2rem;
+        label{
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+        input{
+            display: block;
+            width: 100%;
+            box-sizing: border-box;
+            padding: 5px 10px;
+            margin-bottom: 20px;
+            background: none;
+            border: 2px solid $light-color;
+            color: $light-color;
+            font-size: 1.5rem;
+        }
     }
     &.open{
         display: block;
     }
 }
+/* popup-window-class start */
+
 .shop-cart-fixed{
     z-index: 5;
     position: fixed;
@@ -171,12 +204,12 @@ button:focus, input:focus{
 }
 
 .wrapper{
-	position: relative;
     /*
+	position: relative;
 	min-height: 500px;
 	min-height: 100vh;
-    */
     min-height: 100px;
+    */
     & > div{
         padding: 0 8%;
     }
@@ -372,6 +405,8 @@ button:focus, input:focus{
         }
     }
 }
+.account{
+}
 /* Class: Items card start */
 .items-list{
     text-align: center;
@@ -458,8 +493,8 @@ button:focus, input:focus{
                     }
                }
                label{
-                   display: block;
-                   width: 100%;
+                   display: inline-block;
+                   margin-right: auto;
                    font-size: 1.125rem;
                    text-transform: capitalize;
                }

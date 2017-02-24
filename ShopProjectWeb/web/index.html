@@ -9,15 +9,25 @@
 </head>
 <body>
 	<div class="popup-window-template  popup-account">
-		<div class="popup-close"></div>
-		<div class="popup-window"></div>
+		<div class="popup-close"><span class="fa fa-close"></span></div>
+		<div class="popup-window">account</div>
+	</div>
+	<div class="popup-window-template  popup-login open">
+		<div class="popup-close"><span class="fa fa-close"></span></div>
+		<div class="popup-window">
+			<form action="#">
+				<label for="login-mail">Login:</label><input id="login-mail" type="mail"   placeholder="*mail">
+				<label for="login-password">Password:</label><input id="login-password" type="password" placeholder="*password">
+				<input type="submit" value="sign up">
+			</form>
+		</div>
 	</div>
 	<div class="shop-cart-fixed">
 		<span class="btn-cart-fixed fa fa-caret-left"></span>
 		<div class="shop-cart-fixed-content">
 			<span class="card-items"><span class="red-color card-items-value">10</span> items</span>
 			<span class="card-money"><span class="red-color card-money-value">125</span> $</span>
-			<a href="#" class="bth-shop-cart"><div class="fa fa-shopping-cart"></div></a>
+			<a class="btn-shop-cart" href="#account"><div class="fa fa-shopping-cart"></div></a>
 		</div>
 	</div>
 	<div class="wrapper intro">
@@ -36,7 +46,7 @@
 			--><div class="info-account">
 				<ul>
 					<li><a href="#" class="btn-account">my account</a></li><!--
-					--><li><a href="#">login</a></li><!--
+					--><li><a href="#" class="btn-login">login</a></li><!--
 					--><li><a href="#">ckeckout</a></li><!--
 					--><li><a href="#">sign up</a></li>
 				</ul>
@@ -61,7 +71,7 @@
 						<span class="card-money"><span class="red-color card-money-value">125</span> $</span>
 					</div><!--
 					--><div class="shop-card-icon">
-						<a href="#" class="btn-shop-cart"><img src="img/shop-card.png" alt=""></a>
+						<a href="#account" class="btn-shop-cart"><img src="img/shop-card.png" alt=""></a>
 					</div>
 				</div>
 			</header>
@@ -88,6 +98,9 @@
 			</div>
 		</div>
 	</div>
+	<div class="wrapper account">
+		<section id="account"></section>
+	</div>
 	<div class="wrapper items">
 		<div class="items-container">
 			<div class="items-interface">
@@ -102,10 +115,10 @@
 						--><input id="tags" type="text">
 					</fieldset>
 					<fieldset>
-						<label for="cost">price:</label><!--
+						<label for="cost-min">price:</label><!--
 						<div class="cost-interface"></div>
 						--><div class="cost-range">
-							<input class="cost" type="text" placeholder="min">
+							<input class="cost" id="cost-min" type="text" placeholder="min">
 							<input class="cost" type="text" placeholder="max">
 						</div>
 					</fieldset>

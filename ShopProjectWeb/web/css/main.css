@@ -57,6 +57,7 @@ button:focus, input:focus {
 .red-color {
   color: #f55856; }
 
+/* popup-window-class start */
 .popup-window-template {
   display: none;
   z-index: 10;
@@ -71,18 +72,45 @@ button:focus, input:focus {
     top: 0;
     right: 0;
     bottom: 0;
-    left: 0; }
+    left: 0;
+    cursor: pointer; }
+    .popup-window-template .popup-close .fa {
+      color: #FFF;
+      font-size: 2rem;
+      position: absolute;
+      right: 30px;
+      top: 30px;
+      transition: 0.7s; }
+      .popup-window-template .popup-close .fa:hover {
+        color: #f55856; }
   .popup-window-template .popup-window {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 300px;
-    height: 300px;
-    background-color: #f55856; }
+    min-width: 320px;
+    box-sizing: border-box;
+    padding: 40px;
+    background-color: #463f3a;
+    color: #FFF;
+    font-size: 2rem; }
+    .popup-window-template .popup-window label {
+      display: inline-block;
+      margin-bottom: 10px; }
+    .popup-window-template .popup-window input {
+      display: block;
+      width: 100%;
+      box-sizing: border-box;
+      padding: 5px 10px;
+      margin-bottom: 20px;
+      background: none;
+      border: 2px solid #FFF;
+      color: #FFF;
+      font-size: 1.5rem; }
   .popup-window-template.open {
     display: block; }
 
+/* popup-window-class start */
 .shop-cart-fixed {
   z-index: 5;
   position: fixed;
@@ -131,12 +159,12 @@ button:focus, input:focus {
       transform: translateY(-50%) translateX(-5%) rotate(180deg); }
 
 .wrapper {
-  position: relative;
     /*
+	position: relative;
 	min-height: 500px;
 	min-height: 100vh;
-    */
-  min-height: 100px; }
+    min-height: 100px;
+    */ }
   .wrapper > div {
     padding: 0 8%; }
   @media screen and (min-width: 2200px) {
@@ -361,8 +389,8 @@ button:focus, input:focus {
         .items-container .items-interface form fieldset:last-of-type {
           margin-bottom: 30px; }
       .items-container .items-interface form label {
-        display: block;
-        width: 100%;
+        display: inline-block;
+        margin-right: auto;
         font-size: 1.125rem;
         text-transform: capitalize; }
       .items-container .items-interface form input[type=text] {

@@ -9,6 +9,7 @@ frontend:
     popup-window for sign in account
     interface "account"
     interface "item"
+    fixed shop-cart (done)
 
 
 БД:
