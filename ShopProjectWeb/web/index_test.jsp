@@ -27,6 +27,7 @@
 %>
 <body>
 	<div class="wrapper intro">
+            <section id="intro"></section>
 		<div class="info">
 			<div class="info-support">
 				<a href="tel:+375291555294">

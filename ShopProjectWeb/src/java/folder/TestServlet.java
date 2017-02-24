@@ -76,9 +76,8 @@ public class TestServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         
         Gson gson = new Gson();
-        TestJson js = new TestJson();
-        String jsonString = gson.toJson(js);
-        
+        TestJson test = new TestJson();
+        String jsonString = gson.toJson(test);
         //response.setContentType("application/xml");
         //response.getWriter().write(jsonString);
         response.getWriter().write("{\"name\":\"lol\",\"baba\":123}");
