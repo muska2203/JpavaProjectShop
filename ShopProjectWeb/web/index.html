@@ -8,6 +8,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
+	<div class="popup-window-template  popup-account">
+		<div class="popup-close"></div>
+		<div class="popup-window"></div>
+	</div>
+	<div class="shop-cart-fixed">
+		<span class="btn-cart-fixed fa fa-caret-left"></span>
+		<div class="shop-cart-fixed-content">
+			<span class="card-items"><span class="red-color card-items-value">10</span> items</span>
+			<span class="card-money"><span class="red-color card-money-value">125</span> $</span>
+			<a href="#" class="bth-shop-cart"><div class="fa fa-shopping-cart"></div></a>
+		</div>
+	</div>
 	<div class="wrapper intro">
 		<section id="intro"></section>
 		<div class="info">
@@ -23,7 +35,7 @@
 			</div><!--
 			--><div class="info-account">
 				<ul>
-					<li><a href="#">my account</a></li><!--
+					<li><a href="#" class="btn-account">my account</a></li><!--
 					--><li><a href="#">login</a></li><!--
 					--><li><a href="#">ckeckout</a></li><!--
 					--><li><a href="#">sign up</a></li>
@@ -49,7 +61,7 @@
 						<span class="card-money"><span class="red-color card-money-value">125</span> $</span>
 					</div><!--
 					--><div class="shop-card-icon">
-						<a href="#"><img src="img/shop-card.png" alt=""></a>
+						<a href="#" class="btn-shop-cart"><img src="img/shop-card.png" alt=""></a>
 					</div>
 				</div>
 			</header>
@@ -95,6 +107,48 @@
 						--><div class="cost-range">
 							<input class="cost" type="text" placeholder="min">
 							<input class="cost" type="text" placeholder="max">
+						</div>
+					</fieldset>
+					<fieldset>
+						<label for="size">size:</label>
+						<div class="item-sizes">
+							<input type="checkbox" id="size1"><label for="size1">20</label><!--
+							--><input type="checkbox" id="size2"><label for="size2">21</label><!--
+							--><input type="checkbox" id="size3"><label for="size3">22</label><!--
+							--><input type="checkbox" id="size4"><label for="size4">23</label><!--
+							--><input type="checkbox" id="size5"><label for="size5">24</label><!--
+							--><input type="checkbox" id="size6"><label for="size6">25</label><!--
+							--><input type="checkbox" id="size7"><label for="size7">26</label><!--
+							--><input type="checkbox" id="size8"><label for="size8">27</label><!--
+							--><input type="checkbox" id="size9"><label for="size9">28</label><!--
+							--><input type="checkbox" id="size10"><label for="size10">29</label><!--
+							--><input type="checkbox" id="size11"><label for="size11">30</label><!--
+							--><input type="checkbox" id="size12"><label for="size12">31</label><!--
+							--><input type="checkbox" id="size13"><label for="size13">32</label>
+						</div>
+					</fieldset>
+					<fieldset>
+						<label for="size">color:</label>
+						<div class="item-colors">
+							<input type="checkbox" id="black-color"><label for="black-color"></label><!--
+							--><input type="checkbox" id="white-color"><label for="white-color"></label><!--
+							--><input type="checkbox" id="red-color"><label for="red-color"></label><!--
+							--><input type="checkbox" id="yellow-color"><label for="yellow-color"></label><!--
+							--><input type="checkbox" id="blue-color"><label for="blue-color"></label><!--
+							--><input type="checkbox" id="green-color"><label for="green-color"></label><!--
+							--><input type="checkbox" id="blue-color"><label for="blue-color"></label><!--
+							--><input type="checkbox" id="red-color"><label for="red-color"></label><!--
+							--><input type="checkbox" id="yellow-color"><label for="yellow-color"></label><!--
+							--><input type="checkbox" id="blue-color"><label for="blue-color"></label><!--
+							--><input type="checkbox" id="yellow-color"><label for="yellow-color"></label><!--
+							--><input type="checkbox" id="blue-color"><label for="blue-color"></label><!--
+							--><input type="checkbox" id="yellow-color"><label for="yellow-color"></label><!--
+							--><input type="checkbox" id="blue-color"><label for="blue-color"></label><!--
+							--><input type="checkbox" id="red-color"><label for="red-color"></label><!--
+							--><input type="checkbox" id="yellow-color"><label for="yellow-color"></label><!--
+							--><input type="checkbox" id="blue-color"><label for="blue-color"></label><!--
+							--><input type="checkbox" id="yellow-color"><label for="yellow-color"></label><!--
+							--><input type="checkbox" id="blue-color"><label for="blue-color"></label>
 						</div>
 					</fieldset>
 					<input type="submit" value="search">
@@ -269,5 +323,6 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAoSTLEwKV2euYcXzQoBKUimW4KdBGGPm0&callback=initMap" async defer></script>
 	<script src="js/smoothScrolling.js"></script>
 	<script src="js/shop-cart.js"></script>
+	<script src="js/popups.js"></script>
 </body>
 </html>

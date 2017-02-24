@@ -57,6 +57,79 @@ button:focus, input:focus {
 .red-color {
   color: #f55856; }
 
+.popup-window-template {
+  display: none;
+  z-index: 10;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5); }
+  .popup-window-template .popup-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0; }
+  .popup-window-template .popup-window {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 300px;
+    background-color: #f55856; }
+  .popup-window-template.open {
+    display: block; }
+
+.shop-cart-fixed {
+  z-index: 5;
+  position: fixed;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%) translateX(100%);
+  width: 80px;
+  height: 100px;
+  border: 3px solid #f55856;
+  border-right: none;
+  border-top-left-radius: 10%;
+  border-bottom-left-radius: 10%;
+  background-color: #463f3a;
+  transition: 0.7s; }
+  .shop-cart-fixed-content {
+    position: absolute;
+    top: 50%;
+    right: 5px;
+    transform: translateY(-50%);
+    text-align: right;
+    text-transform: uppercase;
+    color: #FFF; }
+    .shop-cart-fixed-content a {
+      color: #FFF; }
+      .shop-cart-fixed-content a:hover {
+        color: #f55856; }
+    .shop-cart-fixed-content > span {
+      display: inline-block;
+      vertical-align: middle;
+      width: 100%; }
+  .shop-cart-fixed .btn-cart-fixed {
+    z-index: 6;
+    position: absolute;
+    top: 50%;
+    left: 0px;
+    transform: translateY(-50%) translateX(-105%);
+    /*+border of parent*/
+    cursor: pointer; }
+    .shop-cart-fixed .btn-cart-fixed.fa {
+      font-size: 2.5rem;
+      color: #f55856;
+      transition: 0.7s; }
+  .shop-cart-fixed.open {
+    transform: translateY(-50%) translateX(0); }
+    .shop-cart-fixed.open .btn-cart-fixed {
+      transform: translateY(-50%) translateX(-5%) rotate(180deg); }
+
 .wrapper {
   position: relative;
     /*
@@ -276,6 +349,8 @@ button:focus, input:focus {
     text-align: left;
     color: #463f3a; }
     .items-container .items-interface form {
+      max-width: 300px;
+      margin: 0 auto;
       font-size: 1.5rem; }
       .items-container .items-interface form legend {
         width: 100%;
@@ -285,21 +360,17 @@ button:focus, input:focus {
         margin-bottom: 20px; }
         .items-container .items-interface form fieldset:last-of-type {
           margin-bottom: 30px; }
-      .items-container .items-interface form label, .items-container .items-interface form label + input {
-        display: inline-block;
-        vertical-align: middle;
-        margin-left: 0; }
       .items-container .items-interface form label {
-        min-width: 70px;
-        font-size: 1.25rem;
+        display: block;
+        width: 100%;
+        font-size: 1.125rem;
         text-transform: capitalize; }
-      .items-container .items-interface form input {
-        padding: 5px 10px; }
       .items-container .items-interface form input[type=text] {
         width: 100%;
         box-sizing: border-box;
+        padding: 5px 10px;
         border: 3px solid #463f3a;
-        font-size: 1rem;
+        font-size: 0.875rem;
         transition: 0.7s; }
         .items-container .items-interface form input[type=text]:focus {
           border-color: #f55856; }
@@ -309,9 +380,8 @@ button:focus, input:focus {
         .items-container .items-interface form .cost-range input {
           vertical-align: middle;
           width: 100px; }
-      .items-container .items-interface form input[type=text], .items-container .items-interface form .cost-range {
-        max-width: 400px; }
       .items-container .items-interface form input[type=submit] {
+        padding: 5px 10px;
         background-color: #463f3a;
         color: #FFF;
         font-size: 1.125rem;
@@ -320,6 +390,55 @@ button:focus, input:focus {
         transition: 0.7s; }
         .items-container .items-interface form input[type=submit]:hover {
           color: #f55856; }
+      .items-container .items-interface form .item-sizes, .items-container .items-interface form .item-colors {
+        text-align: justify; }
+        .items-container .items-interface form .item-sizes label, .items-container .items-interface form .item-colors label {
+          display: inline-block;
+          vertical-align: top;
+          width: 30px;
+          height: 30px;
+          box-sizing: border-box;
+          padding: 2px;
+          margin-right: 4px;
+          margin-bottom: 4px;
+          cursor: pointer;
+          font-size: 1rem;
+          text-align: center;
+          transition: 0.7s; }
+        .items-container .items-interface form .item-sizes input[type="checkbox"], .items-container .items-interface form .item-colors input[type="checkbox"] {
+          position: fixed;
+          left: -9999px;
+          display: none; }
+      .items-container .items-interface form .item-sizes label {
+        border: 2px solid #463f3a; }
+        .items-container .items-interface form .item-sizes label:hover {
+          border-color: #f55856;
+          color: #f55856; }
+      .items-container .items-interface form .item-sizes input[type="checkbox"]:checked + label {
+        border-color: #463f3a;
+        background-color: #463f3a;
+        color: #FFF; }
+      .items-container .items-interface form .item-colors label {
+        background-color: #f55856;
+        border: 2.5px solid transparent;
+        border-radius: 50%; }
+        .items-container .items-interface form .item-colors label[for=black-color] {
+          background-color: #222; }
+        .items-container .items-interface form .item-colors label[for=yellow-color] {
+          background-color: #ffc104; }
+        .items-container .items-interface form .item-colors label[for=white-color] {
+          background-color: transparent;
+          border-color: #463f3a; }
+        .items-container .items-interface form .item-colors label[for=red-color] {
+          background-color: #9e0b0f; }
+        .items-container .items-interface form .item-colors label[for=blue-color] {
+          background-color: #0a7aa6; }
+        .items-container .items-interface form .item-colors label[for=green-color] {
+          background-color: #007236; }
+        .items-container .items-interface form .item-colors label:hover {
+          border-color: #f55856; }
+      .items-container .items-interface form .item-colors input[type="checkbox"]:checked + label {
+        border-color: #f55856; }
   .items .items-list {
     width: 70%; }
   @media screen and (max-width: 600px) {
