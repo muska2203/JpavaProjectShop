@@ -66,8 +66,8 @@ public class Items {
     {
         ResultSet res = findById(id);
         res.next();
-        int cost = res.getInt("cost");
-        String name = res.getString("name");
+        int cost = res.getInt("itemcost");
+        String name = res.getString("itemname");
         basket.add(new Item(id,cost,name));
     }
     
@@ -100,9 +100,9 @@ public class Items {
         }
         while(res.next())
         {
-            int id = res.getInt("id");
-            int cost = res.getInt("cost");
-            String name = res.getString("name");
+            int id = res.getInt("itemid");
+            int cost = res.getInt("itemcost");
+            String name = res.getString("itemname");
             if(cost <= this.costMax && cost >= this.costMin)
             listItem.add(new Item(id,cost,name));
         }
@@ -123,39 +123,39 @@ public class Items {
     
     public ResultSet find() throws SQLException//Вывод всех элементов
     {
-        return stm.executeQuery("SELECT * FROM baseShop;");
+        return stm.executeQuery("SELECT * FROM Items;");
     }
     
     public ResultSet findById() throws SQLException//Поиск по id
     {
-        return stm.executeQuery("SELECT * FROM baseShop WHERE id = "+id);
+        return stm.executeQuery("SELECT * FROM Items WHERE itemid = "+id);
     }
     public ResultSet findById(int id) throws SQLException//Поиск по id
     {
-        return stm.executeQuery("SELECT * FROM baseShop WHERE id = "+id);
+        return stm.executeQuery("SELECT * FROM Items WHERE itemid = "+id);
     }
     
     public ResultSet findByName() throws SQLException //Поиск по name
     {
-        return stm.executeQuery("SELECT * FROM baseShop WHERE name LIKE \"%"+name+"%\"");
+        return stm.executeQuery("SELECT * FROM Items WHERE itemname LIKE \"%"+name+"%\"");
     }
     public ResultSet findByName(String name) throws SQLException //Поиск по name
     {
-        return stm.executeQuery("SELECT * FROM baseShop WHERE name LIKE \"%"+name+"%\"");
+        return stm.executeQuery("SELECT * FROM Items WHERE itemname LIKE \"%"+name+"%\"");
     }
     
     public ResultSet findByCost() throws SQLException //Поиск по cost
     {
-        return stm.executeQuery("SELECT * FROM baseShop WHERE cost <= "+costMax+" AND cost >= "+costMin);
+        return stm.executeQuery("SELECT * FROM Items WHERE itemcost <= "+costMax+" AND itemcost >= "+costMin);
     }
     public ResultSet findByCost(int costMax, int costMin) throws SQLException //Поиск по cost
     {
-        return stm.executeQuery("SELECT * FROM baseShop WHERE cost <= "+costMax+" AND cost >= "+costMin);
+        return stm.executeQuery("SELECT * FROM Items WHERE itemcost <= "+costMax+" AND itemcost >= "+costMin);
     }
     
-    public void addInDate(int cost, String name) throws SQLException
+    public void addInDate(int cost, String name,String description) throws SQLException
     {
-        ResultSet set = stm.executeQuery("INSERT INTO baseShop(name,cost) VALUES("+name+","+cost+")");
+        ResultSet set = stm.executeQuery("INSERT INTO Items(itemname,itemcost) VALUES("+name+","+cost+","+description+")");
     }
     
     public int getId()
@@ -174,5 +174,4 @@ public class Items {
     {
         return name;
     }
-    
 }

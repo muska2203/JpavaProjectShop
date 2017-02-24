@@ -63,7 +63,7 @@
 				</div><!--
 				--><div class="shop-card">
 					<div class="shop-card-info">
-						<span class="card-items"><span class="red-color card-items-value">10</span> items</span>
+						<span class="card-items"><span class="red-color card-items-value">1</span> items</span>
 						<span class="card-money"><span class="red-color card-money-value">125</span> $</span>
 					</div><!--
 					--><div class="shop-card-icon">
@@ -113,6 +113,48 @@
 						--><div class="cost-range">
 							<input class="cost" type="text" value="<%=items.getCostMin() %>" name="costMin">
                                                         <input class="cost" type="text" value="<%=items.getCostMax() %>" name="costMax">
+						</div>
+					</fieldset>
+                                                <fieldset>
+						<label for="size">size:</label>
+						<div class="item-sizes">
+                                                        <input type="checkbox" id="size1" name="size" value="20"><label for="size1">20</label><!--
+							--><input type="checkbox" id="size2" name="size" value="21"><label for="size2">21</label><!--
+							--><input type="checkbox" id="size3" name="size" value="22"><label for="size3">22</label><!--
+							--><input type="checkbox" id="size4" name="size" value="23"><label for="size4">23</label><!--
+							--><input type="checkbox" id="size5" name="size" value="24"><label for="size5">24</label><!--
+							--><input type="checkbox" id="size6" name="size" value="25"><label for="size6">25</label><!--
+							--><input type="checkbox" id="size7" name="size" value="26"><label for="size7">26</label><!--
+							--><input type="checkbox" id="size8" name="size" value="27"><label for="size8">27</label><!--
+							--><input type="checkbox" id="size9" name="size" value="28"><label for="size9">28</label><!--
+							--><input type="checkbox" id="size10" name="size" value="29"><label for="size10">29</label><!--
+							--><input type="checkbox" id="size11" name="size" value="30"><label for="size11">30</label><!--
+							--><input type="checkbox" id="size12" name="size" value="31"><label for="size12">31</label><!--
+							--><input type="checkbox" id="size13" name="size" value="32"><label for="size13">32</label>
+						</div>
+					</fieldset>
+					<fieldset>
+						<label for="size">color:</label>
+						<div class="item-colors">
+							<input type="checkbox" id="black-color" name="color" value="black"><label for="black-color"></label><!--
+							--><input type="checkbox" id="white-color" name="color" value="white"><label for="white-color"></label><!--
+							--><input type="checkbox" id="red-color" name="color" value="red"><label for="red-color"></label><!--
+							--><input type="checkbox" id="yellow-color" name="color" value="yellow"><label for="yellow-color"></label><!--
+							--><input type="checkbox" id="blue-color" name="color" value="blue"><label for="blue-color"></label><!--
+							--><input type="checkbox" id="green-color" name="color" value="black"><label for="green-color"></label><!--
+							--><input type="checkbox" id="blue-color"><label for="blue-color"></label><!--
+							--><input type="checkbox" id="red-color"><label for="red-color"></label><!--
+							--><input type="checkbox" id="yellow-color"><label for="yellow-color"></label><!--
+							--><input type="checkbox" id="blue-color"><label for="blue-color"></label><!--
+							--><input type="checkbox" id="yellow-color"><label for="yellow-color"></label><!--
+							--><input type="checkbox" id="blue-color"><label for="blue-color"></label><!--
+							--><input type="checkbox" id="yellow-color"><label for="yellow-color"></label><!--
+							--><input type="checkbox" id="blue-color"><label for="blue-color"></label><!--
+							--><input type="checkbox" id="red-color"><label for="red-color"></label><!--
+							--><input type="checkbox" id="yellow-color"><label for="yellow-color"></label><!--
+							--><input type="checkbox" id="blue-color"><label for="blue-color"></label><!--
+							--><input type="checkbox" id="yellow-color"><label for="yellow-color"></label><!--
+							--><input type="checkbox" id="blue-color"><label for="blue-color"></label>
 						</div>
 					</fieldset>
 					<input type="submit" value="search">
