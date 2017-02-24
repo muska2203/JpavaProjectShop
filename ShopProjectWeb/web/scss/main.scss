@@ -89,25 +89,10 @@ button:focus, input:focus{
 .red-color{
     color: $red-color;
 }
-.wrapper{
-	position: relative;
-    /*
-	min-height: 500px;
-	min-height: 100vh;
-    */
-    min-height: 100px;
-    & > div{
-        padding: 0 8%;
-    }
-    @media screen and (min-width: 2200px){
-       div[class],ul{
-           text-align: center !important;
-       }   
-    }
-}
+
 .popup-window-template{
     display: none;
-    z-index: 1000;
+    z-index: 10;
     position: fixed;
     top: 0; right: 0; bottom: 0; left: 0;
     background-color: rgba(0, 0, 0, 0.5);
@@ -128,7 +113,79 @@ button:focus, input:focus{
         display: block;
     }
 }
+.shop-cart-fixed{
+    z-index: 5;
+    position: fixed;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%) translateX(100%);
+    width: 80px;
+    height: 100px;
+    border: 3px solid $red-color;
+    border-right: none;
+    border-top-left-radius: 10%;
+    border-bottom-left-radius: 10%;
+    background-color: $dark-color;
 
+    transition: 0.7s;
+    &-content{
+        position: absolute;
+        top: 50%;
+        right: 5px;
+        transform: translateY(-50%);
+        text-align: right;
+        text-transform: uppercase;
+        color: $light-color;
+        a{
+            color: $light-color;
+            &:hover{
+                color: $red-color;
+            }
+        }
+        & > span{
+            
+        display: inline-block;
+        vertical-align: middle;
+        width: 100%;
+        }
+    }
+    .btn-cart-fixed{
+        z-index: 6;
+        position: absolute;
+        top: 50%;
+        left: 0px;
+        transform: translateY(-50%) translateX(-105%); /*+border of parent*/
+        cursor: pointer;
+        &.fa{
+            font-size: 2.5rem;
+            color: $red-color;
+            transition: 0.7s;
+        }
+    }
+    &.open{
+        transform: translateY(-50%) translateX(0);
+        .btn-cart-fixed{
+            transform: translateY(-50%) translateX(-5%) rotate(180deg) ;
+        }
+    }
+}
+
+.wrapper{
+	position: relative;
+    /*
+	min-height: 500px;
+	min-height: 100vh;
+    */
+    min-height: 100px;
+    & > div{
+        padding: 0 8%;
+    }
+    @media screen and (min-width: 2200px){
+       div[class],ul{
+           text-align: center !important;
+       }   
+    }
+}
 .intro{
     .info{
         font-family: museo_t;
@@ -368,10 +425,6 @@ button:focus, input:focus{
         .item-container{
             width: 100%;
             padding: 0;
-            .item{
-                width: 100px;
-                height: 100px;
-            }
         }
     }
 }

@@ -57,22 +57,9 @@ button:focus, input:focus {
 .red-color {
   color: #f55856; }
 
-.wrapper {
-  position: relative;
-    /*
-	min-height: 500px;
-	min-height: 100vh;
-    */
-  min-height: 100px; }
-  .wrapper > div {
-    padding: 0 8%; }
-  @media screen and (min-width: 2200px) {
-    .wrapper div[class], .wrapper ul {
-      text-align: center !important; } }
-
 .popup-window-template {
   display: none;
-  z-index: 1000;
+  z-index: 10;
   position: fixed;
   top: 0;
   right: 0;
@@ -95,6 +82,66 @@ button:focus, input:focus {
     background-color: #f55856; }
   .popup-window-template.open {
     display: block; }
+
+.shop-cart-fixed {
+  z-index: 5;
+  position: fixed;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%) translateX(100%);
+  width: 80px;
+  height: 100px;
+  border: 3px solid #f55856;
+  border-right: none;
+  border-top-left-radius: 10%;
+  border-bottom-left-radius: 10%;
+  background-color: #463f3a;
+  transition: 0.7s; }
+  .shop-cart-fixed-content {
+    position: absolute;
+    top: 50%;
+    right: 5px;
+    transform: translateY(-50%);
+    text-align: right;
+    text-transform: uppercase;
+    color: #FFF; }
+    .shop-cart-fixed-content a {
+      color: #FFF; }
+      .shop-cart-fixed-content a:hover {
+        color: #f55856; }
+    .shop-cart-fixed-content > span {
+      display: inline-block;
+      vertical-align: middle;
+      width: 100%; }
+  .shop-cart-fixed .btn-cart-fixed {
+    z-index: 6;
+    position: absolute;
+    top: 50%;
+    left: 0px;
+    transform: translateY(-50%) translateX(-105%);
+    /*+border of parent*/
+    cursor: pointer; }
+    .shop-cart-fixed .btn-cart-fixed.fa {
+      font-size: 2.5rem;
+      color: #f55856;
+      transition: 0.7s; }
+  .shop-cart-fixed.open {
+    transform: translateY(-50%) translateX(0); }
+    .shop-cart-fixed.open .btn-cart-fixed {
+      transform: translateY(-50%) translateX(-5%) rotate(180deg); }
+
+.wrapper {
+  position: relative;
+    /*
+	min-height: 500px;
+	min-height: 100vh;
+    */
+  min-height: 100px; }
+  .wrapper > div {
+    padding: 0 8%; }
+  @media screen and (min-width: 2200px) {
+    .wrapper div[class], .wrapper ul {
+      text-align: center !important; } }
 
 .intro .info {
   font-family: museo_t;
@@ -287,10 +334,7 @@ button:focus, input:focus {
       padding-top: 50px; }
       .items-list .item-container {
         width: 100%;
-        padding: 0; }
-        .items-list .item-container .item {
-          width: 100px;
-          height: 100px; } }
+        padding: 0; } }
 
 /* Class: Items card end */
 .items {

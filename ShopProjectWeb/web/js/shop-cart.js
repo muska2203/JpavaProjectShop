@@ -1,3 +1,7 @@
+$('.btn-cart-fixed').on("click", function(){
+    $('.shop-cart-fixed').toggleClass('open');
+});
+
 var cartItems = document.getElementsByClassName('card-items-value');
 var cartMoney = document.getElementsByClassName('card-money-value');
 var btnAddCart = document.getElementsByClassName('btn-add-card');
