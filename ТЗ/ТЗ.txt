@@ -1,0 +1,43 @@
+1: 
+    нарисовать все бд и связи между ними,
+    нарисовать абстрактную модель классов по бд,
+    >
+2:
+
+frontend:
+    popup-window for create account
+    popup-window for sign in account
+    interface "account"
+    interface "item"
+
+
+БД:
+    USERS[
+        id,
+        name,
+        mail,
+        password,
+    ]
+    ITEMS[
+        id,
+        name,
+        description,
+        cost,
+        views,
+    ]
+    SIZE[
+        itemId,
+        size
+    ]
+    COLOR[
+        itemId,
+        color
+    ]
+    NEWITEMS(max 3)[
+        id
+        priority (1..3)
+    ]
+    SHOP-CART[
+        userId,
+        itemId
+    ]
