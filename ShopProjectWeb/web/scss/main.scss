@@ -76,7 +76,7 @@ button{
     }
 }
 input{
-    font-size: museo_r;
+    font-family: museo_r;
     &[type=submit]{
         background: none;
         font-family: osw_b;
@@ -127,6 +127,7 @@ button:focus, input:focus{
         label{
             display: inline-block;
             margin-bottom: 10px;
+            letter-spacing: 2px;
         }
         input{
             display: block;
@@ -137,6 +138,7 @@ button:focus, input:focus{
             background: none;
             border: 2px solid $light-color;
             color: $light-color;
+            font-family: museo_t;
             font-size: 1.5rem;
         }
     }
@@ -145,6 +147,7 @@ button:focus, input:focus{
     }
 }
 /* popup-window-class start */
+
 
 .shop-cart-fixed{
     z-index: 5;
