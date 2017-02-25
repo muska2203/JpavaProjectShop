@@ -5,6 +5,7 @@ ShopProjectWeb/web/\.DS_Store
 
 ShopProjectWeb/\.DS_Store
 /ShopProjectWeb/build/
+/ShopProjectWeb/nbproject/
 ShopProjectWeb/src/java/\.DS_Store
 
 \.DS_Store
