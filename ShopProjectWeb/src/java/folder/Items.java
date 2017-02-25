@@ -6,7 +6,9 @@
 package folder;
 
 import java.sql.*;
+import java.util.Arrays;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 
@@ -23,9 +25,12 @@ public class Items {
     
     private int id,costMin, costMax;
     private String name;
+    private Set<String> colors = new HashSet<>();
+    private Set<Integer> sizes = new HashSet<>();
     
     Set<Item> listItem = null;
     Set<Item> basket = null;
+    
     
     //Map<String,String[]> values = null;
     public Items(Map<String,String[]> values){
@@ -48,18 +53,32 @@ public class Items {
             id = Integer.valueOf(values.get("id")[0]);
         }catch(Exception e)
         {id = 0;}
+        
         try{
             costMax = Integer.valueOf(values.get("costMax")[0]);
         }catch(Exception e)
         {costMax = 100000;}
+        
         try{
             costMin = Integer.valueOf(values.get("costMin")[0]);
         }catch(Exception e)
         {costMin = 0;}
+        
         try{
             name = values.get("name")[0];
         }catch(Exception e)
         {name = "";}
+        
+        try{
+        colors.addAll(Arrays.asList(values.get("color")));
+        }catch(Exception e){}
+        
+        try{
+        for(String s: values.get("size"))
+        {
+            int size = Integer.valueOf(s);
+            sizes.add(size);
+        }}catch(Exception e){}
     }
     
     public void addBasket(int id) throws SQLException
@@ -86,25 +105,69 @@ public class Items {
         return sum;
     }
     
-    //поправить
     public void findItems() throws SQLException
     {
+        int id = 0;
+        int cost = 0;
         ResultSet res = null;
-        if(id!=0)
+        if(this.id!=0)
         {
-            res = findById();
+            res = findById();//поиск по  id
         }
         else
         {
-            res = findByName();
+            res = findByName();//поиск по имени
         }
         while(res.next())
         {
-            int id = res.getInt("itemid");
-            int cost = res.getInt("itemcost");
+            id = res.getInt("itemid");
+            cost = res.getInt("itemcost");
             String name = res.getString("itemname");
-            if(cost <= this.costMax && cost >= this.costMin)
+            if(cost <= this.costMax && cost >= this.costMin)//поиск по цене
             listItem.add(new Item(id,cost,name));
+        }
+        
+        if(!colors.isEmpty())//поиск по цветам
+        {
+        Iterator<Item> it = listItem.iterator();
+            while(it.hasNext())
+            {
+                Item i = it.next();
+                boolean isColor = false;
+                ResultSet set = findColorById(i.getId());
+                while(set.next())
+                {
+                    String itemColor = set.getString("color");
+                    for(String color : colors)//цвета в поиске
+                    {
+                        if(color.equals(itemColor)==true)
+                            isColor = true;
+                    }
+                }
+                if(isColor == false)
+                    it.remove();
+            }
+        }
+        if(!sizes.isEmpty())
+        {
+            Iterator<Item> it = listItem.iterator();
+            while(it.hasNext())
+            {
+                Item i = it.next();
+                boolean isSize = false;
+                ResultSet set = findSizeById(i.getId());
+                while(set.next())
+                {
+                    int itemSize = set.getInt("size");
+                    for(int size : sizes)//цвета в поиске
+                    {
+                        if(size == itemSize)
+                            isSize = true;
+                    }
+                }
+                if(isSize == false)
+                    it.remove();
+            }
         }
     }
     
@@ -153,10 +216,41 @@ public class Items {
         return stm.executeQuery("SELECT * FROM Items WHERE itemcost <= "+costMax+" AND itemcost >= "+costMin);
     }
     
-    public void addInDate(int cost, String name,String description) throws SQLException
+    public ResultSet findColorById() throws SQLException
     {
-        ResultSet set = stm.executeQuery("INSERT INTO Items(itemname,itemcost) VALUES("+name+","+cost+","+description+")");
+        return stm.executeQuery("SELECT color FROM ItemsColor WHERE itemid = "+id);
     }
+    public ResultSet findColorById(int id) throws SQLException
+    {
+        return stm.executeQuery("SELECT color FROM ItemsColor WHERE itemid = "+id);
+    }
+    
+    public ResultSet findSizeById() throws SQLException
+    {
+        return stm.executeQuery("SELECT size FROM Size WHERE itemid = "+id);
+    }
+    public ResultSet findSizeById(int id) throws SQLException
+    {
+        return stm.executeQuery("SELECT size FROM Size WHERE itemid = "+id);
+    }
+    
+    public void addInDate(int cost, String name,String description, String[] colors, String[] sizes) throws SQLException
+    {
+        int id = 0;
+        stm.addBatch("INSERT INTO Items(itemname,itemcost,itemdescription) VALUES(\""+name+"\","+cost+",\""+description+"\")");
+        ResultSet set = stm.executeQuery("SELECT itemid FROM Items WHERE itemname = "+name+" AND description = "+description);
+        set.next();
+        id = set.getInt("itemid");
+        for(String color:colors)
+        {
+        stm.addBatch("INSERT INTO ItemsColor(itemid,color) VALUES("+id+",\""+color+"\")");
+        }
+        for(String size:sizes)
+        {
+        stm.addBatch("INSERT INTO Size(itemid,size) VALUES("+id+","+Integer.valueOf(size)+")");
+        }
+    }
+    
     
     public int getId()
     {
@@ -174,4 +268,14 @@ public class Items {
     {
         return name;
     }
+    
+    
+    /*
+    public String getColors()
+    {
+        String res = "lol";
+        for(String s : colors)
+            res+=s;
+        return res;
+    }*/
 }
