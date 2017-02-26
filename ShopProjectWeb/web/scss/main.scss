@@ -102,6 +102,7 @@ button:focus, input:focus{
         top: 0; right: 0; bottom: 0; left: 0;
         cursor: pointer;
         .fa{
+            z-index: 11;
             color: $light-color;
             font-size: 2rem;
             position: absolute;
@@ -124,22 +125,37 @@ button:focus, input:focus{
         background-color: $dark-color;
         color: $light-color;
         font-size: 2rem;
+        text-align: center;
         label{
             display: inline-block;
             margin-bottom: 10px;
             letter-spacing: 2px;
         }
         input{
+            margin: 0 auto;
             display: block;
-            width: 100%;
             box-sizing: border-box;
             padding: 5px 10px;
-            margin-bottom: 20px;
-            background: none;
-            border: 2px solid $light-color;
-            color: $light-color;
+            color: $dark-color;
             font-family: museo_t;
             font-size: 1.5rem;
+        }
+        input:not([type=submit]){
+            margin-bottom: 30px;
+            width: 100%;
+            max-width: 400px;
+            border: 2px solid $light-color;
+        }
+        input[type=submit]{
+            width: auto;
+            background-color: $light-color;
+            color: $dark-color;
+            text-transform: uppercase;
+            
+            transition: 0.7s;
+            &:hover{
+                box-shadow: 0 0 20px rgba($light-color, 0.5);
+            }
         }
     }
     &.open{

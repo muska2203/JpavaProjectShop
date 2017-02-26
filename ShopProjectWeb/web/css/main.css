@@ -75,6 +75,7 @@ button:focus, input:focus {
     left: 0;
     cursor: pointer; }
     .popup-window-template .popup-close .fa {
+      z-index: 11;
       color: #FFF;
       font-size: 2rem;
       position: absolute;
@@ -93,22 +94,33 @@ button:focus, input:focus {
     padding: 40px;
     background-color: #463f3a;
     color: #FFF;
-    font-size: 2rem; }
+    font-size: 2rem;
+    text-align: center; }
     .popup-window-template .popup-window label {
       display: inline-block;
       margin-bottom: 10px;
       letter-spacing: 2px; }
     .popup-window-template .popup-window input {
+      margin: 0 auto;
       display: block;
-      width: 100%;
       box-sizing: border-box;
       padding: 5px 10px;
-      margin-bottom: 20px;
-      background: none;
-      border: 2px solid #FFF;
-      color: #FFF;
+      color: #463f3a;
       font-family: museo_t;
       font-size: 1.5rem; }
+    .popup-window-template .popup-window input:not([type=submit]) {
+      margin-bottom: 30px;
+      width: 100%;
+      max-width: 400px;
+      border: 2px solid #FFF; }
+    .popup-window-template .popup-window input[type=submit] {
+      width: auto;
+      background-color: #FFF;
+      color: #463f3a;
+      text-transform: uppercase;
+      transition: 0.7s; }
+      .popup-window-template .popup-window input[type=submit]:hover {
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.5); }
   .popup-window-template.open {
     display: block; }
 
