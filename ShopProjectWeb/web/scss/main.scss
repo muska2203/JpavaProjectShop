@@ -123,6 +123,7 @@ button:focus, input:focus{
         box-sizing: border-box;
         padding: 40px;
         background-color: $dark-color;
+        /*background: linear-gradient($red-color, $dark-color);*/
         color: $light-color;
         font-size: 2rem;
         text-align: center;

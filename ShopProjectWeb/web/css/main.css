@@ -93,6 +93,7 @@ button:focus, input:focus {
     box-sizing: border-box;
     padding: 40px;
     background-color: #463f3a;
+    /*background: linear-gradient($red-color, $dark-color);*/
     color: #FFF;
     font-size: 2rem;
     text-align: center; }
