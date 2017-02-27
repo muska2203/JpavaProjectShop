@@ -8,6 +8,10 @@ package folder;
 import com.google.gson.Gson;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.Map;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -71,9 +75,40 @@ public class TestServlet extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+        private String url = "jdbc:mysql://localhost:3306/date";
+        private String userName = "root";
+        private String password = "root";
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        try{
+            Connection connect = null;
+        Statement stm = null;
+        Class. forName ("com.mysql.jdbc.Driver"). newInstance();//Драйвер
+        System.out.println("driver");
+        connect = DriverManager. getConnection (url, userName, password);//Подключение к базе
+        stm = connect.createStatement();
+        response.setContentType("text/html;charset=UTF-8");
+        Map<String,String[]> map = request.getParameterMap();
+        String login = map.get("login")[0];
+        String password = map.get("password")[0];
+        
+        ResultSet res = stm.executeQuery("SELECT COUNT(itemid) FROM Cart\n" +
+"WHERE userid = (Select userid FROM Users\n" +
+"WHERE username = \""+login+"\" AND userpassword = \""+password+"\");");
+        String count = res.getString(1);
+        
+        res = stm.executeQuery("SELECT SUM(itemcost) FROM Items,Cart\n" +
+"WHERE Cart.itemid = Items.itemid AND userid = (Select userid FROM Users\n" +
+"WHERE username = \""+login+"\" AND userpassword = \""+password+"\");");
+        String price = res.getString(1);
+        
+        response.getWriter().write("{\"count\":\""+count+"\",\"price\":\""+price+"\"}");
+        
+        
+        }catch(Exception e){}
+        /*
         response.setContentType("text/html;charset=UTF-8");
         Map<String,String[]> map = request.getParameterMap();
         String name = map.get("login")[0];
@@ -85,7 +120,7 @@ public class TestServlet extends HttpServlet {
         String jsonString = gson.toJson(test);
         //response.setContentType("application/xml");
         //response.getWriter().write(jsonString);
-        response.getWriter().write("{\"name\":\""+name+"\",\"password\":\""+password+"\"}");
+        response.getWriter().write("{\"name\":\""+name+"\",\"password\":\""+password+"\"}");*/
     }
 
     /**
