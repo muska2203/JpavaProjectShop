@@ -89,6 +89,7 @@ public class TestServlet extends HttpServlet {
         System.out.println("driver");
         connect = DriverManager. getConnection (url, userName, password);//Подключение к базе
         stm = connect.createStatement();
+        
         response.setContentType("text/html;charset=UTF-8");
         Map<String,String[]> map = request.getParameterMap();
         String login = map.get("login")[0];
@@ -97,17 +98,22 @@ public class TestServlet extends HttpServlet {
         ResultSet res = stm.executeQuery("SELECT COUNT(itemid) FROM Cart\n" +
 "WHERE userid = (Select userid FROM Users\n" +
 "WHERE username = \""+login+"\" AND userpassword = \""+password+"\");");
+        res.next();
         String count = res.getString(1);
         
         res = stm.executeQuery("SELECT SUM(itemcost) FROM Items,Cart\n" +
 "WHERE Cart.itemid = Items.itemid AND userid = (Select userid FROM Users\n" +
 "WHERE username = \""+login+"\" AND userpassword = \""+password+"\");");
+        res.next();
         String price = res.getString(1);
         
         response.getWriter().write("{\"count\":\""+count+"\",\"price\":\""+price+"\"}");
         
-        
-        }catch(Exception e){}
+        }catch(Exception e){
+            String name = "lol";
+            
+            response.getWriter().write("300");
+        }
         /*
         response.setContentType("text/html;charset=UTF-8");
         Map<String,String[]> map = request.getParameterMap();
@@ -119,8 +125,8 @@ public class TestServlet extends HttpServlet {
         TestJson test = new TestJson();
         String jsonString = gson.toJson(test);
         //response.setContentType("application/xml");
-        //response.getWriter().write(jsonString);
-        response.getWriter().write("{\"name\":\""+name+"\",\"password\":\""+password+"\"}");*/
+        //response.getWriter().write(jsonString);*/
+        //response.getWriter().write("{\"count\":\""+name+"\",\"price\":\""+password+"\"}");
     }
 
     /**
