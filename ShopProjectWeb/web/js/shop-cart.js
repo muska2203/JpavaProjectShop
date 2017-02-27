@@ -109,8 +109,8 @@ var form = document.getElementsByClassName('account-sign-up')[0];
 console.log(form.toString());
 form.addEventListener("submit", function(event){
     event.preventDefault();
-    var login = this.elements.login;
-    var password = this.elements.password;
+    var login = this.elements.login.value;
+    var password = this.elements.password.value;
     console.log(login+" |||"+password);
     var req = new newXMLHttpRequest();
     req.open("POST", "TestServlet", true);
@@ -122,8 +122,10 @@ form.addEventListener("submit", function(event){
         if (req.status != 200) {
           console.log('Error!');
         } else {
-          /*var jsonData = JSON.parse(req.responseText);
-          str = +req.responseText;
+          var jsonData = JSON.parse(req.responseText);
+          console.log(jsonData["name"]);
+          console.log(jsonData["password"]);
+          /*str = +req.responseText;
           for (var i = 0; i < cartItems.length; i++){
             console.log("+||");
             cartItems[i].innerHTML = +(cartItems[i].innerHTML) + 1;

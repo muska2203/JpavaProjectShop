@@ -85,7 +85,7 @@ public class TestServlet extends HttpServlet {
         String jsonString = gson.toJson(test);
         //response.setContentType("application/xml");
         //response.getWriter().write(jsonString);
-        response.getWriter().write("{\"name\":\""+name+"\",\"passord\":\""+password+"\"}");
+        response.getWriter().write("{\"name\":\""+name+"\",\"password\":\""+password+"\"}");
     }
 
     /**
