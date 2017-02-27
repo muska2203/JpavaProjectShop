@@ -147,8 +147,9 @@ button:focus, input:focus{
             max-width: 400px;
             border: 2px solid $light-color;
         }
-        input[type=submit]{
+        button{
             width: auto;
+            padding: 5px 10px;
             background-color: $light-color;
             color: $dark-color;
             text-transform: uppercase;

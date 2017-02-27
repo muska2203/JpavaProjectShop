@@ -114,13 +114,14 @@ button:focus, input:focus {
       width: 100%;
       max-width: 400px;
       border: 2px solid #FFF; }
-    .popup-window-template .popup-window input[type=submit] {
+    .popup-window-template .popup-window button {
       width: auto;
+      padding: 5px 10px;
       background-color: #FFF;
       color: #463f3a;
       text-transform: uppercase;
       transition: 0.7s; }
-      .popup-window-template .popup-window input[type=submit]:hover {
+      .popup-window-template .popup-window button:hover {
         box-shadow: 0 0 20px rgba(255, 255, 255, 0.5); }
   .popup-window-template.open {
     display: block; }

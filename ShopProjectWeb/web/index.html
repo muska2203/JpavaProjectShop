@@ -15,26 +15,26 @@
 	<div class="popup-window-template  popup-sign-in">
 		<div class="popup-close"><span class="fa fa-close"></span></div>
 		<div class="popup-window">
-			<form action="#">
+			<form action="#" method="POST">
 				<label for="login-mail">Login:</label>
-				<input id="login-mail" type="mail" placeholder="*mail">
+				<input id="login-mail" name="login" type="mail" placeholder="*mail">
 				<label for="login-password">Password:</label>
-				<input id="login-password" type="password" placeholder="*password">
-				<input type="submit" name="login" value="sign in">
+				<input id="login-password" name="password" type="password" placeholder="*password">
+				<button type="submit" value="pressBtn">sign in</button>
 			</form>
 		</div>
 	</div>
 	<div class="popup-window-template  popup-sign-up">
 		<div class="popup-close"><span class="fa fa-close"></span></div>
 		<div class="popup-window">
-			<form action="#">
+			<form action="#" method="POST">
 				<label for="login-mail">Login:</label>
-				<input id="login-mail" type="mail" placeholder="*mail">
+				<input id="login-mail" name="login" type="mail" placeholder="*mail">
 				<label for="login-password">Password:</label>
-				<input id="login-password" type="password" placeholder="*password">
+				<input id="login-password" name="password" type="password" placeholder="*password">
 				<label for="login-password">Confirm Password:</label>
 				<input id="login-password" type="password" placeholder="*password">
-				<input type="submit" name="login" value="sign up">
+				<button type="submit" value="pressBtn">sign up</button>
 			</form>
 		</div>
 	</div>
