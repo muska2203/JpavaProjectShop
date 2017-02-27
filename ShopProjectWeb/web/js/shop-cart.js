@@ -105,39 +105,40 @@ for(var i = 0; i < btnAddCart.length; i++){
     });
 }
 
-var form = document.getElementsByClassName('account-sign-up')[0];
-console.log(form.toString());
-form.addEventListener("submit", function(event){
-    event.preventDefault();
-    var login = this.elements.login.value;
-    var password = this.elements.password.value;
-    console.log(login+" |||"+password);
-    var req = new newXMLHttpRequest();
-    req.open("POST", "TestServlet", true);
-    req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    req.send("login="+login+"&password="+password);
-    req.onreadystatechange = function() { 
-        if (req.readyState != 4) return;
-          console.log('Finish');
-        if (req.status != 200) {
-          console.log('Error!');
-        } else {
-          var jsonData = JSON.parse(req.responseText);
-          console.log(jsonData["name"]);
-          console.log(jsonData["password"]);
-          /*str = +req.responseText;
-          for (var i = 0; i < cartItems.length; i++){
-            console.log("+||");
-            cartItems[i].innerHTML = +(cartItems[i].innerHTML) + 1;
+var form = document.getElementsByClassName('account-sign-up');
+console.log(form);
+for( var i = 0; i < form.length; i++){
+    form[i].addEventListener("submit", function(event){
+        $('popup-sign-in').removeClass('open');
+        event.preventDefault();
+        var login = this.elements.login.value;
+        var password = this.elements.password.value;
+        console.log(login+" |||"+password);
+        var req = new newXMLHttpRequest();
+        req.open("POST", "TestServlet", true);
+        req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        req.send("login="+login+"&password="+password);
+        req.onreadystatechange = function() { 
+            if (req.readyState != 4) return;
+              console.log('Finish');
+            if (req.status != 200) {
+              console.log('Error!');
+            } else {
+                var jsonData = JSON.parse(req.responseText);
+                console.log(jsonData["name"]);
+                console.log(jsonData["password"]);
+                str = +req.responseText;
+                for (var i = 0; i < cartItems.length; i++){
+                  console.log("+||");
+                  cartItems[i].innerHTML = +jsonData["count"];
+                }
+                console.log("\n");
+                for (var i = 0; i < cartMoney.length; i++){
+                  console.log("-||");
+                  cartMoney[i].innerHTML = +jsonData["price"];
+                }
+                for (var datum in jsonData) console.log(jsonData[datum]);
+              }
           }
-          console.log("\n");
-          for (var i = 0; i < cartMoney.length; i++){
-            console.log("-||");
-            cartMoney[i].innerHTML = +(cartMoney[i].innerHTML) + (+str);
-            
-          }
-          for (var datum in jsonData) console.log(jsonData[datum]);
-          */
-        }
-    }
-});
+    });
+}
