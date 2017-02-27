@@ -109,11 +109,7 @@ var form = document.getElementsByClassName('account-sign-up');
 console.log(form);
 for( var i = 0; i < form.length; i++){
     form[i].addEventListener("submit", function(event){
-<<<<<<< refs/remotes/origin/backend
         $('.popup-sign-in').removeClass('open');
-=======
-        $('popup-sign-in').removeClass('open');
->>>>>>> login js
         event.preventDefault();
         var login = this.elements.login.value;
         var password = this.elements.password.value;
@@ -129,13 +125,6 @@ for( var i = 0; i < form.length; i++){
               console.log('Error!');
             } else {
                 var jsonData = JSON.parse(req.responseText);
-<<<<<<< refs/remotes/origin/backend
-                //console.log(jsonData["name"]);
-                //console.log(jsonData["password"]);
-=======
-                console.log(jsonData["name"]);
-                console.log(jsonData["password"]);
->>>>>>> login js
                 str = +req.responseText;
                 for (var i = 0; i < cartItems.length; i++){
                   console.log("+||");
