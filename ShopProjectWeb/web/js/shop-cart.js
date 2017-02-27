@@ -104,3 +104,38 @@ for(var i = 0; i < btnAddCart.length; i++){
         }
     });
 }
+
+var form = document.getElementsByClassName('account-sign-up')[0];
+console.log(form.toString());
+form.addEventListener("submit", function(event){
+    event.preventDefault();
+    var login = this.elements.login;
+    var password = this.elements.password;
+    console.log(login+" |||"+password);
+    var req = new newXMLHttpRequest();
+    req.open("POST", "TestServlet", true);
+    req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    req.send("login="+login+"&password="+password);
+    req.onreadystatechange = function() { 
+        if (req.readyState != 4) return;
+          console.log('Finish');
+        if (req.status != 200) {
+          console.log('Error!');
+        } else {
+          /*var jsonData = JSON.parse(req.responseText);
+          str = +req.responseText;
+          for (var i = 0; i < cartItems.length; i++){
+            console.log("+||");
+            cartItems[i].innerHTML = +(cartItems[i].innerHTML) + 1;
+          }
+          console.log("\n");
+          for (var i = 0; i < cartMoney.length; i++){
+            console.log("-||");
+            cartMoney[i].innerHTML = +(cartMoney[i].innerHTML) + (+str);
+            
+          }
+          for (var datum in jsonData) console.log(jsonData[datum]);
+          */
+        }
+    }
+});
