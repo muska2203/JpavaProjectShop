@@ -8,6 +8,7 @@ package folder;
 import com.google.gson.Gson;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Map;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -74,13 +75,17 @@ public class TestServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        Map<String,String[]> map = request.getParameterMap();
+        String name = map.get("login")[0];
+        String password = map.get("password")[0];
+        
         
         Gson gson = new Gson();
         TestJson test = new TestJson();
         String jsonString = gson.toJson(test);
         //response.setContentType("application/xml");
         //response.getWriter().write(jsonString);
-        response.getWriter().write("{\"name\":\"lol\",\"baba\":123}");
+        response.getWriter().write("{\"name\":\""+name+"\",\"passord\":\""+password+"\"}");
     }
 
     /**
