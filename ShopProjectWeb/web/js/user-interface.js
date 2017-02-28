@@ -1,3 +1,11 @@
+$('.btn-cart-fixed').on("click", function(){
+    $('.shop-cart-fixed').toggleClass('open');
+});
+
+var cartItems = document.getElementsByClassName('card-items-value');
+var cartMoney = document.getElementsByClassName('card-money-value');
+var btnAddCart = document.getElementsByClassName('btn-add-card');
+
 function newXMLHttpRequest() {
   var xmlreq = false;
   if (window.XMLHttpRequest) {
@@ -22,25 +30,6 @@ function newXMLHttpRequest() {
   }
   return xmlreq;
 }
-function addToCart(item){
-    var req = new newXMLHttpRequest();
-    req.open("POST", "TestServlet", false);
-    req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    req.send();
-    /*
-    req.onreadystatechange = function() { 
-        if (req.readyState != 4) return;
-          console.log('Finish');
-        if (req.status != 200) {
-          console.log('Error!');
-        } else {
-          str = req.responseText;
-        }
-    
-    }*/
-    str = req.responseText;
-}
-
 function setCookie(cname,cvalue,exdays) {
     var d = new Date();
     d.setTime(d.getTime() + (exdays*24*60*60*1000));
@@ -63,14 +52,36 @@ function getCookie(cname) {
     return "";
 }
 
+function addToCart(item){
+    var req = new newXMLHttpRequest();
+    req.open("POST", "TestServlet", false);
+    req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    req.send();
+    /*
+    req.onreadystatechange = function() { 
+        if (req.readyState != 4) return;
+          console.log('Finish');
+        if (req.status != 200) {
+          console.log('Error!');
+        } else {
+          str = req.responseText;
+        }
+    
+    }*/
+    str = req.responseText;
+}
+function setCart(items, money){
+    for (var i = 0; i < cartItems.length; i++)
+        cartItems[i].innerHTML = +items;
+    for (var i = 0; i < cartMoney.length; i++)
+        cartMoney[i].innerHTML = +money;
+}
+
 /* init user */
-setCookie('login', 'admin', 30);
-setCookie('password', 'admin', 30);
 if(document.cookie){
     var userLogin = getCookie('login');
     var userPassword = getCookie('password');
     if(userLogin != "" && userPassword != ""){
-        console.log('sucsess cookies');
         var req = new newXMLHttpRequest();
         req.open("POST", "TestServlet", true);
         req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
@@ -82,55 +93,22 @@ if(document.cookie){
               console.log('Error!');
             } else {
                 var jsonData = JSON.parse(req.responseText);
-                str = +req.responseText;
-                for (var i = 0; i < cartItems.length; i++){
-                  console.log("+||");
+                /*for (var i = 0; i < cartItems.length; i++)
                   cartItems[i].innerHTML = +jsonData["count"];
-                }
-                console.log("\n");
-                for (var i = 0; i < cartMoney.length; i++){
-                  console.log("-||");
+                for (var i = 0; i < cartMoney.length; i++)
                   cartMoney[i].innerHTML = +jsonData["price"];
-                }
-                for (var datum in jsonData) console.log(jsonData[datum]);
+                */
+                setCart(jsonData["count"],jsonData["price"]);
             }
         }
     }
     else{
-      console.log("not find a cookies");
+        setCart(0,0);
     }
 }
 /* init user */
 
-/*
-function getReadyStateHandler(req) {
-    // Возвращает неопределенную функцию, которая считывает 
-    // данные XMLHttpRequest return function () {
-    // Если требуется статус "закончен"
-    if (req.readyState != 4) return;
 
-    console.log('Готово!');
-
-  if (req.status != 200) {
-    alert(req.status + ': ' + xhr.statusText);
-  } else {
-    alert(req.responseText);
-    }
-}*/
-$('.btn-cart-fixed').on("click", function(){
-    $('.shop-cart-fixed').toggleClass('open');
-});
-
-var cartItems = document.getElementsByClassName('card-items-value');
-var cartMoney = document.getElementsByClassName('card-money-value');
-var btnAddCart = document.getElementsByClassName('btn-add-card');
-
-for (var i = 0; i < cartItems.length; i++){
-    cartItems[i].innerHTML = 0;
-}
-for (var i = 0; i < cartMoney.length; i++){
-    cartMoney[i].innerHTML = 0;
-}
 for(var i = 0; i < btnAddCart.length; i++){
     btnAddCart[i].addEventListener("click", function(){
         $(this).addClass('clicked');
@@ -146,24 +124,16 @@ for(var i = 0; i < btnAddCart.length; i++){
             } else {
               var jsonData = JSON.parse(req.responseText);
               str = +req.responseText;
-              for (var i = 0; i < cartItems.length; i++){
-                console.log("+||");
+              for (var i = 0; i < cartItems.length; i++)
                 cartItems[i].innerHTML = +(cartItems[i].innerHTML) + 1;
-              }
-              console.log("\n");
-              for (var i = 0; i < cartMoney.length; i++){
-                console.log("-||");
+              for (var i = 0; i < cartMoney.length; i++)
                 cartMoney[i].innerHTML = +(cartMoney[i].innerHTML) + (+str);
-                
-              }
-              for (var datum in jsonData) console.log(jsonData[datum]);
             }
         }
     });
 }
 
 var form = document.getElementsByClassName('account-sign-up');
-console.log(form);
 for( var i = 0; i < form.length; i++){
     form[i].addEventListener("submit", function(event){
         $('.popup-sign-in').removeClass('open');
@@ -182,17 +152,10 @@ for( var i = 0; i < form.length; i++){
               console.log('Error!');
             } else {
                 var jsonData = JSON.parse(req.responseText);
-                str = +req.responseText;
-                for (var i = 0; i < cartItems.length; i++){
-                  console.log("+||");
+                for (var i = 0; i < cartItems.length; i++)
                   cartItems[i].innerHTML = +jsonData["count"];
-                }
-                console.log("\n");
-                for (var i = 0; i < cartMoney.length; i++){
-                  console.log("-||");
+                for (var i = 0; i < cartMoney.length; i++)
                   cartMoney[i].innerHTML = +jsonData["price"];
-                }
-                for (var datum in jsonData) console.log(jsonData[datum]);
               }
           }
     });
