@@ -17,11 +17,6 @@ import java.util.Set;
  * @author admin
  */
 public class Items {
-    private String url = "jdbc:mysql://localhost:3306/date";
-    private String userName = "root";
-    private String password = "root";
-    Connection connect = null;
-    Statement stm = null;
     
     private int id,costMin, costMax;
     private String name;
@@ -39,12 +34,6 @@ public class Items {
         listItem = new HashSet<>();
         basket = new HashSet<>();
         
-        try{
-        Class. forName ("com.mysql.jdbc.Driver"). newInstance();//Драйвер
-        System.out.println("driver");
-        connect = DriverManager. getConnection (url, userName, password);//Подключение к базе
-        stm = connect.createStatement();
-        }catch(Exception e){}
     }
     
     private void setValues(Map<String,String[]> values)
@@ -83,7 +72,7 @@ public class Items {
     
     public void addBasket(int id) throws SQLException
     {
-        ResultSet res = findById(id);
+        ResultSet res = SQL.findItemsById(id);
         res.next();
         int cost = res.getInt("itemcost");
         String name = res.getString("itemname");
@@ -112,11 +101,11 @@ public class Items {
         ResultSet res = null;
         if(this.id!=0)
         {
-            res = findById();//поиск по  id
+            res = SQL.findItemsById(this.id);//поиск по  id
         }
         else
         {
-            res = findByName();//поиск по имени
+            res = SQL.findItemsByName(this.name);//поиск по имени
         }
         while(res.next())
         {
@@ -134,7 +123,7 @@ public class Items {
             {
                 Item i = it.next();
                 boolean isColor = false;
-                ResultSet set = findColorById(i.getId());
+                ResultSet set = SQL.findColorByItemId(i.getId());
                 while(set.next())
                 {
                     String itemColor = set.getString("color");
@@ -155,7 +144,7 @@ public class Items {
             {
                 Item i = it.next();
                 boolean isSize = false;
-                ResultSet set = findSizeById(i.getId());
+                ResultSet set = SQL.findSizeByItemId(i.getId());
                 while(set.next())
                 {
                     int itemSize = set.getInt("size");
@@ -184,72 +173,7 @@ public class Items {
     }
     
     
-    public ResultSet find() throws SQLException//Вывод всех элементов
-    {
-        return stm.executeQuery("SELECT * FROM Items;");
-    }
     
-    public ResultSet findById() throws SQLException//Поиск по id
-    {
-        return stm.executeQuery("SELECT * FROM Items WHERE itemid = "+id);
-    }
-    public ResultSet findById(int id) throws SQLException//Поиск по id
-    {
-        return stm.executeQuery("SELECT * FROM Items WHERE itemid = "+id);
-    }
-    
-    public ResultSet findByName() throws SQLException //Поиск по name
-    {
-        return stm.executeQuery("SELECT * FROM Items WHERE itemname LIKE \"%"+name+"%\"");
-    }
-    public ResultSet findByName(String name) throws SQLException //Поиск по name
-    {
-        return stm.executeQuery("SELECT * FROM Items WHERE itemname LIKE \"%"+name+"%\"");
-    }
-    
-    public ResultSet findByCost() throws SQLException //Поиск по cost
-    {
-        return stm.executeQuery("SELECT * FROM Items WHERE itemcost <= "+costMax+" AND itemcost >= "+costMin);
-    }
-    public ResultSet findByCost(int costMax, int costMin) throws SQLException //Поиск по cost
-    {
-        return stm.executeQuery("SELECT * FROM Items WHERE itemcost <= "+costMax+" AND itemcost >= "+costMin);
-    }
-    
-    public ResultSet findColorById() throws SQLException
-    {
-        return stm.executeQuery("SELECT color FROM ItemsColor WHERE itemid = "+id);
-    }
-    public ResultSet findColorById(int id) throws SQLException
-    {
-        return stm.executeQuery("SELECT color FROM ItemsColor WHERE itemid = "+id);
-    }
-    
-    public ResultSet findSizeById() throws SQLException
-    {
-        return stm.executeQuery("SELECT size FROM Size WHERE itemid = "+id);
-    }
-    public ResultSet findSizeById(int id) throws SQLException
-    {
-        return stm.executeQuery("SELECT size FROM Size WHERE itemid = "+id);
-    }
-    
-    public void addInDate(int cost, String name,String description, String[] colors, String[] sizes) throws SQLException
-    {
-        int id = 0;
-        stm.addBatch("INSERT INTO Items(itemname,itemcost,itemdescription) VALUES(\""+name+"\","+cost+",\""+description+"\")");
-        ResultSet set = stm.executeQuery("SELECT itemid FROM Items WHERE itemname = "+name+" AND description = "+description);
-        set.next();
-        id = set.getInt("itemid");
-        for(String color:colors)
-        {
-        stm.addBatch("INSERT INTO ItemsColor(itemid,color) VALUES("+id+",\""+color+"\")");
-        }
-        for(String size:sizes)
-        {
-        stm.addBatch("INSERT INTO Size(itemid,size) VALUES("+id+","+Integer.valueOf(size)+")");
-        }
-    }
     
     
     public int getId()

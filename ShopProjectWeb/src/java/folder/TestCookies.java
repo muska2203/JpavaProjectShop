@@ -19,7 +19,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author admin
  */
 @WebServlet(name = "Test", urlPatterns = {"/Test"})
-public class Test extends HttpServlet {
+public class TestCookies extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
