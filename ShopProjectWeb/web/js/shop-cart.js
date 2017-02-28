@@ -22,7 +22,6 @@ function newXMLHttpRequest() {
   }
   return xmlreq;
 }
-var str = "начальное знач";
 function addToCart(item){
     var req = new newXMLHttpRequest();
     req.open("POST", "TestServlet", false);
@@ -48,9 +47,60 @@ function setCookie(cname,cvalue,exdays) {
     var expires = "expires=" + d.toGMTString();
     document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 }
+function getCookie(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for(var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
 
+/* init user */
 setCookie('login', 'admin', 30);
-console.log(document.cookie);
+setCookie('password', 'admin', 30);
+if(document.cookie){
+    var userLogin = getCookie('login');
+    var userPassword = getCookie('password');
+    if(userLogin != "" && userPassword != ""){
+        console.log('sucsess cookies');
+        var req = new newXMLHttpRequest();
+        req.open("POST", "TestServlet", true);
+        req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        req.send("login="+userLogin+"&password="+userPassword);
+        req.onreadystatechange = function() { 
+            if (req.readyState != 4) return;
+              console.log('Finish');
+            if (req.status != 200) {
+              console.log('Error!');
+            } else {
+                var jsonData = JSON.parse(req.responseText);
+                str = +req.responseText;
+                for (var i = 0; i < cartItems.length; i++){
+                  console.log("+||");
+                  cartItems[i].innerHTML = +jsonData["count"];
+                }
+                console.log("\n");
+                for (var i = 0; i < cartMoney.length; i++){
+                  console.log("-||");
+                  cartMoney[i].innerHTML = +jsonData["price"];
+                }
+                for (var datum in jsonData) console.log(jsonData[datum]);
+            }
+        }
+    }
+    else{
+      console.log("not find a cookies");
+    }
+}
+/* init user */
 
 /*
 function getReadyStateHandler(req) {
