@@ -5,10 +5,21 @@
  */
 package folder;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author admin
  */
 public class Card {
+    
+    private ArrayList<Item> items = null;
+    private int count = 0;
+    private double price = 0;
+    public Card()
+    {
+        items = new ArrayList<>();
+    }
+    
     
 }
