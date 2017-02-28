@@ -4,6 +4,7 @@
     Author     : admin
 --%>
 
+<%@page import="java.util.HashSet"%>
 <%@page import="java.util.Set"%>
 <%@page import="folder.Item"%>
 <%@page import="folder.Items"%>
@@ -23,7 +24,7 @@
     Map<String,String[]> map = request.getParameterMap();
     Items items = new Items(map);
     items.findItems();
-    Set<Item> set = items.getItems();
+    Set<Item> set =items.getItems();
 %>
 <body>
 	<div class="wrapper intro">
@@ -163,6 +164,7 @@
 			--><div class="items-list">
                             
                             <%
+                            if(!set.isEmpty())
                             for(Item it : set){
                             %>
                             <div class="item-container">

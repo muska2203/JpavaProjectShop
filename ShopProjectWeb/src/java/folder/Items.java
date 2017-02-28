@@ -29,7 +29,7 @@ public class Items {
     
     //Map<String,String[]> values = null;
     public Items(Map<String,String[]> values){
-        setValues(values);
+        //setValues(values);
         
         listItem = new HashSet<>();
         basket = new HashSet<>();
