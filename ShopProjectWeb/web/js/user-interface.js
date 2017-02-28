@@ -52,25 +52,16 @@ function getCookie(cname) {
     return "";
 }
 
-function addToCart(item){
-    var req = new newXMLHttpRequest();
-    req.open("POST", "TestServlet", false);
-    req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    req.send();
-    /*
-    req.onreadystatechange = function() { 
-        if (req.readyState != 4) return;
-          console.log('Finish');
-        if (req.status != 200) {
-          console.log('Error!');
-        } else {
-          str = req.responseText;
-        }
-    
-    }*/
-    str = req.responseText;
+function addToCart(money){
+    if (!money) money = 0;
+    for (var i = 0; i < cartItems.length; i++)
+        cartItems[i].innerHTML = +cartItems[i].innerHTML + 1;
+    for (var i = 0; i < cartMoney.length; i++)
+        cartMoney[i].innerHTML = +cartItems[i].innerHTML + (+money);
 }
 function setCart(items, money){
+    if (!items) items = 0;
+    if (!money) money = 0;
     for (var i = 0; i < cartItems.length; i++)
         cartItems[i].innerHTML = +items;
     for (var i = 0; i < cartMoney.length; i++)
@@ -93,11 +84,6 @@ if(document.cookie){
               console.log('Error!');
             } else {
                 var jsonData = JSON.parse(req.responseText);
-                /*for (var i = 0; i < cartItems.length; i++)
-                  cartItems[i].innerHTML = +jsonData["count"];
-                for (var i = 0; i < cartMoney.length; i++)
-                  cartMoney[i].innerHTML = +jsonData["price"];
-                */
                 setCart(jsonData["count"],jsonData["price"]);
             }
         }
@@ -124,10 +110,7 @@ for(var i = 0; i < btnAddCart.length; i++){
             } else {
               var jsonData = JSON.parse(req.responseText);
               str = +req.responseText;
-              for (var i = 0; i < cartItems.length; i++)
-                cartItems[i].innerHTML = +(cartItems[i].innerHTML) + 1;
-              for (var i = 0; i < cartMoney.length; i++)
-                cartMoney[i].innerHTML = +(cartMoney[i].innerHTML) + (+str);
+              addToCart(str);
             }
         }
     });
@@ -140,7 +123,6 @@ for( var i = 0; i < form.length; i++){
         event.preventDefault();
         var login = this.elements.login.value;
         var password = this.elements.password.value;
-        console.log(login+" |||"+password);
         var req = new newXMLHttpRequest();
         req.open("POST", "TestServlet", true);
         req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
@@ -152,10 +134,7 @@ for( var i = 0; i < form.length; i++){
               console.log('Error!');
             } else {
                 var jsonData = JSON.parse(req.responseText);
-                for (var i = 0; i < cartItems.length; i++)
-                  cartItems[i].innerHTML = +jsonData["count"];
-                for (var i = 0; i < cartMoney.length; i++)
-                  cartMoney[i].innerHTML = +jsonData["price"];
+                setCart(jsonData["count"],jsonData["price"]);
               }
           }
     });
