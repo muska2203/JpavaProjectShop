@@ -787,23 +787,21 @@ button:focus, input:focus{
         &-info-mob[class]{
             display: none;
         }
-        &-button{
+        &-button_up{
             width: 30%;
             text-align: right;
-            button{
-                padding: 0;
-                background-color: $btn-bg;
+            .btn-up{
+                display: block;
                 width: $btn-up-size;
                 height: $btn-up-size;
-                a{
-                    display: block;
-                    color: $light-color;
-                    &:hover{
-                        color: $red-color;
-                    }
-                    .fa{
-                        line-height: $btn-up-size;
-                    }
+                padding: 0;
+                background-color: $btn-bg;
+                color: $light-color;
+                &:hover{
+                    color: $red-color;
+                }
+                .fa{
+                    line-height: $btn-up-size;
                 }
             }
         }
