@@ -1,14 +1,3 @@
-$('.btn-cart-fixed').on("click", function(){
-    $('.shop-cart-fixed').toggleClass('open');
-});
-
-var cartItems = document.getElementsByClassName('card-items-value');
-var cartMoney = document.getElementsByClassName('card-money-value');
-var btnAddCart = document.getElementsByClassName('btn-add-card');
-cartItems.innerHTML = "1";
-/*
- * Возвращает новый XMLHttpRequest объект или false, если браузер его не поддерживает
- */
 function newXMLHttpRequest() {
   var xmlreq = false;
   if (window.XMLHttpRequest) {
@@ -53,6 +42,16 @@ function addToCart(item){
     str = req.responseText;
 }
 
+function setCookie(cname,cvalue,exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    var expires = "expires=" + d.toGMTString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+
+setCookie('login', 'admin', 30);
+console.log(document.cookie);
+
 /*
 function getReadyStateHandler(req) {
     // Возвращает неопределенную функцию, которая считывает 
@@ -68,6 +67,14 @@ function getReadyStateHandler(req) {
     alert(req.responseText);
     }
 }*/
+$('.btn-cart-fixed').on("click", function(){
+    $('.shop-cart-fixed').toggleClass('open');
+});
+
+var cartItems = document.getElementsByClassName('card-items-value');
+var cartMoney = document.getElementsByClassName('card-money-value');
+var btnAddCart = document.getElementsByClassName('btn-add-card');
+
 for (var i = 0; i < cartItems.length; i++){
     cartItems[i].innerHTML = 0;
 }
