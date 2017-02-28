@@ -53,19 +53,28 @@ function getCookie(cname) {
 }
 
 function addToCart(money){
-    if (!money) money = 0;
+    if (money)
+        money = parseFloat(money);
+    else
+        money = 0; 
     for (var i = 0; i < cartItems.length; i++)
         cartItems[i].innerHTML = +cartItems[i].innerHTML + 1;
     for (var i = 0; i < cartMoney.length; i++)
-        cartMoney[i].innerHTML = +cartItems[i].innerHTML + (+money);
+        cartMoney[i].innerHTML = +cartItems[i].innerHTML + money;
 }
 function setCart(items, money){
-    if (!items) items = 0;
-    if (!money) money = 0;
+    if (items)
+        items = parseInt(items);
+    else
+        items = 0;
+    if (money)
+        money = parseFloat(money);
+    else
+        money = 0;  
     for (var i = 0; i < cartItems.length; i++)
-        cartItems[i].innerHTML = +items;
+        cartItems[i].innerHTML = items;
     for (var i = 0; i < cartMoney.length; i++)
-        cartMoney[i].innerHTML = +money;
+        cartMoney[i].innerHTML = money;
 }
 
 /* init user */
