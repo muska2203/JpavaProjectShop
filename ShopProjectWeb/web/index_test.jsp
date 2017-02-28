@@ -27,6 +27,44 @@
     Set<Item> set =items.getItems();
 %>
 <body>
+    <div class="popup-window-template  popup-account">
+		<div class="popup-close"><span class="fa fa-close"></span></div>
+		<div class="popup-window">account</div>
+	</div>
+	<div class="popup-window-template  popup-sign-in">
+		<div class="popup-close"><span class="fa fa-close"></span></div>
+		<div class="popup-window">
+			<form name="account-sign-up" class="account-sign-up" action="#" method="POST">
+				<label for="login-mail">Login:</label>
+				<input id="login-mail" name="login" type="email" placeholder="*mail">
+				<label for="login-password">Password:</label>
+				<input id="login-password" name="password" type="password" placeholder="*password">
+				<button type="submit" value="pressBtn">sign in</button>
+			</form>
+		</div>
+	</div>
+	<div class="popup-window-template  popup-sign-up">
+		<div class="popup-close"><span class="fa fa-close"></span></div>
+		<div class="popup-window">
+			<form action="#" method="POST">
+				<label for="login-mail">Login:</label>
+				<input id="login-mail" name="login" type="email" placeholder="*mail">
+				<label for="login-password">Password:</label>
+				<input id="login-password" name="password" type="password" placeholder="*password">
+				<label for="login-password">Confirm Password:</label>
+				<input id="login-password" type="password" placeholder="*password">
+				<button type="submit" value="pressBtn">sign up</button>
+			</form>
+		</div>
+	</div>
+	<div class="shop-cart-fixed">
+		<span class="btn-cart-fixed fa fa-caret-left"></span>
+		<div class="shop-cart-fixed-content">
+			<span class="card-items"><span class="red-color card-items-value">10</span> items</span>
+			<span class="card-money"><span class="red-color card-money-value">125</span> $</span>
+			<a class="btn-shop-cart" href="#account"><div class="fa fa-shopping-cart"></div></a>
+		</div>
+	</div>
 	<div class="wrapper intro">
             <section id="intro"></section>
 		<div class="info">
@@ -42,10 +80,10 @@
 			</div><!--
 			--><div class="info-account">
 				<ul>
-					<li><a href="#">my account</a></li><!--
-					--><li><a href="#">login</a></li><!--
+					<li><a href="#" class="btn-account">my account</a></li><!--
+					--><li><a href="#" class="btn-sign-in">login</a></li><!--
 					--><li><a href="#">ckeckout</a></li><!--
-					--><li><a href="#">sign up</a></li>
+					--><li><a href="#" class="btn-sign-up">sign up</a></li>
 				</ul>
 			</div>
 		</div>
@@ -94,6 +132,9 @@
 				<p>- on all orders above <span class="red-color">$99</span></p>
 			</div>
 		</div>
+	</div>
+        <div class="wrapper account">
+		<section id="account"></section>
 	</div>
 	<div class="wrapper items">
 		<div class="items-container">
@@ -273,8 +314,8 @@
 			--><div class="main-footer-info">
 				© 2013 copyright PREMIUMCODING // All rights reserved
 			</div><!--
-			--><div class="main-footer-button">
-				<button class="btn-up"><a href="#intro"><span class="fa fa-chevron-up"></span></a></button>
+			--><div class="main-footer-button_up">
+				<button><a href="#intro" class="btn-up"><span class="fa fa-chevron-up"></span></a>
 			</div>
 		</div>
 		<div class="footer-info">
@@ -295,6 +336,7 @@
 	<script src="js/map.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAoSTLEwKV2euYcXzQoBKUimW4KdBGGPm0&callback=initMap" async defer></script>
 	<script src="js/smoothScrolling.js"></script>
-	<script src="js/shop-cart.js"></script>
+	<script src="js/user-interface.js"></script>
+	<script src="js/popups.js"></script>
 </body>
 </html>
