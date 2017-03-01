@@ -115,6 +115,7 @@ if(document.cookie){
 
 $('.btn-checkout').on('click', function(){
     removeAllCookies();
+    setCart(0,0);
 });
 
 var form = document.getElementsByClassName('account-sign-up');
