@@ -184,7 +184,7 @@ button:focus, input:focus {
   .wrapper > div {
     padding: 0 8%; }
   @media screen and (min-width: 2200px) {
-    .wrapper div[class], .wrapper ul {
+    .wrapper > div[class], .wrapper div > ul {
       text-align: center !important; } }
 
 .intro .info {
@@ -196,30 +196,29 @@ button:focus, input:focus {
     width: 50%;
     display: inline-block;
     vertical-align: top; }
-  .intro .info .info-support a:nth-child(n+2) {
+  .intro .info-support a:nth-child(n+2) {
     margin-left: 15px; }
-  .intro .info .info-support .fa {
+  .intro .info-support .fa {
     font-size: 1rem; }
-  .intro .info .info-account {
+  .intro .info-account {
     text-align: right; }
-    .intro .info .info-account li {
+    .intro .info-account li {
       display: inline-block;
       vertical-align: top;
       text-transform: uppercase; }
-      .intro .info .info-account li:nth-child(n+2) {
+      .intro .info-account li:nth-child(n+2) {
         margin-left: 15px; }
   @media screen and (max-width: 800px) {
     .intro .info > div[class] {
       width: 100%;
       text-align: center; } }
-@media screen and (max-width: 800px) and (max-width: 500px) {
-  .intro .info .info-support a:nth-child(n) {
-    display: block;
-    margin: 0; }
-  .intro .info .info-account li:nth-child(n) {
-    width: 50%;
-    margin: 0; } }
-
+  @media screen and (max-width: 500px) {
+    .intro .info-support a:nth-child(n) {
+      display: block;
+      margin: 0; }
+    .intro .info-account li:nth-child(n) {
+      width: 50%;
+      margin: 0; } }
 .intro .header-container {
   background-color: #f5f6f1; }
   .intro .header-container header {

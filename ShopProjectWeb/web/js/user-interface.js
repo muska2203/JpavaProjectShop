@@ -51,7 +51,17 @@ function getCookie(cname) {
     }
     return "";
 }
-
+function removeCookie(cname){
+    setCookie(cname,0,0);
+}
+function removeAllCookies(){
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var cookieValues = decodedCookie.split(';');
+    for (var i = 0; i < cookieValues.length; i++){
+        cookieValues[i] = cookieValues[i].split('=')[0];
+        removeCookie(cookieValues[i]);
+    }
+}
 function addToCart(money){
     if (money)
         money = parseFloat(money);
@@ -103,27 +113,9 @@ if(document.cookie){
 }
 /* init user */
 
-
-for(var i = 0; i < btnAddCart.length; i++){
-    btnAddCart[i].addEventListener("click", function(){
-        $(this).addClass('clicked');
-        var req = new newXMLHttpRequest();
-        req.open("POST", "TestServlet", true);
-        req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-        req.send();
-        req.onreadystatechange = function() { 
-            if (req.readyState != 4) return;
-              console.log('Finish');
-            if (req.status != 200) {
-              console.log('Error!');
-            } else {
-              var jsonData = JSON.parse(req.responseText);
-              str = +req.responseText;
-              addToCart(str);
-            }
-        }
-    });
-}
+$('.btn-checkout').on('click', function(){
+    removeAllCookies();
+});
 
 var form = document.getElementsByClassName('account-sign-up');
 for( var i = 0; i < form.length; i++){
@@ -146,5 +138,26 @@ for( var i = 0; i < form.length; i++){
                 setCart(jsonData["count"],jsonData["price"]);
               }
           }
+    });
+}
+
+for(var i = 0; i < btnAddCart.length; i++){
+    btnAddCart[i].addEventListener("click", function(){
+        $(this).addClass('clicked');
+        var req = new newXMLHttpRequest();
+        req.open("POST", "TestServlet", true);
+        req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        req.send();
+        req.onreadystatechange = function() { 
+            if (req.readyState != 4) return;
+              console.log('Finish');
+            if (req.status != 200) {
+              console.log('Error!');
+            } else {
+              var jsonData = JSON.parse(req.responseText);
+              str = +req.responseText;
+              addToCart(str);
+            }
+        }
     });
 }

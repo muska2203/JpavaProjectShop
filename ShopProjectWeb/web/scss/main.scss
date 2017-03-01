@@ -235,7 +235,7 @@ button:focus, input:focus{
         padding: 0 8%;
     }
     @media screen and (min-width: 2200px){
-       div[class],ul{
+       & > div[class], div > ul{
            text-align: center !important;
        }   
     }
@@ -251,7 +251,7 @@ button:focus, input:focus{
             display: inline-block;
             vertical-align: top;
         }
-        .info-support{
+        &-support{
             a:nth-child(n+2){
                     margin-left: 15px;
                 }
@@ -259,7 +259,7 @@ button:focus, input:focus{
                 font-size: 1rem;
             }
         }
-        .info-account{
+        &-account{
             text-align: right;
             li{
                 display: inline-block;
@@ -274,17 +274,17 @@ button:focus, input:focus{
             & > div[class]{
                 width: 100%;
                 text-align: center;
+            }
         }
         @media screen and (max-width: 500px){
-            .info-support a:nth-child(n){
+            &-support a:nth-child(n){
                 display: block;
                 margin: 0;
             }
-            .info-account li:nth-child(n){
+            &-account li:nth-child(n){
                 width: 50%;
                 margin: 0;
             }
-        }
         }
     }
     .header-container{
