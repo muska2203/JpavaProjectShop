@@ -86,6 +86,10 @@ function setCart(items, money){
     for (var i = 0; i < cartMoney.length; i++)
         cartMoney[i].innerHTML = money;
 }
+function setUser(login, password){
+    setCookie('login',login,30);
+    setCookie('password',password,30);
+}
 
 /* init user */
 if(document.cookie){
@@ -125,8 +129,6 @@ for( var i = 0; i < form.length; i++){
         event.preventDefault();
         var login = this.elements.login.value;
         var password = this.elements.password.value;
-        setCookie('login', login, 30);
-        setCookie('password', password, 30);
         var req = new newXMLHttpRequest();
         req.open("POST", "TestServlet", true);
         req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
@@ -138,7 +140,10 @@ for( var i = 0; i < form.length; i++){
               console.log('Error!');
             } else {
                 var jsonData = JSON.parse(req.responseText);
-                setCart(jsonData["count"],jsonData["price"]);
+                if (jsonData["result"]){
+                    setCart(jsonData["count"],jsonData["price"]);
+                    setUser(login, password);
+                }
               }
           }
     });
