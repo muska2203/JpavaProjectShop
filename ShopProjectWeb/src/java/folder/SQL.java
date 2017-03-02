@@ -93,7 +93,7 @@ public class SQL {
         ResultSet res = stm.executeQuery("SELECT SUM(itemcost) FROM Items,Cart\n" +
 "WHERE Cart.itemid = Items.itemid AND userid = "+userid+";");
         res.next();
-        return res.getString(1);
+        return "0"+res.getString(1);
     }
     
     public static void addItemsIntoDate(int cost, String name,String description, String[] colors, String[] sizes) throws SQLException

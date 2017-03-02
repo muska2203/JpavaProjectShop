@@ -27,7 +27,6 @@ public class Items {
     Set<Item> basket = null;
     
     
-    //Map<String,String[]> values = null;
     public Items(Map<String,String[]> values){
         setValues(values);
         
@@ -172,10 +171,6 @@ public class Items {
         return s;
     }
     
-    
-    
-    
-    
     public int getId()
     {
         return id;
@@ -192,14 +187,4 @@ public class Items {
     {
         return name;
     }
-    
-    
-    /*
-    public String getColors()
-    {
-        String res = "lol";
-        for(String s : colors)
-            res+=s;
-        return res;
-    }*/
 }

@@ -7,9 +7,9 @@ package folder;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Map;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -18,8 +18,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author admin
  */
-@WebServlet(name = "Test", urlPatterns = {"/Test"})
-public class TestCookies extends HttpServlet {
+@WebServlet(name = "UserLogin", urlPatterns = {"/UserLogin"})
+public class UserLogin extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,26 +33,15 @@ public class TestCookies extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        Cookie c = new Cookie("lol","lal");
-        Cookie cookie = new Cookie("pop","pap");
-        response.addCookie(c);
-        response.addCookie(cookie);
-        Cookie[] cook = request.getCookies();
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet Test</title>");            
+            out.println("<title>Servlet TestServlet</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.print("<h1>Servlet Test at " + request.getContextPath()+"||||");
-            for(Cookie in : cook)
-            {
-                out.print(in.getValue()+"\n");
-            }
-            out.println("</h1>");
+            out.println("<h1>Servlet TestServlet at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -70,7 +59,7 @@ public class TestCookies extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        
     }
 
     /**
@@ -81,10 +70,33 @@ public class TestCookies extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try{
+        
+        response.setContentType("text/html;charset=UTF-8");
+        
+        Map<String,String[]> map = request.getParameterMap();
+        String login = map.get("login")[0];
+        String password = map.get("password")[0];
+        
+        String count = SQL.getCountCartByUser(login, password);
+        
+        String price = SQL.getSumCartByUser(login, password);
+        
+        boolean result = false;
+        if(!SQL.findUser(login, password).equals(""))
+        {
+            result = true;
+        }
+        
+        response.getWriter().write("{\"count\":\""+count+"\",\"price\":\""+price+"\",\"result\":\""+result+"\"}");
+        
+        }catch(Exception e){
+            
+        }
     }
 
     /**
