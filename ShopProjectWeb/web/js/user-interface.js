@@ -86,6 +86,10 @@ function setCart(items, money){
     for (var i = 0; i < cartMoney.length; i++)
         cartMoney[i].innerHTML = money;
 }
+function setUser(login, password){
+    setCookie('login',login,30);
+    setCookie('password',password,30);
+}
 
 /* init user */
 if(document.cookie){
@@ -97,11 +101,7 @@ if(document.cookie){
         req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
         req.send("login="+userLogin+"&password="+userPassword);
         req.onreadystatechange = function() { 
-            if (req.readyState != 4) return;
-              console.log('Finish');
-            if (req.status != 200) {
-              console.log('Error!');
-            } else {
+             if(this.readyState == 4 && this.status == 200){
                 var jsonData = JSON.parse(req.responseText);
                 setCart(jsonData["count"],jsonData["price"]);
             }
@@ -125,22 +125,19 @@ for( var i = 0; i < form.length; i++){
         event.preventDefault();
         var login = this.elements.login.value;
         var password = this.elements.password.value;
-        setCookie('login', login, 30);
-        setCookie('password', password, 30);
         var req = new newXMLHttpRequest();
         req.open("POST", "TestServlet", true);
         req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
         req.send("login="+login+"&password="+password);
         req.onreadystatechange = function() { 
-            if (req.readyState != 4) return;
-              console.log('Finish');
-            if (req.status != 200) {
-              console.log('Error!');
-            } else {
+            if(this.readyState == 4 && this.status == 200){
                 var jsonData = JSON.parse(req.responseText);
+                if (jsonData["result"]){
                 setCart(jsonData["count"],jsonData["price"]);
-              }
-          }
+                setUser(login, password);
+                }
+            }
+        }
     });
 }
 
@@ -152,11 +149,7 @@ for(var i = 0; i < btnAddCart.length; i++){
         req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
         req.send();
         req.onreadystatechange = function() { 
-            if (req.readyState != 4) return;
-              console.log('Finish');
-            if (req.status != 200) {
-              console.log('Error!');
-            } else {
+            if(this.readyState == 4 && this.status == 200){
               var jsonData = JSON.parse(req.responseText);
               str = +req.responseText;
               addToCart(str);
