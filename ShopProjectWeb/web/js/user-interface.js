@@ -116,7 +116,7 @@ $('.btn-checkout').on('click', function(){
     setCart(0,0);
 });
 
-var formSignIn = document.getElementsByClassName('account-sign-in');
+var formSignIn = document.getElementsByClassName('account_form-sign-in');
 for( var i = 0; i < formSignIn.length; i++){
     formSignIn[i].addEventListener("submit", function(event){
         $('.popup-sign-in').removeClass('open');
@@ -137,6 +137,38 @@ for( var i = 0; i < formSignIn.length; i++){
                     setUser(login, password);
                 }
             }
+        }
+    });
+}
+var formSignUp = document.getElementsByClassName('account-sign-up');
+for(var i = 0; i < formSignUp.length; i++){
+    formSignUp[i].addEventListener("submit", function(event){
+        $('popup-sign-up').removeClass('open');
+        event.preventDefault();
+        var login = this.elements.login.value;
+        var email = this.elements.email.value;
+        var password = this.elements.password.value;
+        var passwordAgain = this.elements.passwordAgain.value;
+        if (password == passwordAgain){
+            this.elements.login.value = "";
+            this.elements.email.value = "";
+            this.elements.password.value = "";
+            this.elements.passwordAgain.value = "";
+            req.open("POST", "UserRegistration", true);
+            req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            req.send("login="+login+"&password="+password+"&email="+email);
+            req.onreadystatechange = function() { 
+                if(this.readyState == 4 && this.status == 200){
+                    var jsonData = JSON.parse(req.responseText);
+                    if (jsonData["result"]){
+                        setCart(jsonData["count"],jsonData["price"]);
+                        setUser(login, password);
+                    }
+                }
+            }
+        }
+        else{
+            alert("Bad matched passwords")
         }
     });
 }
