@@ -96,22 +96,34 @@ public class SQL {
         return "0"+res.getString(1);
     }
     
-    public static boolean isUserLogin(String login) throws SQLException
+    public static boolean isUserName(String login) throws SQLException
     {
         connect();
+        try{
         ResultSet res = stm.executeQuery("SELECT userid FROM Users\n" +
 "WHERE username = \""+login+"\"");
         res.next();
-        return !res.getString(1).equals("");
+        String str = res.getString(1);
+        return true;
+        }
+        catch(SQLException e){
+            return false;
+        }
     }
     
-    public static boolean isUserEMail(String eMail) throws SQLException
+    public static boolean isUserEMail(String eMail)
     {
         connect();
+        try{
         ResultSet res = stm.executeQuery("SELECT userid FROM Users\n" +
-"WHERE useremail = \""+eMail+"\"");
+        "WHERE useremail = \""+eMail+"\"");
         res.next();
-        return !res.getString(1).equals("");
+        String str = res.getString(1);
+        return true;
+        }
+        catch(SQLException e){
+            return false;
+        }
     }
     
     public static void addItemsIntoDate(int cost, String name,String description, String[] colors, String[] sizes) throws SQLException
