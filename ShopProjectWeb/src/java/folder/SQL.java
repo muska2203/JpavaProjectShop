@@ -126,6 +126,13 @@ public class SQL {
         }
     }
     
+    public static void addUserIntoDate(String name, String eMail, String password) throws SQLException
+    {
+        connect();
+        stm.addBatch("INSERT INTO Users(username,useremail,userpassword)"+
+                "VALUES(\""+name+"\",\""+eMail+"\",\""+password+"\")");
+    }
+    
     public static void addItemsIntoDate(int cost, String name,String description, String[] colors, String[] sizes) throws SQLException
     {
         connect();

@@ -80,7 +80,19 @@ public class UserRegistration extends HttpServlet {
             String login = map.get("login")[0];
             String eMail = map.get("email")[0];
             String password = map.get("password")[0];
-            
+            boolean isLogin,
+                    isEMail,
+                    complete;
+            isLogin = SQL.isUserName(login);
+            isEMail = SQL.isUserEMail(eMail);
+            if(!isLogin && !isEMail)
+            {
+                SQL.addUserIntoDate(login, eMail, password);
+                complete = true;
+            }
+            else
+                complete = false;
+            response.getWriter().write("{\"islogin\":\""+isLogin+"\",\"isemail\":\""+isEMail+"\",\"complate\":\""+complete+"\"}");
             
             
         }catch(Exception e)
