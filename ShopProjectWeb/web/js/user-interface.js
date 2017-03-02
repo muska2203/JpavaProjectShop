@@ -73,13 +73,11 @@ function addToCart(money){
         cartMoney[i].innerHTML = +cartItems[i].innerHTML + money;
 }
 function setCart(items, money){
-    if (items)
-        items = parseInt(items);
-    else
+    items = parseInt(items);
+    money = parseFloat(money);
+    if (isNaN(items) || !isFinite(items))
         items = 0;
-    if (money)
-        money = parseFloat(money);
-    else
+    if (isNaN(money) || !isFinite(money))
         money = 0;  
     for (var i = 0; i < cartItems.length; i++)
         cartItems[i].innerHTML = items;
