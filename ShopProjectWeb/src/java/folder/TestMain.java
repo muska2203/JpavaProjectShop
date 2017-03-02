@@ -14,8 +14,7 @@ import java.sql.SQLException;
 public class TestMain {
     public static void main(String[] args) throws SQLException
     {
-        System.out.println(SQL.isUserEMail(""));
-        System.out.println(SQL.isUserName("max"));
+        System.out.println(SQL.isUserEMail("Admin@mail.ru"));
     }
     
 }

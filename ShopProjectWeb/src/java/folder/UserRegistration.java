@@ -79,6 +79,7 @@ public class UserRegistration extends HttpServlet {
             Map<String,String[]> map = request.getParameterMap();
             String login = map.get("login")[0];
             String eMail = map.get("email")[0];
+            
             String password = map.get("password")[0];
             boolean isLogin,
                     isEMail,
@@ -87,12 +88,14 @@ public class UserRegistration extends HttpServlet {
             isEMail = SQL.isUserEMail(eMail);
             if(!isLogin && !isEMail)
             {
-                SQL.addUserIntoDate(login, eMail, password);
+                SQL.addUserIntoDate("name", "name", "name");
                 complete = true;
             }
             else
                 complete = false;
-            response.getWriter().write("{\"islogin\":\""+isLogin+"\",\"isemail\":\""+isEMail+"\",\"complate\":\""+complete+"\"}");
+            response.getWriter().write("{\"islogin\":\""+isLogin+"\",\"isemail\":\""+isEMail+"\",\"result\":\""+complete+"\"}");
+            
+            //response.getWriter().write("{\"count\":\""+10+"\"");
             
             
         }catch(Exception e)
