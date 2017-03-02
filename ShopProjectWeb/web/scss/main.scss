@@ -19,28 +19,6 @@
     white-space: nowrap;
     text-overflow: ellipsis;
 }
-html{
-    height: 100vh;
-}
-body{
-    position: relative;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%) scale(0.2);
-    animation: lal 10s infinite linear;
-    animation-delay: 1s;
-    @keyframes lal{
-        0%{
-            transform: translate(-50%,-50%) scale(0.2) rotate(0deg);
-        }
-        50%{
-            transform: translate(-50%,-50%) scale(0.2) rotate(180deg);
-        }
-        100%{
-            transform: translate(-50%,-50%) scale(0.2) rotate(360deg);
-        }
-    }
-}
 $dark-color: #463f3a;
 $light-color: #FFF;
 $red-color: #f55856;
