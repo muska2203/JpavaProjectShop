@@ -125,6 +125,8 @@ for( var i = 0; i < form.length; i++){
         event.preventDefault();
         var login = this.elements.login.value;
         var password = this.elements.password.value;
+        setCookie('login', login, 30);
+        setCookie('password', password, 30);
         var req = new newXMLHttpRequest();
         req.open("POST", "TestServlet", true);
         req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
