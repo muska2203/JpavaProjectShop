@@ -125,7 +125,15 @@ button:focus, input:focus {
         box-shadow: 0 0 20px rgba(255, 255, 255, 0.5); }
   .popup-window-template.open {
     display: block; }
-
+    .popup-window-template.open .popup-window {
+      animation: kek 6s linear  infinite; }
+@keyframes kek {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg) scale(1); }
+  50% {
+    transform: translate(-50%, -50%) rotate(180deg) scale(1.4); }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg) scale(1); } }
 /* popup-window-class start */
 .shop-cart-fixed {
   z-index: 5;
