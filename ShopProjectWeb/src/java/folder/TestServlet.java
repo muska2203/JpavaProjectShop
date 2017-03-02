@@ -89,13 +89,14 @@ public class TestServlet extends HttpServlet {
         String count = SQL.getCountCartByUser(login, password);
         
         
-        String price = SQL.getCountCartByUser(login, password);
+        String price = SQL.getSumCartByUser(login, password);
         
         String res = SQL.findUser(login, password);
         boolean result = false;
-        try{
-            int tmp = Integer.valueOf(res);
-        }catch(Exception e){result = true;}
+        if(!res.equals(""))
+        {
+            result = true;
+        }
         
         response.getWriter().write("{\"count\":\""+count+"\",\"price\":\""+price+"\",\"result\":\""+result+"\"}");
         
