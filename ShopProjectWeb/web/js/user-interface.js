@@ -101,11 +101,7 @@ if(document.cookie){
         req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
         req.send("login="+userLogin+"&password="+userPassword);
         req.onreadystatechange = function() { 
-            if (req.readyState != 4) return;
-              console.log('Finish');
-            if (req.status != 200) {
-              console.log('Error!');
-            } else {
+             if(this.readyState == 4 && this.status == 200){
                 var jsonData = JSON.parse(req.responseText);
                 setCart(jsonData["count"],jsonData["price"]);
             }
@@ -134,18 +130,14 @@ for( var i = 0; i < form.length; i++){
         req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
         req.send("login="+login+"&password="+password);
         req.onreadystatechange = function() { 
-            if (req.readyState != 4) return;
-              console.log('Finish');
-            if (req.status != 200) {
-              console.log('Error!');
-            } else {
+            if(this.readyState == 4 && this.status == 200){
                 var jsonData = JSON.parse(req.responseText);
                 if (jsonData["result"]){
-                    setCart(jsonData["count"],jsonData["price"]);
-                    setUser(login, password);
+                setCart(jsonData["count"],jsonData["price"]);
+                setUser(login, password);
                 }
-              }
-          }
+            }
+        }
     });
 }
 
@@ -157,11 +149,7 @@ for(var i = 0; i < btnAddCart.length; i++){
         req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
         req.send();
         req.onreadystatechange = function() { 
-            if (req.readyState != 4) return;
-              console.log('Finish');
-            if (req.status != 200) {
-              console.log('Error!');
-            } else {
+            if(this.readyState == 4 && this.status == 200){
               var jsonData = JSON.parse(req.responseText);
               str = +req.responseText;
               addToCart(str);
