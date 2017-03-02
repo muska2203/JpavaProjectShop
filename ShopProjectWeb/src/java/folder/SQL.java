@@ -16,9 +16,9 @@ import java.sql.Statement;
  * @author admin
  */
 public class SQL {
-    private static String url = "jdbc:mysql://localhost:3306/date";
-    private static String userName = "root";
-    private static String password = "root";
+    private static final String url = "jdbc:mysql://localhost:3306/date";
+    private static final String userName = "root";
+    private static final String password = "root";
     static Connection connect = null;
     static Statement stm = null;
     
@@ -67,10 +67,39 @@ public class SQL {
         return stm.executeQuery("SELECT size FROM Size WHERE itemid = "+id);
     }
     
+    public static String findUser(String login,String password) throws SQLException
+    {
+        connect();
+        ResultSet res = stm.executeQuery("Select userid FROM Users\n" +
+"WHERE username = \""+login+"\" AND userpassword = \""+password+"\";");
+        res.next();
+        return res.getString(1);
+    }
+    
+    public static String getCountCartByUser(String login, String password) throws SQLException
+    {
+        connect();
+        String userid = findUser(login,password);
+        ResultSet res = stm.executeQuery("SELECT COUNT(itemid) FROM Cart\n" +
+"WHERE userid = "+userid+";");
+        res.next();
+        return res.getString(1);
+    }
+    
+    public static String getSumCartByUser(String login, String password) throws SQLException
+    {
+        connect();
+        String userid = findUser(login,password);
+        ResultSet res = stm.executeQuery("SELECT SUM(itemcost) FROM Items,Cart\n" +
+"WHERE Cart.itemid = Items.itemid AND userid = "+userid+";");
+        res.next();
+        return res.getString(1);
+    }
+    
     public static void addItemsIntoDate(int cost, String name,String description, String[] colors, String[] sizes) throws SQLException
     {
         connect();
-        int id = 0;
+        int id;
         stm.addBatch("INSERT INTO Items(itemname,itemcost,itemdescription) VALUES(\""+name+"\","+cost+",\""+description+"\")");
         ResultSet set = stm.executeQuery("SELECT itemid FROM Items WHERE itemname = "+name+" AND description = "+description);
         set.next();
