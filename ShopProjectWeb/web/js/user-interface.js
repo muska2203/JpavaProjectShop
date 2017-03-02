@@ -116,9 +116,9 @@ $('.btn-checkout').on('click', function(){
     setCart(0,0);
 });
 
-var form = document.getElementsByClassName('account-sign-up');
-for( var i = 0; i < form.length; i++){
-    form[i].addEventListener("submit", function(event){
+var formSignIn = document.getElementsByClassName('account-sign-in');
+for( var i = 0; i < formSignIn.length; i++){
+    formSignIn[i].addEventListener("submit", function(event){
         $('.popup-sign-in').removeClass('open');
         event.preventDefault();
         var login = this.elements.login.value;

@@ -126,14 +126,19 @@ button:focus, input:focus {
   .popup-window-template.open {
     display: block; }
     .popup-window-template.open .popup-window {
-      animation: kek 6s linear  infinite; }
+      animation: kek 0.5s 2;
+      animation-delay: 1s; }
 @keyframes kek {
   0% {
-    transform: translate(-50%, -50%) rotate(0deg) scale(1); }
+    transform: translate(-50%, -50%) rotate(0deg); }
+  25% {
+    transform: translate(-50%, -50%) rotate(-2deg); }
   50% {
-    transform: translate(-50%, -50%) rotate(180deg) scale(1.4); }
+    transform: translate(-50%, -50%) rotate(0deg); }
+  75% {
+    transform: translate(-50%, -50%) rotate(2deg); }
   100% {
-    transform: translate(-50%, -50%) rotate(360deg) scale(1); } }
+    transform: translate(-50%, -50%) rotate(0); } }
 /* popup-window-class start */
 .shop-cart-fixed {
   z-index: 5;
