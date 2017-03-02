@@ -107,9 +107,9 @@ if(document.cookie){
             }
         }
     }
-    else{
-        setCart(0,0);
-    }
+}
+else{
+    setCart(0,0);
 }
 /* init user */
 
@@ -124,7 +124,9 @@ for( var i = 0; i < form.length; i++){
         $('.popup-sign-in').removeClass('open');
         event.preventDefault();
         var login = this.elements.login.value;
+        this.elements.login.value = "";
         var password = this.elements.password.value;
+        this.elements.password.value = "";
         var req = new newXMLHttpRequest();
         req.open("POST", "TestServlet", true);
         req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
@@ -133,8 +135,8 @@ for( var i = 0; i < form.length; i++){
             if(this.readyState == 4 && this.status == 200){
                 var jsonData = JSON.parse(req.responseText);
                 if (jsonData["result"]){
-                setCart(jsonData["count"],jsonData["price"]);
-                setUser(login, password);
+                    setCart(jsonData["count"],jsonData["price"]);
+                    setUser(login, password);
                 }
             }
         }
@@ -150,9 +152,9 @@ for(var i = 0; i < btnAddCart.length; i++){
         req.send();
         req.onreadystatechange = function() { 
             if(this.readyState == 4 && this.status == 200){
-              var jsonData = JSON.parse(req.responseText);
-              str = +req.responseText;
-              addToCart(str);
+                var jsonData = JSON.parse(req.responseText);
+                str = +req.responseText;
+                addToCart(str);
             }
         }
     });
