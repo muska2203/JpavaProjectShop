@@ -96,6 +96,24 @@ public class SQL {
         return "0"+res.getString(1);
     }
     
+    public static boolean isUserLogin(String login) throws SQLException
+    {
+        connect();
+        ResultSet res = stm.executeQuery("SELECT userid FROM Users\n" +
+"WHERE username = \""+login+"\"");
+        res.next();
+        return !res.getString(1).equals("");
+    }
+    
+    public static boolean isUserEMail(String eMail) throws SQLException
+    {
+        connect();
+        ResultSet res = stm.executeQuery("SELECT userid FROM Users\n" +
+"WHERE useremail = \""+eMail+"\"");
+        res.next();
+        return !res.getString(1).equals("");
+    }
+    
     public static void addItemsIntoDate(int cost, String name,String description, String[] colors, String[] sizes) throws SQLException
     {
         connect();

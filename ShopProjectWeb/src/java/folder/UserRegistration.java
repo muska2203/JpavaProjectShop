@@ -7,6 +7,7 @@ package folder;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Map;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -58,7 +59,7 @@ public class UserRegistration extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        
     }
 
     /**
@@ -72,7 +73,20 @@ public class UserRegistration extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        response.setContentType("text/html;charset=UTF-8");
+        try
+        {
+            Map<String,String[]> map = request.getParameterMap();
+            String login = map.get("login")[0];
+            String eMail = map.get("email")[0];
+            String password = map.get("password")[0];
+            
+            
+            
+        }catch(Exception e)
+        {
+            
+        }
     }
 
     /**
