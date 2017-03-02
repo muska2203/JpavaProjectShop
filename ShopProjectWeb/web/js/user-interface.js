@@ -140,7 +140,7 @@ for( var i = 0; i < formSignIn.length; i++){
         }
     });
 }
-var formSignUp = document.getElementsByClassName('account-sign-up');
+var formSignUp = document.getElementsByClassName('account_form-sign-up');
 for(var i = 0; i < formSignUp.length; i++){
     formSignUp[i].addEventListener("submit", function(event){
         event.preventDefault();
