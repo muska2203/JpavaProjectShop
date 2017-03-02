@@ -148,13 +148,12 @@ for(var i = 0; i < formSignUp.length; i++){
         var email = this.elements.email.value;
         var password = this.elements.password.value;
         var passwordAgain = this.elements.passwordAgain.value;
-       
         if (password == passwordAgain){
         }
         else{
             alert("Bad matched passwords")
         }
-        $('popup-sign-up').removeClass('open');
+        $('.popup-sign-up').removeClass('open');
         this.elements.login.value = "";
         this.elements.email.value = "";
         this.elements.password.value = "";
