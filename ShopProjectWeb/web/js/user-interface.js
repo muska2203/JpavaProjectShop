@@ -159,6 +159,7 @@ for(var i = 0; i < formSignUp.length; i++){
         this.elements.email.value = "";
         this.elements.password.value = "";
         this.elements.passwordAgain.value = "";
+        var req = new newXMLHttpRequest();
         req.open("POST", "UserRegistration", true);
         req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
         req.send("login="+login+"&password="+password+"&email="+email);
