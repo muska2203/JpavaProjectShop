@@ -75,9 +75,9 @@ function addToCart(money){
 function setCart(items, money){
     items = parseInt(items);
     money = parseFloat(money);
-    if (isNaN(items) || !isFinite(items))
+    if (isNaN(items) || !isFinite(items) || items == "")
         items = 0;
-    if (isNaN(money) || !isFinite(money))
+    if (isNaN(money) || !isFinite(money) || money == "")
         money = 0;  
     for (var i = 0; i < cartItems.length; i++)
         cartItems[i].innerHTML = items;
@@ -95,7 +95,7 @@ if(document.cookie){
     var userPassword = getCookie('password');
     if(userLogin != "" && userPassword != ""){
         var req = new newXMLHttpRequest();
-        req.open("POST", "TestServlet", true);
+        req.open("POST", "UserLogin", true);
         req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
         req.send("login="+userLogin+"&password="+userPassword);
         req.onreadystatechange = function() { 
@@ -126,7 +126,7 @@ for( var i = 0; i < form.length; i++){
         var password = this.elements.password.value;
         this.elements.password.value = "";
         var req = new newXMLHttpRequest();
-        req.open("POST", "TestServlet", true);
+        req.open("POST", "UserLogin", true);
         req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
         req.send("login="+login+"&password="+password);
         req.onreadystatechange = function() { 
@@ -145,7 +145,7 @@ for(var i = 0; i < btnAddCart.length; i++){
     btnAddCart[i].addEventListener("click", function(){
         $(this).addClass('clicked');
         var req = new newXMLHttpRequest();
-        req.open("POST", "TestServlet", true);
+        req.open("POST", "UserLogin", true);
         req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
         req.send();
         req.onreadystatechange = function() { 
