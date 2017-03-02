@@ -73,9 +73,11 @@ public class UserRegistration extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
+        
         try
         {
+            response.setContentType("text/html;charset=UTF-8");
+            /*
             Map<String,String[]> map = request.getParameterMap();
             String login = map.get("login")[0];
             String eMail = map.get("email")[0];
@@ -94,13 +96,13 @@ public class UserRegistration extends HttpServlet {
             else
                 complete = false;
             response.getWriter().write("{\"islogin\":\""+isLogin+"\",\"isemail\":\""+isEMail+"\",\"result\":\""+complete+"\"}");
-            
-            //response.getWriter().write("{\"count\":\""+10+"\"");
+            */
+            response.getWriter().write("{\"count\":\""+10+"\"");
             
             
         }catch(Exception e)
         {
-            
+            response.getWriter().write("{\"count\":\""+10+"\"");
         }
     }
 
