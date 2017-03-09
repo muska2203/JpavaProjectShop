@@ -8,7 +8,6 @@ package folder;
 import java.sql.*;
 import java.util.Arrays;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 
@@ -24,14 +23,12 @@ public class Items {
     private Set<Integer> sizes = new HashSet<>();
     
     Set<Item> listItem = null;
-    Set<Item> basket = null;
     
     
     public Items(Map<String,String[]> values){
         setValues(values);
         
         listItem = new HashSet<>();
-        basket = new HashSet<>();
         
     }
     
@@ -69,30 +66,6 @@ public class Items {
         }}catch(Exception e){}
     }
     
-    public void addBasket(int id) throws SQLException
-    {
-        ResultSet res = SQL.findItemsById(id);
-        res.next();
-        int cost = res.getInt("itemcost");
-        String name = res.getString("itemname");
-        basket.add(new Item(id,cost,name));
-    }
-    
-    public int getMiniBasketCount()
-    {
-        return basket.size();
-    }
-    
-    public int getMiniBasketPrice()
-    {
-        int sum = 0;
-        for(Item it : basket)
-        {
-            sum+=it.getCost();
-        }
-        return sum;
-    }
-    
     public void findItems() throws SQLException
     {
         int id = 0;
@@ -113,6 +86,9 @@ public class Items {
             String name = res.getString("itemname");
             listItem.add(new Item(id,cost,name));
         }
+        //Gson gson = new Gson();
+        //TestJson test = new TestJson();
+        //String jsonString = gson.toJson(test);
     }
     
     //Поправить
@@ -121,7 +97,6 @@ public class Items {
         Set<Item> s = new HashSet<>();
         for(Item it : listItem)
         {
-            addBasket(it.getId());
             s.add(it);
         }
         return s;

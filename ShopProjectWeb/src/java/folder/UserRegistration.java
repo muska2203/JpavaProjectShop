@@ -95,11 +95,8 @@ public class UserRegistration extends HttpServlet {
             }
             else
                 complete = false;
-            response.getWriter().write("{\"islogin\":\""+isLogin+"\",\"isemail\":\""+isEMail+"\",\"result\":\""+complete+"\","+
-                    "\"price\":\""+20+"\",\"count\":\""+123+"\"}");
-            
-            
-            
+            response.getWriter().write("{\"islogin\":\""+isLogin+"\",\""+
+                    "isemail\":\""+isEMail+"\",\"result\":\""+complete+"\",");
         }catch(Exception e)
         {
         }
