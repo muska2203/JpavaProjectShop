@@ -6,6 +6,8 @@
 package folder;
 
 import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  *
@@ -14,7 +16,10 @@ import java.sql.SQLException;
 public class TestMain {
     public static void main(String[] args) throws SQLException
     {
-        System.out.println(SQL.isUserEMail("Admin@mail.ru"));
+        Map<String,String[]> lol =new HashMap<>();
+        
+        Items it = new Items(lol);
+        it.findItems();
     }
     
 }

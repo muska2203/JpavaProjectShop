@@ -104,58 +104,14 @@ public class Items {
         }
         else
         {
-            res = SQL.findItemsByName(this.name);//поиск по имени
+            res = SQL.findItemsByParameters(this.name, this.colors, this.sizes, this.costMin, this.costMax);//поиск по имени
         }
         while(res.next())
         {
             id = res.getInt("itemid");
             cost = res.getInt("itemcost");
             String name = res.getString("itemname");
-            if(cost <= this.costMax && cost >= this.costMin)//поиск по цене
             listItem.add(new Item(id,cost,name));
-        }
-        
-        if(!colors.isEmpty())//поиск по цветам
-        {
-        Iterator<Item> it = listItem.iterator();
-            while(it.hasNext())
-            {
-                Item i = it.next();
-                boolean isColor = false;
-                ResultSet set = SQL.findColorByItemId(i.getId());
-                while(set.next())
-                {
-                    String itemColor = set.getString("color");
-                    for(String color : colors)//цвета в поиске
-                    {
-                        if(color.equals(itemColor)==true)
-                            isColor = true;
-                    }
-                }
-                if(isColor == false)
-                    it.remove();
-            }
-        }
-        if(!sizes.isEmpty())
-        {
-            Iterator<Item> it = listItem.iterator();
-            while(it.hasNext())
-            {
-                Item i = it.next();
-                boolean isSize = false;
-                ResultSet set = SQL.findSizeByItemId(i.getId());
-                while(set.next())
-                {
-                    int itemSize = set.getInt("size");
-                    for(int size : sizes)//цвета в поиске
-                    {
-                        if(size == itemSize)
-                            isSize = true;
-                    }
-                }
-                if(isSize == false)
-                    it.remove();
-            }
         }
     }
     

@@ -10,6 +10,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Set;
 
 /**
  *
@@ -48,6 +49,42 @@ public class SQL {
     {
         connect();
         return stm.executeQuery("SELECT * FROM Items WHERE itemname LIKE \"%"+name+"%\"");
+    }
+    
+    public static ResultSet findItemsByParameters(String name, Set<String> colors, Set<Integer>sizes, int costMin, int costMax) throws SQLException
+    {
+        connect();
+        String result = "SELECT Items.* FROM Items,ItemsColor,Size\n" +
+"WHERE Items.itemname LIKE \"%"+name+"%\" AND\n" +
+"(Items.itemcost < "+costMax+" AND Items.itemcost > "+costMin+") ";
+        int i = 0;
+        if(!sizes.isEmpty())
+        {
+            result+="AND\n((";    
+            for(int size : sizes)
+            {
+                if(i>0)
+                result+=" OR ";
+                result+="Size.size = "+size;
+                i++;
+            }
+            result+=") AND Size.itemid = Items.itemid) ";
+        }
+        i = 0;
+        if(!colors.isEmpty())
+        {
+            result+="AND\n((";
+            for(String color : colors)
+            {
+                if(i>0)
+                result+=" OR ";
+                result+="ItemsColor.color = \""+color+"\"";
+                i++;
+            }
+            result+=") AND ItemsColor.itemid = Items.itemid)\n";
+        }
+        result+="GROUP BY Items.itemid";
+        return stm.executeQuery(result);
     }
     
     public static ResultSet findItemsByCost(int costMax, int costMin) throws SQLException //Поиск по cost
