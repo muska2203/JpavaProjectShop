@@ -1,44 +1,4 @@
-@font-face{
-    font-family: osw_b;
-    src: url(../fonts/oswald-bold.ttf);
-}
-@font-face{
-	font-family: museo_t;
-	src: url(../fonts/MuseoSansCyrl_0.otf);
-}
-@font-face{
-    font-family: museo_r;
-    src: url(../fonts/MuseoSansCyrl_1.otf);
-}
-@font-face{
-    font-family: museo_bold;
-    src: url(../fonts/MuseoSansCyrl_2.otf);
-}
-@mixin text-ellipsis(){
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-}
-$dark-color: #463f3a;
-$light-color: #FFF;
-$red-color: #f55856;
-$bg-color: $dark-color;
-$bg-grey: #f5f6f1;
-$hover-color: #ff9700;
-
-$info-height: 40px;
-$header-height: 170px;
-
-$item-height: 340px;
-$item-width: 275px;
-
-$btn-up-size: 50px;
-$btn-bg: #3c3631;
-
-$features-box-width: 300px;
-$features-box-height: 120px; 
-
-$btn-map-size: 50px;
+@import 'mixins.scss';
 *{
 	margin: 0;
 	padding: 0;
@@ -90,6 +50,12 @@ button:focus, input:focus{
     color: $red-color;
 }
 
+.bullsy{
+    position: relative;
+    &-item_review{
+        padding: 100px 8%;
+    }
+}
 /* popup-window-class start */
 .popup-window-template{
     display: none;
@@ -111,6 +77,7 @@ button:focus, input:focus{
             transition: 0.7s;
             &:hover{
                 color: $red-color;
+                transform: rotate(360deg);
             }
         }
     }
@@ -120,12 +87,16 @@ button:focus, input:focus{
         left: 50%;
         transform: translate(-50%,-50%);
         min-width: 320px;
+        /*
+        max-height: 90vh;
+        overflow: auto;
+        */
         box-sizing: border-box;
         padding: 40px;
         background-color: $dark-color;
         /*background: linear-gradient($red-color, $dark-color);*/
         color: $light-color;
-        font-size: 2rem;
+        font-size: 1.5rem;
         text-align: center;
         fieldset{
             display: inline-block;
@@ -138,22 +109,19 @@ button:focus, input:focus{
             letter-spacing: 2px;
         }
         input{
-            margin: 0 auto;
             display: block;
-            box-sizing: border-box;
-            padding: 5px 10px;
-            color: $dark-color;
-            font-family: museo_t;
-            font-size: 1.5rem;
-        }
-        input:not([type=submit]){
+            margin: 0 auto;
             margin-bottom: 30px;
             width: 100%;
             max-width: 400px;
+            box-sizing: border-box;
+            padding: 5px 10px;
             border: 2px solid $light-color;
+            color: $dark-color;
+            font-family: museo_t;
+            font-size: 1.25rem;
         }
         button{
-            width: auto;
             padding: 5px 10px;
             background-color: $light-color;
             color: $dark-color;
@@ -167,25 +135,13 @@ button:focus, input:focus{
     }
     &.open{
         display: block;
-        .popup-window{
-            animation: kek 0.5s 2;
-            animation-delay: 1s;
-            @keyframes kek{
-                0%{
-                    transform: translate(-50%,-50%) rotate(0deg);
-                }
-                25%{
-                    transform: translate(-50%,-50%) rotate(-2deg);
-                }
-                50%{
-                    transform: translate(-50%,-50%) rotate(0deg);
-                }
-                75%{
-                    transform: translate(-50%,-50%) rotate(2deg);
-                }
-                100%{
-                    transform: translate(-50%,-50%) rotate(0);
-                }
+        animation: open-popup 0.2s linear;
+        @keyframes open-popup{
+            0%{
+                opacity: 0;
+            }
+            100%{
+                opacity: 1;
             }
         }
     }
@@ -460,46 +416,10 @@ button:focus, input:focus{
     .item-container{
         display: inline-block;
         vertical-align: top;
-        min-width: $item-width;
-        box-sizing: border-box;
         padding: 0 20px;
         margin-bottom: 40px;
         .item{
-            max-height: $item-height;
-            width: $item-width;
             margin: 0 auto;
-            text-align: left;
-            img{
-                width: 100%;
-                height: 200px;
-            }
-            & > span{
-                display: block;
-                max-height: 2rem;
-                line-height: 2rem;
-                @include text-ellipsis();
-            }
-            span:last-of-type{
-                margin-bottom: 10px;
-            }
-            .description{
-                font-size: 1.125rem;
-                font-family: museo_t;
-            }
-            .price{
-                font-family: museo_bold;
-                font-size: 1.25rem;
-            }
-            button{
-                display: inline-block;
-                width: 100%;
-                &.clicked{
-                    background-color: $red-color;
-                    &:hover{
-                        color: $light-color;
-                    }
-                }
-            }
         }
     }
     @media screen and (max-width: 600px){
@@ -679,20 +599,22 @@ button:focus, input:focus{
 .items-template{
     &:nth-child(odd){
         background-color: #f8f8f8;
-        h2 span{
-            background: #f8f8f8;
+        .items-title{
+            .items_title{
+                background: #f8f8f8;
+            }
         }
     }
     padding-top: 40px;
     text-align: center;
-    h2{
+    .items-title{
         margin-bottom: 40px;
         font-size: 1.875rem;
         text-transform: uppercase;
         background-image: url(../img/line-for-h.png);
         background-position: center;
         background-repeat: repeat-x;
-        span{
+        .items_title{
             padding: 0 15px;
             background: $light-color;
         }
@@ -704,7 +626,7 @@ button:focus, input:focus{
         
     }
 }
-.quote{
+.note{
     min-height: 1px;
     padding: 50px 8%;
     background-color: #f5f6f1;

@@ -1,0 +1,41 @@
+@mixin text-ellipsis(){
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+@font-face{
+    font-family: osw_b;
+    src: url(../fonts/oswald-bold.ttf);
+}
+@font-face{
+	font-family: museo_t;
+	src: url(../fonts/MuseoSansCyrl_0.otf);
+}
+@font-face{
+    font-family: museo_r;
+    src: url(../fonts/MuseoSansCyrl_1.otf);
+}
+@font-face{
+    font-family: museo_bold;
+    src: url(../fonts/MuseoSansCyrl_2.otf);
+}
+$dark-color: #463f3a;
+$light-color: #FFF;
+$red-color: #f55856;
+$bg-color: $dark-color;
+$bg-grey: #f5f6f1;
+$hover-color: #ff9700;
+
+$info-height: 40px;
+$header-height: 170px;
+
+$item-height: 340px;
+$item-width: 275px;
+
+$btn-up-size: 50px;
+$btn-bg: #3c3631;
+
+$features-box-width: 300px;
+$features-box-height: 120px; 
+
+$btn-map-size: 50px;
