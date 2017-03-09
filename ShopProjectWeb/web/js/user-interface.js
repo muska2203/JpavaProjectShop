@@ -1,9 +1,9 @@
-$('.btn-cart-fixed').on("click", function(){
-    $('.shop-cart-fixed').toggleClass('open');
+$('.btn--shop_cart_fixed').on("click", function(){
+    $('.shop_cart_fixed').toggleClass('open');
 });
 
-var cartItems = document.getElementsByClassName('card-items-value');
-var cartMoney = document.getElementsByClassName('card-money-value');
+var cartItems = document.getElementsByClassName('cart_items');
+var cartMoney = document.getElementsByClassName('cart_price');
 var btnAddCart = document.getElementsByClassName('btn-add-card');
 
 function newXMLHttpRequest() {

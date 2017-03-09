@@ -6,8 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" type="text/css" href="libs/font-awesome-4.7.0/css/font-awesome.css">
 	<link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="css/shop_cart_fixed.css">
 	<link rel="stylesheet" href="css/item_review.css">
 	<link rel="stylesheet" href="css/item.css">
+	<link rel="stylesheet" href="css/note.css">
+	<link rel="stylesheet" href="css/map.css">
 </head>
 <body>
 	<div class="bullsy">
@@ -53,11 +56,11 @@
 				</form>
 			</div>
 		</div>
-		<div class="shop-cart-fixed">
-			<span class="btn-cart-fixed fa fa-caret-left"></span>
-			<div class="shop-cart-fixed-content">
-				<span class="card-items"><span class="red-color card-items-value">0</span> items</span>
-				<span class="card-money"><span class="red-color card-money-value">0</span> $</span>
+		<div class="shop_cart_fixed">
+			<span class="btn btn--shop_cart_fixed fa fa-caret-left"></span>
+			<div class="shop_cart_fixed-info">
+				<span class="card-items"><span class="cart_items red-color">0</span> items</span>
+				<span class="card-money"><span class="cart_price red-color">0</span> $</span>
 				<a class="btn-shop-cart" href="#account"><div class="fa fa-shopping-cart"></div></a>
 			</div>
 		</div>
@@ -98,21 +101,14 @@
 					</div><!--
 					--><div class="shop-card">
 						<div class="shop-card-info">
-							<span class="card-items"><span class="red-color card-items-value">0</span> items</span>
-							<span class="card-money"><span class="red-color card-money-value">0</span> $</span>
+							<span class="card-items"><span class="red-color cart_items">0</span> items</span>
+							<span class="card-money"><span class="red-color cart_price">0</span> $</span>
 						</div><!--
 						--><div class="shop-card-icon">
 							<a href="#account" class="btn-shop-cart"><img src="img/shop-card.png" alt=""></a>
 						</div>
 					</div>
 				</header>
-			</div>
-			<div class="slider-container">
-				<div class="slider">
-					<div class="slide1" id="slide1">
-						
-					</div>
-				</div>
 			</div>
 			<div class="intro-features">
 				<div class="intro-features-box">
@@ -401,14 +397,23 @@
 				</div>
 			</div>
 		</div>
-		<div class="wrapper note">
-			<h2>Bullsy - a rugged store for rugged people</h2>
-			<p>- read more about our store regulations and <a href="#"><span class="red-color">policy</span></a> here. Lorem ipsum dolor sit amet</p>
+		<div class="bullsy-note">
+			<div class="note">
+				<h2 class="note-title">Bullsy - a rugged store for rugged people</h2>
+				<p class="note-content">- read more about our store regulations and 
+					<a href="#"><span class="red-color">policy</span></a> 
+					here. Lorem ipsum dolor sit amet
+				</p>
+			</div>
 		</div>
-		<div class="wrapper map" id="map-container">
-			<div id="map"></div>
-			<div class="map-cover"></div>
-			<button class="btn-map-open"><span class="fa fa-chevron-down"></span></button>
+		<div class="bullsy-map">
+			<div class="map">
+				<div id="map"></div>
+				<div class="map-cover"></div>
+				<div class="map-btn">
+					<button class="btn btn--map"></button>
+				</div>
+			</div>
 		</div>
 		<div class="wrapper footer">
 			<div class="main-footer">
