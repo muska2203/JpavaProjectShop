@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" type="text/css" href="libs/font-awesome-4.7.0/css/font-awesome.css">
 	<link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="css/error.css">
+	<link rel="stylesheet" href="css/popup.css">
 	<link rel="stylesheet" href="css/shop_cart_fixed.css">
 	<link rel="stylesheet" href="css/item_review.css">
 	<link rel="stylesheet" href="css/item.css">
@@ -22,11 +24,17 @@
 			<div class="popup-close"><span class="fa fa-close"></span></div>
 			<div class="popup-window">
 				<form class="account_form-sign-in" action="#" method="POST" novalidate>
-					<label for="sigin-in_name">Login:</label>
-					<input id="sigin-in_name" name="login" type="text" placeholder="*login">
-					<label for="sigin-in_password">Password:</label>
-					<input id="sigin-in_password" name="password" type="password" placeholder="*password">
-					<button type="submit" value="pressBtn">sign in</button>
+					<fieldset>
+						<label for="sigin-in_name">Login:</label>
+						<input id="sigin-in_name" name="login" type="text" placeholder="*login">
+					</fieldset>
+					<fieldset>
+						<label for="sigin-in_password">Password:</label>	
+						<input id="sigin-in_password" name="password" type="password" placeholder="*password">
+					</fieldset>
+					<div class="sign-in-btn">
+						<button type="submit" value="pressBtn">sign in</button>
+					</div>
 				</form>
 			</div>
 		</div>
@@ -37,6 +45,16 @@
 					<fieldset>
 						<label for="sigin-up_mail">Login:</label>
 						<input id="sigin-up_mail" name="login" type="text" placeholder="*login">
+						<div class="popup-error">
+							<div class="error">
+								<h3 class="error-title">
+									Error!
+								</h3>
+								<span class="error-description">
+									This email is baaaad bad baaad baaaaad bad :c
+								</span>
+							</div>
+						</div>
 					</fieldset><!--
 					--><fieldset>
 						<label for="sigin-up_email">Email:</label>
@@ -191,7 +209,7 @@
 						<fieldset>
 							<label for="size">color:</label>
 							<div class="item-colors">
-								<input type="checkbox" id="black-color"><label for="black-color"></label><!--
+								<input type="checkbox" name="color" value="black" id="black-color"><label for="black-color"></label><!--
 								--><input type="checkbox" id="white-color"><label for="white-color"></label><!--
 								--><input type="checkbox" id="red-color"><label for="red-color"></label><!--
 								--><input type="checkbox" id="yellow-color"><label for="yellow-color"></label><!--
@@ -293,7 +311,7 @@
 		<div class="wrapper items-template latest-items">
 			<div>
 				<h2 class="items-title">
-					<span class="items_title">featured items</span>
+					<span class="items_title">latest items</span>
 				</h2>
 			</div>
 			<div class="items-container">

@@ -1,0 +1,28 @@
+@font-face {
+  font-family: osw_b;
+  src: url(../fonts/oswald-bold.ttf); }
+
+@font-face {
+  font-family: museo_t;
+  src: url(../fonts/MuseoSansCyrl_0.otf); }
+
+@font-face {
+  font-family: museo_r;
+  src: url(../fonts/MuseoSansCyrl_1.otf); }
+
+@font-face {
+  font-family: museo_bold;
+  src: url(../fonts/MuseoSansCyrl_2.otf); }
+
+.error {
+  padding: 10px 10px;
+  background-color: #f55856;
+  text-align: left; }
+  .error-title {
+    margin-bottom: 5px;
+    border-bottom: 2px solid #FFF;
+    font-family: museo_bold;
+    font-size: 1.5rem; }
+  .error-description {
+    font-family: museo_bold;
+    font-size: 1.25rem; }

@@ -1,0 +1,16 @@
+@import 'mixins.scss';
+.error{
+    padding: 10px 10px;
+    background-color: $red-color;
+    text-align: left;
+    &-title{
+        margin-bottom: 5px;
+        border-bottom: 2px solid $light-color;
+        font-family: museo_bold;
+        font-size: 1.5rem;
+    }
+    &-description{
+        font-family: museo_bold;
+        font-size: 1.25rem;
+    }
+}
