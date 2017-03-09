@@ -6,8 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" type="text/css" href="libs/font-awesome-4.7.0/css/font-awesome.css">
 	<link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="css/error.css">
+	<link rel="stylesheet" href="css/popup.css">
+	<link rel="stylesheet" href="css/shop_cart_fixed.css">
 	<link rel="stylesheet" href="css/item_review.css">
 	<link rel="stylesheet" href="css/item.css">
+	<link rel="stylesheet" href="css/note.css">
+	<link rel="stylesheet" href="css/map.css">
 </head>
 <body>
 	<div class="bullsy">
@@ -19,11 +24,17 @@
 			<div class="popup-close"><span class="fa fa-close"></span></div>
 			<div class="popup-window">
 				<form class="account_form-sign-in" action="#" method="POST" novalidate>
-					<label for="sigin-in_name">Login:</label>
-					<input id="sigin-in_name" name="login" type="text" placeholder="*login">
-					<label for="sigin-in_password">Password:</label>
-					<input id="sigin-in_password" name="password" type="password" placeholder="*password">
-					<button type="submit" value="pressBtn">sign in</button>
+					<fieldset>
+						<label for="sigin-in_name">Login:</label>
+						<input id="sigin-in_name" name="login" type="text" placeholder="*login">
+					</fieldset>
+					<fieldset>
+						<label for="sigin-in_password">Password:</label>	
+						<input id="sigin-in_password" name="password" type="password" placeholder="*password">
+					</fieldset>
+					<div class="sign-in-btn">
+						<button type="submit" value="pressBtn">sign in</button>
+					</div>
 				</form>
 			</div>
 		</div>
@@ -34,6 +45,16 @@
 					<fieldset>
 						<label for="sigin-up_mail">Login:</label>
 						<input id="sigin-up_mail" name="login" type="text" placeholder="*login">
+						<div class="popup-error">
+							<div class="error">
+								<h3 class="error-title">
+									Error!
+								</h3>
+								<span class="error-description">
+									This email is baaaad bad baaad baaaaad bad :c
+								</span>
+							</div>
+						</div>
 					</fieldset><!--
 					--><fieldset>
 						<label for="sigin-up_email">Email:</label>
@@ -53,11 +74,11 @@
 				</form>
 			</div>
 		</div>
-		<div class="shop-cart-fixed">
-			<span class="btn-cart-fixed fa fa-caret-left"></span>
-			<div class="shop-cart-fixed-content">
-				<span class="card-items"><span class="red-color card-items-value">0</span> items</span>
-				<span class="card-money"><span class="red-color card-money-value">0</span> $</span>
+		<div class="shop_cart_fixed">
+			<span class="btn btn--shop_cart_fixed fa fa-caret-left"></span>
+			<div class="shop_cart_fixed-info">
+				<span class="card-items"><span class="cart_items red-color">0</span> items</span>
+				<span class="card-money"><span class="cart_price red-color">0</span> $</span>
 				<a class="btn-shop-cart" href="#account"><div class="fa fa-shopping-cart"></div></a>
 			</div>
 		</div>
@@ -98,21 +119,14 @@
 					</div><!--
 					--><div class="shop-card">
 						<div class="shop-card-info">
-							<span class="card-items"><span class="red-color card-items-value">0</span> items</span>
-							<span class="card-money"><span class="red-color card-money-value">0</span> $</span>
+							<span class="card-items"><span class="red-color cart_items">0</span> items</span>
+							<span class="card-money"><span class="red-color cart_price">0</span> $</span>
 						</div><!--
 						--><div class="shop-card-icon">
 							<a href="#account" class="btn-shop-cart"><img src="img/shop-card.png" alt=""></a>
 						</div>
 					</div>
 				</header>
-			</div>
-			<div class="slider-container">
-				<div class="slider">
-					<div class="slide1" id="slide1">
-						
-					</div>
-				</div>
 			</div>
 			<div class="intro-features">
 				<div class="intro-features-box">
@@ -195,7 +209,7 @@
 						<fieldset>
 							<label for="size">color:</label>
 							<div class="item-colors">
-								<input type="checkbox" id="black-color"><label for="black-color"></label><!--
+								<input type="checkbox" name="color" value="black" id="black-color"><label for="black-color"></label><!--
 								--><input type="checkbox" id="white-color"><label for="white-color"></label><!--
 								--><input type="checkbox" id="red-color"><label for="red-color"></label><!--
 								--><input type="checkbox" id="yellow-color"><label for="yellow-color"></label><!--
@@ -297,7 +311,7 @@
 		<div class="wrapper items-template latest-items">
 			<div>
 				<h2 class="items-title">
-					<span class="items_title">featured items</span>
+					<span class="items_title">latest items</span>
 				</h2>
 			</div>
 			<div class="items-container">
@@ -401,14 +415,23 @@
 				</div>
 			</div>
 		</div>
-		<div class="wrapper note">
-			<h2>Bullsy - a rugged store for rugged people</h2>
-			<p>- read more about our store regulations and <a href="#"><span class="red-color">policy</span></a> here. Lorem ipsum dolor sit amet</p>
+		<div class="bullsy-note">
+			<div class="note">
+				<h2 class="note-title">Bullsy - a rugged store for rugged people</h2>
+				<p class="note-content">- read more about our store regulations and 
+					<a href="#"><span class="red-color">policy</span></a> 
+					here. Lorem ipsum dolor sit amet
+				</p>
+			</div>
 		</div>
-		<div class="wrapper map" id="map-container">
-			<div id="map"></div>
-			<div class="map-cover"></div>
-			<button class="btn-map-open"><span class="fa fa-chevron-down"></span></button>
+		<div class="bullsy-map">
+			<div class="map">
+				<div id="map"></div>
+				<div class="map-cover"></div>
+				<div class="map-btn">
+					<button class="btn btn--map"></button>
+				</div>
+			</div>
 		</div>
 		<div class="wrapper footer">
 			<div class="main-footer">

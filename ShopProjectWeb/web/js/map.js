@@ -1,5 +1,5 @@
-var mapContainer = document.getElementById('map-container');
-var buttonOpen = document.getElementsByClassName('btn-map-open')[0];
+var mapContainer = document.getElementById('map');
+var buttonOpen = document.getElementsByClassName('btn--map')[0];
 var map;
 function initMap() {
     // Create the map with no initial style specified.
@@ -97,10 +97,9 @@ function initMap() {
 
 $(function(){
     $(buttonOpen).on('click', function(){
-        $('.map').toggleClass('open');
+        $('.map').toggleClass('map--open');
         var reloadMap = setInterval(function(){
             google.maps.event.trigger(map, 'resize');
-            console.log("hehehe");
         }, 100);
         setTimeout(function(){
             clearInterval(reloadMap);

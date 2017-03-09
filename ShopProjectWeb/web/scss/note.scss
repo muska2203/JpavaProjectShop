@@ -1,0 +1,14 @@
+.note{
+    min-height: 1px;
+    padding: 50px 8%;
+    background-color: #f5f6f1;
+    text-align: center;
+    &-title{
+        font-size: 2rem;
+        line-height: 3rem;
+    }
+    &-content{
+        font-family: museo_t;
+        line-height: 2rem;
+    }
+}

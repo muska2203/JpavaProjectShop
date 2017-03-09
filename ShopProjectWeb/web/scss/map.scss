@@ -1,0 +1,62 @@
+@import 'mixins.scss';
+$btn-map-size: 50px;
+.btn--map{
+    width: $btn-map-size;
+    height: $btn-map-size;
+    border-radius: 50%;
+    background-color: $red-color;
+    box-shadow: 0 0 2px $red-color;
+    opacity: 0.9;
+    background-image: url(../img/btn_map_ico.png);
+    background-position: center;
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+    &:hover{
+        box-shadow: 0 0 15px $red-color;
+    }
+}
+.map{
+    min-height: 20px;
+    height: 20px;
+    position: relative;
+    transition: 1s;
+    #map{
+        height: 100%;
+        /* we should to reset default properties */
+        .gm-style-cc, .gmnoprint, a img[draggable=false]{
+            display: none;
+        }
+    }
+    &-cover{
+        z-index: 4;
+        position: absolute;
+        top: 0; right: 0; bottom: 0; left: 0; 
+    }
+    &-btn{
+        z-index: 5;
+        position: absolute;
+        bottom: 50%;
+        left: 50%;
+        transform: translate(-50%,50%);
+        display: inline-block;
+       
+        transition: 1s;
+        transition-delay: 1s;
+    }
+    &--open{
+        height: 500px;
+        .map-cover{
+            display: none;
+        }
+        .map-btn{
+            bottom: 0;
+            transition-delay: 0s;
+        }
+        .btn--map{
+            transform: rotate(180deg);
+        }
+        @media screen and (max-width: 600px){
+            height: 300px;
+        }
+    }
+}

@@ -1,0 +1,57 @@
+@import 'mixins.scss';
+.shop_cart_fixed{
+    z-index: 5;
+    position: fixed;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%) translateX(100%);
+    width: 80px;
+    height: 100px;
+    border: 3px solid $red-color;
+    border-right: none;
+    border-top-left-radius: 10%;
+    border-bottom-left-radius: 10%;
+    background-color: $dark-color;
+
+    transition: 0.7s;
+    &-info{
+        position: absolute;
+        top: 50%;
+        right: 5px;
+        transform: translateY(-50%);
+        text-align: right;
+        text-transform: uppercase;
+        color: $light-color;
+        & > span{
+            
+        display: inline-block;
+        vertical-align: middle;
+        width: 100%;
+        }
+    }
+    a{
+        color: $light-color;
+        &:hover{
+            color: $red-color;
+        }
+    }
+    .btn--shop_cart_fixed{
+        z-index: 6;
+        position: absolute;
+        top: 50%;
+        left: 0px;
+        transform: translateY(-50%) translateX(-105%); /*+border of parent*/
+        cursor: pointer;
+        &.fa{
+            font-size: 2.5rem;
+            color: $red-color;
+            transition: 0.7s;
+        }
+    }
+    &.open{
+        transform: translateY(-50%) translateX(0);
+        .btn--shop_cart_fixed{
+            transform: translateY(-50%) translateX(-5%) rotate(180deg) ;
+        }
+    }
+}
