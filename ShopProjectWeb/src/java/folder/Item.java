@@ -12,7 +12,6 @@ package folder;
 public class Item {
     private int id, cost;
     private String name;
-    private boolean inBasket = false;
     Item(int id, int cost, String name)
     {
         this.id = id;
@@ -31,14 +30,5 @@ public class Item {
     public String getName()
     {
         return name;
-    }
-    
-    public void putInBasket()
-    {
-        
-    }
-    public boolean inBasket()
-    {
-        return  inBasket;
     }
 }
