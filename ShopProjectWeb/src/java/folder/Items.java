@@ -21,19 +21,10 @@ public class Items {
     private String name;
     private Set<String> colors = new HashSet<>();
     private Set<Integer> sizes = new HashSet<>();
+    private Set<Item> listItem = new HashSet<>();
     
-    Set<Item> listItem = null;
     
-    
-    public Items(Map<String,String[]> values){
-        setValues(values);
-        
-        listItem = new HashSet<>();
-        
-    }
-    
-    private void setValues(Map<String,String[]> values)
-    {
+    public Items(Map<String,String[]> values) throws SQLException{
         try{
             id = Integer.valueOf(values.get("id")[0]);
         }catch(Exception e)
@@ -64,13 +55,14 @@ public class Items {
             int size = Integer.valueOf(s);
             sizes.add(size);
         }}catch(Exception e){}
+        findItems();
     }
     
     public void findItems() throws SQLException
     {
-        int id = 0;
-        int cost = 0;
-        ResultSet res = null;
+        int id;
+        int cost;
+        ResultSet res;
         if(this.id!=0)
         {
             res = SQL.findItemsById(this.id);//поиск по  id
@@ -94,12 +86,7 @@ public class Items {
     //Поправить
     public Set<Item> getItems() throws SQLException
     {
-        Set<Item> s = new HashSet<>();
-        for(Item it : listItem)
-        {
-            s.add(it);
-        }
-        return s;
+        return listItem;
     }
     
     public int getId()

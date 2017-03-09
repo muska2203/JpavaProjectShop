@@ -22,9 +22,8 @@ public class TestMain {
         lol.put("name",new String[]{"shoes"});
         
         Items it = new Items(lol);
-        it.findItems();
         Gson gson = new Gson();
-        String g = gson.toJson(it.listItem);
+        String g = gson.toJson(it.getItems());
         
             System.out.println(g);
     }
