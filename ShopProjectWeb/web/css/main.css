@@ -64,7 +64,6 @@ button:focus, input:focus {
 .bullsy {
   position: relative; }
   .bullsy-item_review {
-    display: none;
     padding: 100px 8%; }
 
 .wrapper {

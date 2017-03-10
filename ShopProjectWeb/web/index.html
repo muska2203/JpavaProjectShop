@@ -7,6 +7,7 @@
 	<link rel="stylesheet" type="text/css" href="libs/font-awesome-4.7.0/css/font-awesome.css">
 	<link rel="stylesheet" href="css/main.css">
 	<link rel="stylesheet" href="css/error.css">
+	<link rel="stylesheet" href="css/account_form.css">
 	<link rel="stylesheet" href="css/popup.css">
 	<link rel="stylesheet" href="css/shop_cart_fixed.css">
 	<link rel="stylesheet" href="css/item_review.css">
@@ -16,62 +17,64 @@
 </head>
 <body>
 	<div class="bullsy">
-		<div class="popup-window-template popup-account">
+		<div class="popup popup-account">
 			<div class="popup-close"><span class="fa fa-close"></span></div>
 			<div class="popup-window">account</div>
 		</div>
-		<div class="popup-window-template popup-sign-in">
+		<div class="popup popup-sign-in">
 			<div class="popup-close"><span class="fa fa-close"></span></div>
 			<div class="popup-window">
-				<form class="account_form-sign-in" action="#" method="POST" novalidate>
-					<fieldset>
-						<label for="sigin-in_name">Login:</label>
-						<input id="sigin-in_name" name="login" type="text" placeholder="*login">
-					</fieldset>
-					<fieldset>
-						<label for="sigin-in_password">Password:</label>	
-						<input id="sigin-in_password" name="password" type="password" placeholder="*password">
-					</fieldset>
-					<div class="sign-in-btn">
-						<button type="submit" value="pressBtn">sign in</button>
-					</div>
-				</form>
+				<h3 class="popup-window-title">Sign in your account</h3>
+				<div class="popup-window-account_form">
+					<form class="account_form account_form-sign-in" action="#" method="POST" novalidate>
+						<div class="account_form_login">
+							<label class="account_form-label" for="sign-in_name">Login:</label>
+							<input class="account_form-control" id="sign-in_name" name="login" type="text" placeholder="*login">
+						</div>
+						<div class="account_form_password">
+							<label class="account_form-label" for="sign-in_password">Password:</label>	
+							<input class="account_form-control" id="sign-in_password" name="password" type="password" placeholder="*password">
+						</div>
+						<button class="account_form-btn" type="submit" value="pressBtn">sign in</button>
+					</form>
+				</div>
 			</div>
 		</div>
-		<div class="popup-window-template popup-sign-up">
+		<div class="popup popup-sign-up">
 			<div class="popup-close"><span class="fa fa-close"></span></div>
 			<div class="popup-window">
-				<form action="#" method="POST" class="account_form-sign-up">
-					<fieldset>
-						<label for="sigin-up_mail">Login:</label>
-						<input id="sigin-up_mail" name="login" type="text" placeholder="*login">
-						<div class="popup-error">
-							<div class="error">
-								<h3 class="error-title">
-									Error!
-								</h3>
-								<span class="error-description">
-									This email is baaaad bad baaad baaaaad bad :c
-								</span>
+				<h3 class="popup-window-title">Sign up your account</h3>
+				<div class="popup-window-account_form">
+					<form class="account_form account_form-sign-up" action="#" method="POST">
+						<div class="account_form_grid">
+							<div class="account_form-error">
+								<div class="error">
+									<h3 class="error-title">
+										Error!
+									</h3>
+									<span class="error-description">
+										This email is baaaad bad baaad baaaaad bad :c
+									</span>
+								</div>
 							</div>
+							<label class="account_form-label" for="sigin-up_mail">Login:</label>
+							<input class="account_form-control" id="sigin-up_mail" name="login" type="text" placeholder="*login">
 						</div>
-					</fieldset><!--
-					--><fieldset>
-						<label for="sigin-up_email">Email:</label>
-						<input id="sign-up_email" name="email" type="email" placeholder="*email">
-					</fieldset><!--
-					--><fieldset>
-						<label for="sigin-up_password">Password:</label>
-						<input id="sigin-up_password" name="password" type="password" placeholder="*password">
-					</fieldset><!--
-					--><fieldset>
-						<label for="sigin-up_password-again">Confirm Password:</label>
-						<input id="sigin-up_password-again" name="passwordAgain" type="password" placeholder="*password">
-					</fieldset>
-					<div class="sign-up_btn">
-						<button type="submit" value="pressBtn">sign up</button>
-					</div>
-				</form>
+						<div class="account_form_grid">
+							<label class="account_form-label" for="sign-up_email">Email:</label>
+							<input class="account_form-control" id="sign-up_email" name="email" type="email" placeholder="*email">
+						</div>
+						<div class="account_form_grid">
+							<label class="account_form-label" for="sign-up_password">Password:</label>
+							<input class="account_form-control" id="sign-up_password" name="password" type="password" placeholder="*password">
+						</div>
+						<div class="account_form_grid">
+							<label class="account_form-label" for="sign-up_password-again">Confirm Password:</label>
+							<input class="account_form-control" id="sign-up_password-again" name="passwordAgain" type="password" placeholder="*password">
+						</div>
+						<button class="account_form-btn" type="submit" value="pressBtn">sign up</button>
+					</form>
+				</div>
 			</div>
 		</div>
 		<div class="shop_cart_fixed">
@@ -154,6 +157,66 @@
 				<div class="item_review-item">
 					<div class="item">
 						<img class="item-img" src="img/items/item1.png" alt="">
+						<h2 class="item-name">
+							<a class="item_name" href="#">Bullsy grey Snickers / Shoes</a>
+						</h2>
+						<h3 class="item-price">
+							<span class="item_price">145</span> $
+						</h3>
+						<div class="item-btn">
+							<button class="button btn-add-card" name="add-to-cart" value="id1">add to card</button>
+						</div>
+					</div>
+					<div class="item">
+						<img class="item-img" src="img/items/item3.png" alt="">
+						<h2 class="item-name">
+							<a class="item_name" href="#">Bullsy grey Snickers / Shoes</a>
+						</h2>
+						<h3 class="item-price">
+							<span class="item_price">44</span> $
+						</h3>
+						<div class="item-btn">
+							<button class="button btn-add-card" name="add-to-cart" value="id1">add to card</button>
+						</div>
+					</div>
+					<div class="item">
+						<img class="item-img" src="img/items/item6.png" alt="">
+						<h2 class="item-name">
+							<a class="item_name" href="#">Bullsy grey Snickers / Shoes</a>
+						</h2>
+						<h3 class="item-price">
+							<span class="item_price">1245</span> $
+						</h3>
+						<div class="item-btn">
+							<button class="button btn-add-card" name="add-to-cart" value="id1">add to card</button>
+						</div>
+					</div>
+					<div class="item">
+						<img class="item-img" src="img/items/item2.png" alt="">
+						<h2 class="item-name">
+							<a class="item_name" href="#">Bullsy grey Snickers / Shoes</a>
+						</h2>
+						<h3 class="item-price">
+							<span class="item_price">145</span> $
+						</h3>
+						<div class="item-btn">
+							<button class="button btn-add-card" name="add-to-cart" value="id1">add to card</button>
+						</div>
+					</div>
+					<div class="item">
+						<img class="item-img" src="img/items/item8.png" alt="">
+						<h2 class="item-name">
+							<a class="item_name" href="#">Bullsy grey Snickers / Shoes</a>
+						</h2>
+						<h3 class="item-price">
+							<span class="item_price">145</span> $
+						</h3>
+						<div class="item-btn">
+							<button class="button btn-add-card" name="add-to-cart" value="id1">add to card</button>
+						</div>
+					</div>
+					<div class="item">
+						<img class="item-img" src="img/items/item2.png" alt="">
 						<h2 class="item-name">
 							<a class="item_name" href="#">Bullsy grey Snickers / Shoes</a>
 						</h2>

@@ -119,7 +119,6 @@ $('.btn-checkout').on('click', function(){
 var formSignIn = document.getElementsByClassName('account_form-sign-in');
 for( var i = 0; i < formSignIn.length; i++){
     formSignIn[i].addEventListener("submit", function(event){
-        $('.popup-sign-in').removeClass('open');
         event.preventDefault();
         var login = this.elements.login.value;
         this.elements.login.value = "";
@@ -133,9 +132,24 @@ for( var i = 0; i < formSignIn.length; i++){
             if(this.readyState == 4 && this.status == 200){
                 var jsonData = JSON.parse(req.responseText);
                 if (jsonData["result"]){
+                    $('.popup-sign-in').removeClass('open');
                     setCart(jsonData["count"],jsonData["price"]);
                     setUser(login, password);
                 }
+            }
+            else{
+                formSignIn[0].innerHTML += 
+                    '<div class="account_form-error">' +
+                        '<div class="error">' +
+                            '<h3 class="error-title">' +
+                                'Error!' +
+                            '</h3>' +
+                            '<span class="error-description">' +
+                                'Uncorrect email or password :c <br> Try again c:' +
+                            '</span>' +
+                        '</div>' +
+                    '</div>' 
+                ;
             }
         }
     });
