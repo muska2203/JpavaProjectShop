@@ -1,0 +1,46 @@
+.info{
+    font-family: museo_t;
+    font-size: 0.875rem;
+    min-height: $info-height;
+    line-height: $info-height;
+    & > div{
+        width: 50%;
+        display: inline-block;
+        vertical-align: top;
+    }
+    &-support{
+        a:nth-child(n+2){
+                margin-left: 15px;
+            }
+        .fa{
+            font-size: 1rem;
+        }
+    }
+    &-account{
+        text-align: right;
+        li{
+            display: inline-block;
+            vertical-align: top;
+            text-transform: uppercase;
+            &:nth-child(n+2){
+                margin-left: 15px;
+            }
+        }
+    }
+    @media screen and (max-width: 800px){
+        & > div[class]{
+            width: 100%;
+            text-align: center;
+        }
+    }
+    @media screen and (max-width: 500px){
+        &-support a:nth-child(n){
+            display: block;
+            margin: 0;
+        }
+        &-account li:nth-child(n){
+            width: 50%;
+            margin: 0;
+        }
+    }
+}

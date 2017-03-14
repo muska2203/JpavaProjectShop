@@ -1,11 +1,23 @@
 @import 'mixins.scss';
+@import 'account_form.scss';
+@import 'error.scss';
+@import 'shop_cart.scss';
+@import 'info.scss';
+@import 'header.scss';
+@import 'features.scss';
+@import 'item_review.scss';
+@import 'item.scss';
+@import 'map.scss';
+@import 'note.scss';
+@import 'popup.scss';
+@import 'shop_cart_fixed.scss';
 *{
 	margin: 0;
 	padding: 0;
 	border: 0;
 }
 html{
-    min-width: 320px;
+    min-width: 321px;
 	font-family: osw_b, museo_t, 'Arial';
 	font-size: 16px;
     color: $dark-color;
@@ -55,6 +67,18 @@ button:focus, input:focus{
     &-item_review{
         padding: 100px 8%;
     }
+    &-info{
+        padding: 0 8%;
+    }
+    &-header{
+        padding: 0 8%;
+        background-color: $bg-grey;
+    }
+    &-features{
+        padding: 0 8%;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
 }
 
 
@@ -73,194 +97,6 @@ button:focus, input:focus{
            text-align: center !important;
        }   
     }
-}
-.intro{
-    .info{
-        font-family: museo_t;
-        font-size: 0.875rem;
-        min-height: $info-height;
-        line-height: $info-height;
-        & > div{
-            width: 50%;
-            display: inline-block;
-            vertical-align: top;
-        }
-        &-support{
-            a:nth-child(n+2){
-                    margin-left: 15px;
-                }
-            .fa{
-                font-size: 1rem;
-            }
-        }
-        &-account{
-            text-align: right;
-            li{
-                display: inline-block;
-                vertical-align: top;
-                text-transform: uppercase;
-                &:nth-child(n+2){
-                    margin-left: 15px;
-                }
-            }
-        }
-        @media screen and (max-width: 800px){
-            & > div[class]{
-                width: 100%;
-                text-align: center;
-            }
-        }
-        @media screen and (max-width: 500px){
-            &-support a:nth-child(n){
-                display: block;
-                margin: 0;
-            }
-            &-account li:nth-child(n){
-                width: 50%;
-                margin: 0;
-            }
-        }
-    }
-    .header-container{
-        background-color: $bg-grey;
-
-        header{
-            min-height: $header-height;
-            box-sizing: border-box;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            text-align: justify;
-
-            & > div{
-                display: inline-block;
-                vertical-align: top;
-                line-height: $header-height;
-            }
-            .logo{
-                width: 25%;
-                img{
-                    display: inline-block;
-                    vertical-align: middle;
-                }
-            }
-            .nav{
-                width: 50%;
-                font-family: museo_r;
-                font-size: 1.125rem;
-                text-align: center;
-                li{
-                    display: inline-block;
-                    vertical-align: top;
-                    margin-left: 30px;
-                    &:first-child{
-                        margin: 0;
-                    }
-                    &:nth-child(n+2){
-                        position: relative;
-                        &:before{
-                            display: inline-block;
-                            content: "";
-                            position: absolute;
-                            top: 50%;
-                            left: -18px;
-                            transform: translateY(-50%) rotate(20deg);
-                            height: 1.125rem;
-                            border-right: 2px solid $red-color;
-                        }
-                    }
-                }
-            }
-            .shop-card{
-                width: 25%;
-                text-align: right;
-                & > div{
-                    display: inline-block;
-                    vertical-align: top;
-                }
-                .shop-card-info{
-                    vertical-align: middle;
-                    & > span{
-                        display: block;
-                        max-width: 100px;
-                        @include text-ellipsis();
-                        line-height: 1.5rem;
-                    }
-                }
-                .shop-card-icon{
-                    margin-left: 5px;
-                    img{
-                        vertical-align: middle;
-                        margin-bottom: 4px;
-                    }
-                }
-            }
-            @media screen and (max-width: 1100px){
-                padding: 2rem 0;
-                & > div[class]{
-                    width: 100%;
-                    margin-left: 0;
-                    text-align: center;
-                    line-height: 6rem;
-                }
-                .nav{
-                    line-height: 100px;
-                    li:last-child{
-                        margin-bottom: 0;
-                    }
-                }
-            }
-            @media screen and (max-width: 550px){
-                div.nav ul{
-                    line-height: 3rem;
-                    li{
-                        width: 50%;
-                        margin: 0;
-                        &:nth-child(n):before{
-                            display: none;
-                        }
-                    }
-                }
-            }
-        }
-    }
-    .slider-container{
-        padding-top: 20px;
-    }
-    .intro-features{
-        padding-top: 20px;
-        padding-bottom: 20px;
-        text-align: center;
-        &-box{
-            display: inline-block;
-            vertical-align: top;
-            width: $features-box-width;
-            height: $features-box-height;
-            box-sizing: border-box;
-            padding: 25px 10px;
-            margin: 0 20px 30px 20px;
-            background-color: #f5f6f1;
-            h3{
-                margin-bottom: 10px;
-                font-size: 1.5rem;
-                text-transform: uppercase;
-                @include text-ellipsis();
-            }
-            p{
-                font-family: museo_bold;
-                font-size: 0.875rem;
-                @include text-ellipsis();
-            }
-        }
-        @media screen and (max-width: 600px){
-            &-box{
-                width: $features-box-width - 20px;
-                padding: 25px 10px;
-                margin: 0 0 30px 0;
-            }
-        }
-    }
-}
-.account{
 }
 /* Class: Items card start */
 .items-list{

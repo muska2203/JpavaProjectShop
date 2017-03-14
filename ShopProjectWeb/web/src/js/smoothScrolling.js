@@ -2,7 +2,8 @@
 var linksForSmoothScroll = [
 	'.btn-up',
 	'.btn-shop-cart',
-	'.nav a'
+	'.nav a',
+	'.shop_cart-btn'
 ];
 $(document).ready(function(){
 	for(var i = 0; i < linksForSmoothScroll.length; i++){

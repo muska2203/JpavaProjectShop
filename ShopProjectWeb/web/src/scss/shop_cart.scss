@@ -1,0 +1,37 @@
+.cart_items, .cart_price{
+    max-width: 30px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: $red-color;
+}
+.shop_cart{
+    line-height: initial;
+    text-transform: uppercase;
+    text-align: right;
+    color: $light-color;
+    &-btn{
+        cursor: pointer;
+        color: $light-color;
+        &:hover{
+            color: $red-color;
+        }
+    }
+    &--line{
+        .shop_cart-info{
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .shop_cart-items{
+            line-height: 24px;
+        }
+        .shop_cart-price{
+            line-height: 24px;
+        }
+        .shop_cart-btn{
+            margin-left: 10px;
+            display: inline-block;
+            vertical-align: middle;
+        }
+    }
+}

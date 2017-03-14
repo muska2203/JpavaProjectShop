@@ -6,14 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" type="text/css" href="libs/font-awesome-4.7.0/css/font-awesome.css">
 	<link rel="stylesheet" href="css/main.css">
-	<link rel="stylesheet" href="css/error.css">
-	<link rel="stylesheet" href="css/account_form.css">
-	<link rel="stylesheet" href="css/popup.css">
-	<link rel="stylesheet" href="css/shop_cart_fixed.css">
-	<link rel="stylesheet" href="css/item_review.css">
-	<link rel="stylesheet" href="css/item.css">
-	<link rel="stylesheet" href="css/note.css">
-	<link rel="stylesheet" href="css/map.css">
 </head>
 <body>
 	<div class="bullsy">
@@ -78,15 +70,17 @@
 			</div>
 		</div>
 		<div class="shop_cart_fixed">
-			<span class="btn btn--shop_cart_fixed fa fa-caret-left"></span>
-			<div class="shop_cart_fixed-info">
-				<span class="card-items"><span class="cart_items red-color">0</span> items</span>
-				<span class="card-money"><span class="cart_price red-color">0</span> $</span>
-				<a class="btn-shop-cart" href="#account"><div class="fa fa-shopping-cart"></div></a>
+			<span class="btn shop_cart_fixed-btn fa fa-caret-left"></span>
+			<div class="shop_cart">
+				<div class="shop_cart-info">
+					<div class="shop_cart-items"><span class="cart_items">0</span> items</div>
+					<div class="shop_cart-price"><span class="cart_price">0</span> $</div>
+				</div>
+				<a class="shop_cart-btn fa fa-shopping-cart" href="#account"></a>
 			</div>
 		</div>
-		<div class="wrapper intro">
-			<section id="intro"></section>
+		<div class="bullsy-info">
+			<section id="info"></section>
 			<div class="info">
 				<div class="info-support">
 					<a href="tel:+375291555294">
@@ -107,47 +101,52 @@
 					</ul>
 				</div>
 			</div>
-			<div class="header-container">
-				<header>
+		</div>
+		<div class="bullsy-header">
+			<div class="header">
+				<div class="header-logo">
 					<div class="logo">
 						<img src="img/logo.png" alt="">
-					</div><!--
-					--><div class="nav">
-						<ul>
-							<li><a href="#">home</a></li><!--
-							--><li><a href="#">apparel</a></li><!--
-							--><li><a href="#featured-items">fasion</a></li><!--
-							--><li><a href="#">contact us</a></li>
-						</ul>
-					</div><!--
-					--><div class="shop-card">
-						<div class="shop-card-info">
-							<span class="card-items"><span class="red-color cart_items">0</span> items</span>
-							<span class="card-money"><span class="red-color cart_price">0</span> $</span>
-						</div><!--
-						--><div class="shop-card-icon">
-							<a href="#account" class="btn-shop-cart"><img src="img/shop-card.png" alt=""></a>
-						</div>
 					</div>
-				</header>
-			</div>
-			<div class="intro-features">
-				<div class="intro-features-box">
-					<h3>free shiping</h3>
-					<p>- on all orders above <span class="red-color">$99</span></p>
 				</div><!--
-				--><div class="intro-features-box">
-					<h3>new shoes collection</h3>
-					<p>- brand new collection of <span class="red-color">Bulls Shoes</span></p>
+				--><div class="nav">
+					<a class="nav-list" href="#">home</a><!--
+					--><a class="nav-list" href="#">apparel</a><!--
+					--><a class="nav-list" href="#featured-items">fasion</a><!--
+					--><a class="nav-list" href="#">contact us</a>
 				</div><!--
-				--><div class="intro-features-box">
-					<h3>money back guarantee</h3>
-					<p>- on all orders above <span class="red-color">$99</span></p>
+				--><div class="header-shop_cart">
+					<div class="shop_cart shop_cart--line">
+						<div class="shop_cart-info">
+							<div class="shop_cart-items"><span class="cart_items">0</span> items</div>
+							<div class="shop_cart-price"><span class="cart_price">0</span> $</div>
+						</div><!--
+						--><a class="shop_cart-btn fa fa-shopping-basket" href="#account"></a>
+					</div>
 				</div>
 			</div>
 		</div>
-		<div class="wrapper account">
+		<div class="bullsy-features">
+			<div class="features">
+				<div class="features-box">
+					<h3 class="features-name">free shiping</h3>
+					<p class="features-description">- on all orders above <span class="red-color">$99</span></p>
+				</div><!--
+				--><div class="features-box">
+					<h3 class="features-name">new shoes collection</h3>
+					<p class="features-description">- brand new collection of <span class="red-color">Bulls Shoes</span></p>
+				</div><!--
+				--><div class="features-box">
+					<h3 class="features-name">money back guarantee</h3>
+					<p class="features-description">- on all orders above <span class="red-color">$99</span></p>
+				</div>
+			</div>
+		</div>
+		<div class="bullsy-account">
 			<section id="account"></section>
+			<div class="account">
+
+			</div>
 		</div>
 		<div class="bullsy-item_review">
 			<div class="item_review">

@@ -1,0 +1,90 @@
+$header-height: 170px;
+.header{
+    min-height: $header-height;
+    box-sizing: border-box;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: justify;
+
+    & > div{
+        display: inline-block;
+        vertical-align: top;
+        line-height: $header-height;
+    }
+    &-logo{
+        width: 25%;
+        img{
+            display: inline-block;
+            vertical-align: middle;
+        }
+    }
+    .nav{
+        width: 50%;
+        font-family: museo_r;
+        font-size: 1.125rem;
+        text-align: center;
+        &-list{
+            margin-left: 30px;
+            &:first-child{
+                margin: 0;
+            }
+            &:nth-child(n+2){
+                position: relative;
+                &:before{
+                    display: inline-block;
+                    content: "";
+                    position: absolute;
+                    top: 50%;
+                    left: -18px;
+                    transform: translateY(-50%) rotate(20deg);
+                    height: 1.125rem;
+                    border-right: 2px solid $red-color;
+                }
+            }
+        }
+    }
+    &-shop_cart{
+        width: 25%;
+        text-align: right;
+        .shop_cart{
+            display: inline-block;
+            vertical-align: middle;
+            color: $dark-color;
+            &-btn{
+                font-size: 40px;
+                color: $dark-color;
+                &:hover{
+                    color: $red-color;
+                }
+            }
+        }
+    }
+    @media screen and (max-width: 1100px){
+        padding: 2rem 0;
+        & > div[class]{
+            width: 100%;
+            margin-left: 0;
+            text-align: center;
+            line-height: 6rem;
+        }
+        .nav{
+            line-height: 100px;
+            &-list:last-child{
+                margin-bottom: 0;
+            }
+        }
+    }
+    @media screen and (max-width: 550px){
+        .nav{
+            &-list{
+                display: inline-block;
+                width: 50%;
+                margin: 0;
+                line-height: initial;
+                &:nth-child(n):before{
+                    display: none;
+                }
+            }
+        }
+    }
+}

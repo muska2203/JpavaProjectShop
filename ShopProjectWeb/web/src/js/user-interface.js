@@ -1,4 +1,4 @@
-$('.btn--shop_cart_fixed').on("click", function(){
+$('.shop_cart_fixed-btn').on("click", function(){
     $('.shop_cart_fixed').toggleClass('open');
 });
 

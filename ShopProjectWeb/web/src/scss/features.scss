@@ -1,0 +1,39 @@
+$features-box-width: 300px;
+$features-box-height: 120px;
+.features{
+    text-align: center;
+    &-box{
+        display: inline-block;
+        vertical-align: top;
+        width: $features-box-width;
+        height: $features-box-height;
+        box-sizing: border-box;
+        padding: 25px 10px;
+        margin: 0 20px 20px 20px;
+        background-color: #f5f6f1;
+    }
+    &-name{
+        margin-bottom: 10px;
+        font-size: 24px;
+        text-transform: uppercase;
+        //text-ellipsis
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+    &-description{
+        font-family: museo_bold;
+        font-size: 14px;
+        //text-ellipsis
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+    @media screen and (max-width: 600px){
+        &-box{
+            width: $features-box-width - 20px;
+            padding: 25px 10px;
+            margin: 0 0 20px 0;
+        }
+    }
+}
