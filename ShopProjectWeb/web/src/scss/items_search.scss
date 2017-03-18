@@ -1,0 +1,199 @@
+.set_price{
+    &-select{
+        display: inline-block;
+        vertical-align: middle;
+        width: 100px;
+        padding: 5px 10px;
+        border: 3px solid $dark-color;
+        font-size: 0.875rem;
+
+        transition: 0.3s;
+        &:focus{
+            border-color: $red-color;
+        }
+    }
+}
+/*
+.set-sizes{
+    text-align: justify;
+    &-select{
+
+    }
+}
+*/
+.set_sizes, .set_colors{
+    text-align: justify;
+    &-select{
+        display: inline-block;
+        vertical-align: top;
+        width: 30px;
+        height: 30px;
+        box-sizing: border-box;
+        padding: 2px;
+        margin-right: 4px;
+        margin-bottom: 4px;
+        cursor: pointer;
+        font-size: 1rem;
+        text-align: center;
+
+        transition: 0.7s;
+    }
+    input[type="checkbox"]{
+        position: fixed;
+        left: -9999px;
+        display: none;
+    }
+}
+.set_sizes{
+    &-select{
+        border: 2px solid $dark-color;
+        &:hover{
+            border-color: $red-color;
+            color: $red-color;
+        }
+    }
+    input[type="checkbox"]{
+        &:checked + label{
+            border-color: $dark-color;
+            background-color: $dark-color;
+            color: $light-color;
+        }
+    }
+}
+.set_colors{
+    &-select{
+        position: relative;
+        background-color: $red-color;
+        border: 2.5px solid transparent;
+        border-radius: 50%;
+        &:after{
+            display: block;
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            content: "\2714";
+            color: #FFF;
+            font-size: 18px;
+
+            opacity: 0;
+            transition: 0.3s;
+        }
+        &:hover{
+            &:after{
+                opacity: 1;
+            }
+        }
+        &--black{
+            background-color: #222;
+        }
+        &--yellow{
+            background-color: #ffc104;
+        }
+        &--white{
+            background-color: transparent;
+            border-color: $dark-color;
+            &:after{
+                color: $dark-color;
+            }
+        }
+        &--red{
+            background-color: #ed1c24;
+        }
+        &--blue{
+            background-color: #0a7aa6;
+        }
+        &--green{
+            background-color: #007236;
+        }
+        &--purple{
+            background-color: #9c27b0;
+        }
+        &--sea{
+            background-color: #00746b;
+        }
+        &--pink{
+            background-color: #f72f5f;
+        }
+        &--grey{
+            background-color: #687173;
+        }
+        &--brown{
+            background-color: #a0410d;
+        }
+        &--olive{
+            background-color: #779324;
+        }
+        &--orange{
+            background-color: #dea123;
+        }
+        &--sand{
+            background-color: #D7B963;
+        }
+        &--military{
+            background-color: #007236;
+            background-image: url(../img/military-icon1.png);
+            background-size: 225% 225%;
+        }
+        &--multicolor{
+            background-color: transparent;
+            background-image: url(../img/colors_icon.png);
+            background-position: center;
+            background-size: 150% 150%;
+            
+        }
+    }
+    input[type="checkbox"]{
+        &:checked + label{
+            &:after{
+                opacity: 1;
+            }
+        }
+    }
+}
+.items_search{
+    box-sizing: border-box;
+    max-width: 300px;
+    color: $dark-color;
+    font-size: 1.5rem;
+    text-align: left;
+    & > div{
+        margin-bottom: 20px;
+        &:last-of-type{
+            margin-bottom: 30px;
+        }
+    }
+    &-title{
+        margin-bottom: 30px;
+        text-transform: uppercase;
+    }
+    &-label{
+        display: inline-block;
+        font-size: 1.125rem;
+        text-transform: capitalize;
+    }
+    &-select{
+        box-sizing: border-box;
+        width: 100%;
+        padding: 5px 10px;
+        border: 3px solid $dark-color;
+        font-size: 0.875rem;
+
+        transition: 0.3s;
+        &:focus{
+            border-color: $red-color;
+        }
+    }
+    &-btn{
+        padding: 5px 10px;
+        background-color: $dark-color;
+        color: $light-color;
+        font-size: 1.125rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+
+        transition: 0.7s;
+        &:hover{
+            color: $red-color;
+        }
+    }
+}

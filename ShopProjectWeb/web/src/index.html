@@ -231,71 +231,81 @@
 		</div>
 		<div class="wrapper items">
 			<div class="items-container">
-				<div class="items-interface">
-					<form action="#" class="items-filter" name="items-filter" target="">
-						<legend>Filter:</legend>
-						<fieldset>
-							<label for="id">id:</label><!--
-							--><input id="id" type="text">
-						</fieldset>
-						<fieldset>
-							<label for="tags">tags:</label><!--
-							--><input id="tags" type="text">
-						</fieldset>
-						<fieldset>
-							<label for="cost-min">price:</label><!--
-							<div class="cost-interface"></div>
-							--><div class="cost-range">
-								<input class="cost" id="cost-min" type="text" placeholder="min">
-								<input class="cost" type="text" placeholder="max">
-							</div>
-						</fieldset>
-						<fieldset>
-							<label for="size">size:</label>
-							<div class="item-sizes">
-								<input type="checkbox" id="size1"><label for="size1">20</label><!--
-								--><input type="checkbox" id="size2"><label for="size2">21</label><!--
-								--><input type="checkbox" id="size3"><label for="size3">22</label><!--
-								--><input type="checkbox" id="size4"><label for="size4">23</label><!--
-								--><input type="checkbox" id="size5"><label for="size5">24</label><!--
-								--><input type="checkbox" id="size6"><label for="size6">25</label><!--
-								--><input type="checkbox" id="size7"><label for="size7">26</label><!--
-								--><input type="checkbox" id="size8"><label for="size8">27</label><!--
-								--><input type="checkbox" id="size9"><label for="size9">28</label><!--
-								--><input type="checkbox" id="size10"><label for="size10">29</label><!--
-								--><input type="checkbox" id="size11"><label for="size11">30</label><!--
-								--><input type="checkbox" id="size12"><label for="size12">31</label><!--
-								--><input type="checkbox" id="size13"><label for="size13">32</label>
-							</div>
-						</fieldset>
-						<fieldset>
-							<label for="size">color:</label>
-							<div class="item-colors">
-								<input type="checkbox" name="color" value="black" id="black-color"><label for="black-color"></label><!--
-								--><input type="checkbox" id="white-color"><label for="white-color"></label><!--
-								--><input type="checkbox" id="red-color"><label for="red-color"></label><!--
-								--><input type="checkbox" id="yellow-color"><label for="yellow-color"></label><!--
-								--><input type="checkbox" id="blue-color"><label for="blue-color"></label><!--
-								--><input type="checkbox" id="green-color"><label for="green-color"></label><!--
-								--><input type="checkbox" id="blue-color"><label for="blue-color"></label><!--
-								--><input type="checkbox" id="red-color"><label for="red-color"></label><!--
-								--><input type="checkbox" id="yellow-color"><label for="yellow-color"></label><!--
-								--><input type="checkbox" id="blue-color"><label for="blue-color"></label><!--
-								--><input type="checkbox" id="yellow-color"><label for="yellow-color"></label><!--
-								--><input type="checkbox" id="blue-color"><label for="blue-color"></label><!--
-								--><input type="checkbox" id="yellow-color"><label for="yellow-color"></label><!--
-								--><input type="checkbox" id="blue-color"><label for="blue-color"></label><!--
-								--><input type="checkbox" id="red-color"><label for="red-color"></label><!--
-								--><input type="checkbox" id="yellow-color"><label for="yellow-color"></label><!--
-								--><input type="checkbox" id="blue-color"><label for="blue-color"></label><!--
-								--><input type="checkbox" id="yellow-color"><label for="yellow-color"></label><!--
-								--><input type="checkbox" id="blue-color"><label for="blue-color"></label>
-							</div>
-						</fieldset>
-						<input type="submit" value="search">
-					</form>
-				</div><!--
-				--><div class="items-list">
+				<form action="#" class="items_search" name="items_search" target="">
+					<legend class="items_search-title">Filter:</legend>
+					<div class="items_search-id">
+						<label class="items_search-label" for="id">id:</label>
+						<input class="items_search-select" id="id" type="text">
+					</div>
+					<div class="items_search-tags">
+						<label class="items_search-label" for="tags">tags:</label>
+						<input class="items_search-select" id="tags" type="text">
+					</div>
+					<div class="items_search-price">
+						<label class="items_search-label" for="cost-min">price:</label>
+						<div class="set_price">
+							<input class="set_price-select" id="price_min" type="text" placeholder="min">
+							<input class="set_price-select" type="price_max" placeholder="max">
+						</div>
+					</div>
+					<div class="items_search-size">
+						<label class="items_search-label" for="size">size:</label>
+						<div class="set_sizes">
+							<input type="checkbox" id="size1"><label class="set_sizes-select" for="size1">20</label><!--
+							--><input type="checkbox" id="size2"><label class="set_sizes-select" for="size2">21</label><!--
+							--><input type="checkbox" id="size3"><label class="set_sizes-select" for="size3">22</label><!--
+							--><input type="checkbox" id="size4"><label class="set_sizes-select" for="size4">23</label><!--
+							--><input type="checkbox" id="size5"><label class="set_sizes-select" for="size5">24</label><!--
+							--><input type="checkbox" id="size6"><label class="set_sizes-select" for="size6">25</label><!--
+							--><input type="checkbox" id="size7"><label class="set_sizes-select" for="size7">26</label><!--
+							--><input type="checkbox" id="size8"><label class="set_sizes-select" for="size8">27</label><!--
+							--><input type="checkbox" id="size9"><label class="set_sizes-select" for="size9">28</label><!--
+							--><input type="checkbox" id="size10"><label class="set_sizes-select" for="size10">29</label><!--
+							--><input type="checkbox" id="size11"><label class="set_sizes-select" for="size11">30</label><!--
+							--><input type="checkbox" id="size12"><label class="set_sizes-select" for="size12">31</label><!--
+							--><input type="checkbox" id="size13"><label class="set_sizes-select" for="size13">32</label>
+						</div>
+					</div>
+					<div class="items_search-color">
+						<label class="items_search-label" for="size">color:</label>
+						<div class="set_colors"><!--
+							--><input type="checkbox" id="black_color" name="color" value="black"><!--
+							--><label class="set_colors-select set_colors-select--black" for="black_color"></label><!--
+							--><input type="checkbox" id="white_color" name="color" value="white"><!--
+							--><label class="set_colors-select set_colors-select--white" for="white_color"></label><!--
+							--><input type="checkbox" id="red_color" name="color" value="red"><!--
+							--><label class="set_colors-select set_colors-select--red" for="red_color"></label><!--
+							--><input type="checkbox" id="yellow_color" name="color" value="yellow"><!--
+							--><label class="set_colors-select set_colors-select--yellow" for="yellow_color"></label><!--
+							--><input type="checkbox" id="blue_color" name="color" value="blue"><!--
+							--><label class="set_colors-select set_colors-select--blue" for="blue_color"></label><!--
+							--><input type="checkbox" id="sand_color" name="color" value="sand"><!--
+							--><label class="set_colors-select set_colors-select--sand" for="sand_color"></label><!--
+							--><input type="checkbox" id="green_color" name="color" value="green"><!--
+							--><label class="set_colors-select set_colors-select--green" for="green_color"></label><!--
+							--><input type="checkbox" id="purple_color" name="color" value="purple"><!--
+							--><label class="set_colors-select set_colors-select--purple" for="purple_color"></label><!--
+							--><input type="checkbox" id="sea_color" name="color" value="sea"><!--
+							--><label class="set_colors-select set_colors-select--sea" for="sea_color"></label><!--
+							--><input type="checkbox" id="pink_color" name="color" value="pink"><!--
+							--><label class="set_colors-select set_colors-select--pink" for="pink_color"></label><!--
+							--><input type="checkbox" id="grey_color" name="color" value="grey"><!--
+							--><label class="set_colors-select set_colors-select--grey" for="grey_color"></label><!--
+							--><input type="checkbox" id="brown_color" name="color" value="brown"><!--
+							--><label class="set_colors-select set_colors-select--brown" for="brown_color"></label><!--
+							--><input type="checkbox" id="olive_color" name="color" value="olive"><!--
+							--><label class="set_colors-select set_colors-select--olive" for="olive_color"></label><!--
+							--><input type="checkbox" id="orange_color" name="color" value="orange"><!--
+							--><label class="set_colors-select set_colors-select--orange" for="orange_color"></label><!--
+							--><input type="checkbox" id="military_color" name="color" value="military"><!--
+							--><label class="set_colors-select set_colors-select--military" for="military_color"></label><!--
+							--><input type="checkbox" id="multicolor_color" name="color" value="multicolor"><!--
+							--><label class="set_colors-select set_colors-select--multicolor" for="multicolor_color"></label>
+						</div>
+					</div>
+					<button class="items_search-btn" type="submit" value="search">search</button>
+				</form><!--
+				--><div class="items_list">
 					<div class="item-container">
 						<div class="item">
 							<img class="item-img" src="img/items/item2.png" alt="">
@@ -377,7 +387,7 @@
 				</h2>
 			</div>
 			<div class="items-container">
-				<div class="items-list">
+				<div class="items_list">
 					<div class="item-container">
 						<div class="item">
 							<img class="item-img" src="img/items/item6.png" alt="">
@@ -431,7 +441,7 @@
 				</h2>
 			</div>
 			<div class="items-container">
-				<div class="items-list">
+				<div class="items_list">
 					<div class="item-container">
 						<div class="item">
 							<img class="item-img" src="img/items/item8.png" alt="">

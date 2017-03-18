@@ -1,0 +1,19 @@
+.items_list{
+    text-align: center;
+    .item-container{
+        display: inline-block;
+        vertical-align: top;
+        padding: 0 20px;
+        margin-bottom: 40px;
+        .item{
+            margin: 0 auto;
+        }
+    }
+    @media screen and (max-width: 600px){
+        padding-top: 50px;
+        .item-container{
+            width: 100%;
+            padding: 0;
+        }
+    }
+}
