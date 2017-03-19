@@ -1,5 +1,25 @@
 .items_list{
     text-align: center;
+    padding-top: 40px;
+    background-color: #FFF;
+    text-align: center;
+    &-title{
+        margin-bottom: 40px;
+        font-size: 1.875rem;
+        text-transform: uppercase;
+        background-color: inherit;
+        background-image: url(../img/line-for-h.png);
+        background-position: center;
+        background-repeat: repeat-x;
+        text-align: center;
+        .items_title{
+            padding: 0 15px;
+            background-color: inherit;
+        }
+        @media screen and (max-width: 600px){
+            margin-bottom: 0;
+        }
+    }
     .item-container{
         display: inline-block;
         vertical-align: top;
@@ -15,5 +35,11 @@
             width: 100%;
             padding: 0;
         }
+    }
+    &--light{
+        background-color: #FFF;
+    }
+    &--grey{
+        background-color: #f8f8f8;
     }
 }

@@ -278,6 +278,30 @@
   .item_review {
     display: none; } }
 
+.items .items_list {
+  display: inline-block;
+  vertical-align: top;
+  width: 70%; }
+
+.items .items_search {
+  display: inline-block;
+  vertical-align: top;
+  width: 30%; }
+
+@media screen and (max-width: 600px) {
+  .items .items_search, .items .items_list {
+    display: block;
+    margin: 0 auto;
+    width: 100%; }
+  .items .items_search {
+    padding-left: 5%;
+    padding-right: 5%;
+    border: none;
+    text-align: center; }
+    .items .items_search .cost-range {
+      margin: 0;
+      text-align: center; } }
+
 .set_price-select {
   display: inline-block;
   vertical-align: middle;
@@ -403,6 +427,7 @@
     .items_search > div:last-of-type {
       margin-bottom: 30px; }
   .items_search-title {
+    width: 100%;
     margin-bottom: 30px;
     text-transform: uppercase; }
   .items_search-label {
@@ -430,7 +455,25 @@
       color: #f55856; }
 
 .items_list {
+  text-align: center;
+  padding-top: 40px;
+  background-color: #FFF;
   text-align: center; }
+  .items_list-title {
+    margin-bottom: 40px;
+    font-size: 1.875rem;
+    text-transform: uppercase;
+    background-color: inherit;
+    background-image: url(../img/line-for-h.png);
+    background-position: center;
+    background-repeat: repeat-x;
+    text-align: center; }
+    .items_list-title .items_title {
+      padding: 0 15px;
+      background-color: inherit; }
+    @media screen and (max-width: 600px) {
+      .items_list-title {
+        margin-bottom: 0; } }
   .items_list .item-container {
     display: inline-block;
     vertical-align: top;
@@ -444,6 +487,10 @@
       .items_list .item-container {
         width: 100%;
         padding: 0; } }
+  .items_list--light {
+    background-color: #FFF; }
+  .items_list--grey {
+    background-color: #f8f8f8; }
 
 .item {
   width: 275px;
@@ -727,66 +774,22 @@ button:focus, input:focus {
     padding: 0 8%;
     padding-top: 20px;
     padding-bottom: 20px; }
+  .bullsy-items {
+    padding: 0 8%;
+    padding-top: 20px; }
+  .bullsy-latest_items .items_list {
+    padding: 0 8%;
+    padding-top: 40px; }
+  .bullsy-popular_items .items_list {
+    padding: 0 8%;
+    padding-top: 40px; }
 
-.wrapper {
-  /*
-	position: relative;
-	min-height: 500px;
-	min-height: 100vh;
-    min-height: 100px;
-    */ }
-  .wrapper > div {
-    padding: 0 8%; }
-  @media screen and (min-width: 2200px) {
-    .wrapper > div[class], .wrapper div > ul {
-      text-align: center !important; } }
+.wrapper > div {
+  padding: 0 8%; }
 
-.items {
-  padding-top: 50px; }
-  .items .items_list {
-    display: inline-block;
-    vertical-align: top;
-    width: 70%; }
-  .items .items_search {
-    display: inline-block;
-    vertical-align: top;
-    width: 30%; }
-  @media screen and (max-width: 600px) {
-    .items .items-container {
-      padding: 0; }
-      .items .items-container .items_search, .items .items-container .items_list {
-        display: block;
-        margin: 0 auto;
-        width: 100%; }
-      .items .items-container .items_search {
-        padding-left: 5%;
-        padding-right: 5%;
-        border: none;
-        text-align: center; }
-        .items .items-container .items_search .cost-range {
-          margin: 0;
-          text-align: center; } }
-
-.items-template {
-  padding-top: 40px;
-  text-align: center; }
-  .items-template:nth-child(odd) {
-    background-color: #f8f8f8; }
-    .items-template:nth-child(odd) .items-title .items_title {
-      background: #f8f8f8; }
-  .items-template .items-title {
-    margin-bottom: 40px;
-    font-size: 1.875rem;
-    text-transform: uppercase;
-    background-image: url(../img/line-for-h.png);
-    background-position: center;
-    background-repeat: repeat-x; }
-    .items-template .items-title .items_title {
-      padding: 0 15px;
-      background: #FFF; }
-    @media screen and (max-width: 600px) {
-      .items-template .items-title {
-        margin-bottom: 0; } }
+@media screen and (min-width: 2200px) {
+  .wrapper > div[class], .wrapper div > ul {
+    text-align: center !important; } }
 
 .footer {
   min-height: 1px;

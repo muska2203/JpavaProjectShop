@@ -1,0 +1,29 @@
+.items{
+    .items_list{
+        display: inline-block;
+        vertical-align: top;
+        width: 70%;
+    }
+    .items_search{
+        display: inline-block;
+        vertical-align: top;
+        width: 30%;
+    }
+    @media screen and (max-width: 600px){
+        .items_search, .items_list{
+            display: block;
+            margin: 0 auto;
+            width: 100%;
+        }
+        .items_search{
+            padding-left: 5%;
+            padding-right: 5%;
+            border: none;
+            text-align: center;
+            .cost-range{
+                margin: 0;
+                text-align: center;
+            }
+        }
+    }
+}

@@ -6,6 +6,7 @@
 @import 'header.scss';
 @import 'features.scss';
 @import 'item_review.scss';
+@import 'items.scss';
 @import 'items_search.scss';
 @import 'items_list.scss';
 @import 'item.scss';
@@ -82,16 +83,25 @@ button:focus, input:focus{
         padding-top: 20px;
         padding-bottom: 20px;
     }
+    &-items{
+        padding: 0 8%;
+        padding-top: 20px;
+    }
+    &-latest_items{
+        .items_list{
+            padding: 0 8%;
+            padding-top: 40px;
+        }
+    }
+    &-popular_items{
+        .items_list{
+            padding: 0 8%;
+            padding-top: 40px;
+        }
+    }
 }
 
-
 .wrapper{
-    /*
-	position: relative;
-	min-height: 500px;
-	min-height: 100vh;
-    min-height: 100px;
-    */
     & > div{
         padding: 0 8%;
     }
@@ -101,68 +111,8 @@ button:focus, input:focus{
        }   
     }
 }
-.items{
-    padding-top: 50px;
-    .items_list{
-        display: inline-block;
-        vertical-align: top;
-        width: 70%;
-    }
-    .items_search{
-        display: inline-block;
-        vertical-align: top;
-        width: 30%;
-    }
-    @media screen and (max-width: 600px){
-        .items-container{
-            padding: 0;
-            .items_search, .items_list{
-                display: block;
-                margin: 0 auto;
-                width: 100%;
-            }
-            .items_search{
-                padding-left: 5%;
-                padding-right: 5%;
-                border: none;
-                text-align: center;
-                .cost-range{
-                    margin: 0;
-                    text-align: center;
-                }
-            }
-        }
-    }
-}
-.items-template{
-    &:nth-child(odd){
-        background-color: #f8f8f8;
-        .items-title{
-            .items_title{
-                background: #f8f8f8;
-            }
-        }
-    }
-    padding-top: 40px;
-    text-align: center;
-    .items-title{
-        margin-bottom: 40px;
-        font-size: 1.875rem;
-        text-transform: uppercase;
-        background-image: url(../img/line-for-h.png);
-        background-position: center;
-        background-repeat: repeat-x;
-        .items_title{
-            padding: 0 15px;
-            background: $light-color;
-        }
-        @media screen and (max-width: 600px){
-            margin-bottom: 0;
-        }
-    }
-    .items-container{
-    }
-}
+
+
 .footer{
     min-height: 1px; /* timing */
     .main-footer{
